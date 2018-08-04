@@ -1,5 +1,5 @@
 @import 'styles/declutter';
 
-.rpv-enabled {
-  @import 'styles/improved-nav';
-}
+@import 'styles/improved-nav/common';
+@import 'styles/improved-nav/variant-a';
+@import 'styles/improved-nav/variant-b';

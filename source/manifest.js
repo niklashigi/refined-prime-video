@@ -1,24 +1,15 @@
 /**
- * Amazon domain suffixes Prime Video is supported on.
+ * List of the suffixes of all the Amazon domains the "local version" of Prime
+ * Video is supported on. The list is based on the page linked below, has been
+ * filtered by checking which sites are "actually local" (do not redirect to
+ * "primevideo.com") and might not be complete.
  *
  * @see https://www.primevideo.com/help?nodeId=202065060
  */
 const domainSuffixes = [
   'com',
-  'lu',
   'co.uk',
-  'ca',
-  'com.mx',
-  'com.br',
   'de',
-  'fr',
-  'it',
-  'es',
-  'in',
-  'cn',
-  'co.jp',
-  'com.au',
-  'nl',
 ]
 
 module.exports = {
@@ -33,5 +24,5 @@ module.exports = {
       css: ['content.css']
     }
   ],
-  manifest_version: 2
+  manifest_version: 2,
 }
