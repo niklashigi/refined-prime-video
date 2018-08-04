@@ -1,0 +1,46 @@
+// Hide regular Amazon nav
+#nav-main,
+
+// Hide right nav (empty container)
+#nav-belt > .nav-right
+
+{ display: none !important; }
+
+// Round all corners of the search box
+.nav-searchbar {
+  overflow: hidden;
+}
+
+// Fix distance between "Amazon" nav and "Prime Video" nav
+#navbar {
+  padding-bottom: 7px !important;
+}
+
+// Reduce whitespace around logo
+#nav-logo {
+  width: auto !important;
+}
+
+// Use "Prime Video" background for entire navbar
+header {
+  background: #1b2530;
+}
+#navbar,
+#nav-belt {
+  background: transparent !important;
+}
+
+// Disable the search scope dropdown
+#nav-search > form > .nav-left {
+  pointer-events: none;
+}
+.nav-search-scope {
+  padding: 0 !important;
+
+  .nav-icon {
+    display: none !important;
+  }
+}
+.nav-search-label {
+  margin: 0 12px !important;
+}
