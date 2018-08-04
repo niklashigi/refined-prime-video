@@ -1,6 +1,3 @@
-// This file contains styles for both variants of the "Prime Video" navigation
-// bar that appears on all local "Prime Video" sites
-
 .rpv-inav {
   // Hide regular Amazon nav
   #nav-main,
@@ -9,6 +6,17 @@
   #nav-belt > .nav-right
 
   { display: none !important; }
+
+  // Fix distance between "Amazon" nav and "Prime Video" nav
+  #navbar {
+    padding-bottom: 20px !important;
+  }
+
+  // Highlight "Prime Video" navigation bar
+  .av-retail-m-nav-container {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    border-top: 1px solid rgba(0, 0, 0, .1);
+  }
 
   // Round all corners of the search box
   .nav-searchbar {
