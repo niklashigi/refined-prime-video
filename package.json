@@ -2,6 +2,7 @@
   "scripts": {
     "build": "run-s build:*",
     "build:manifest": "node scripts/generate-manifest",
+    "build:icon": "cp source/icon.png distribution/icon.png",
     "build:css": "node-sass source/content.scss distribution/content.css",
     "build:js": "cp source/content.js distribution/content.js",
     "lint": "sass-lint -v --max-warnings 0"
