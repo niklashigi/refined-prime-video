@@ -4,6 +4,8 @@
 
 Amazon Prime Video is great but its interface is cluttered with annoying banners and useless information. So, inspired by the [Refined GitHub](https://github.com/sindresorhus/refined-github) browser extension which improves the user experience on GitHub, I decided to create my own browser extension to do the same thing for Prime Video.
 
+**Note:** This extension was created to enhance the country-specific Prime Video sites (like amazon.de/video). If you are using primevideo.com, you're fortunate: You don't *need* this extension.
+
 ## Installation
 
 I have not published the extension to the Chome WebStore yet, because I have to pay the registration fee first. As soon as that is done, you can download it from there.
