@@ -1,0 +1,17 @@
+language: node_js
+node_js: 8
+env:
+  - EXTENSION_ID=pieemlagbhnombolehnjdoaoojpphedd
+script:
+  - npm run lint
+  - npm run build
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: npm run release
+  on:
+    branch: master
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
