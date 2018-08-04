@@ -8,7 +8,8 @@
     "build:js": "cp source/content.js distribution/content.js",
     "release": "run-s release:*",
     "release:chrome": "cd distribution && webstore upload",
-    "lint": "sass-lint -v --max-warnings 0"
+    "lint": "sass-lint -v --max-warnings 0",
+    "zip": "cd distribution && zip -r ../extension.zip *"
   },
   "devDependencies": {
     "chrome-webstore-upload-cli": "^1.2.0",
