@@ -4,15 +4,16 @@
     "build:mkdir": "mkdir -p distribution",
     "build:manifest": "node scripts/generate-manifest",
     "build:icon": "cp source/icon.png distribution/icon.png",
-    "build:css": "node-sass source/content.scss distribution/content.css",
-    "build:js": "webpack --mode production",
+    "build:sass": "node-sass source/content.scss distribution/content.css",
+    "build:wp": "webpack --mode production",
     "watch": "run-p watch:*",
-    "watch:css": "node-sass source/content.scss distribution/content.css -w",
-    "watch:js": "webpack --mode development -w",
+    "watch:sass": "node-sass source/content.scss distribution/content.css -w",
+    "watch:wp": "webpack --mode development -w",
     "release": "run-s release:*",
     "release:chrome": "cd distribution && webstore upload --auto-publish",
     "lint": "sass-lint -v --max-warnings 0",
-    "zip": "cd distribution && zip -r ../extension.zip *"
+    "zip": "cd distribution && zip -r ../extension.zip *",
+    "dev": "run-s build watch"
   },
   "devDependencies": {
     "@types/element-ready": "^2.1.0",
