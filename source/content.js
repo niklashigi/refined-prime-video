@@ -1,16 +1,10 @@
-let frameHandler
+import waitForNav from './lib/wait-for-nav'
 
-function checkNav() {
-  if (document.querySelector('.av-retail-m-nav-container')) {
-    document.body.classList.add('rpv-inav')
-    console.log('[Refined Prime Video] Improved navigation enabled.')
-  } else {
-    frameHandler = requestAnimationFrame(checkNav)
-  }
-}
+import improveNav from './features/improve-nav'
 
-checkNav()
-
-document.onload = () => {
-  cancelAnimationFrame(frameHandler)
-}
+waitForNav(() => {
+  console.groupCollapsed('Refined Prime Video is being set up ...')
+  improveNav()
+  console.groupEnd()
+  console.log('Refined Prime Video has been set up!')
+})
