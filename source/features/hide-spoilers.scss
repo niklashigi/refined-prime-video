@@ -1,0 +1,35 @@
+.dv-el-packshot {
+  overflow: hidden;
+}
+
+$tr: .15s ease .1s;
+
+.dv-el-packshot-image {
+  transform: rotate(.001deg);
+  transition: filter $tr, transform $tr;
+}
+
+.dv-el-synopsis-content .a-text-normal {
+  max-height: 100px;
+  transition: max-height $tr, opacity $tr, margin-bottom $tr;
+}
+
+#dv-episode-list > :first-child {
+  .dv-episode-container {
+    cursor: default;
+
+    &:not(.rpv-watched):not(:hover) {
+      .dv-el-synopsis-content .a-text-normal {
+        margin-bottom: 0;
+        max-height: 0;
+        opacity: 0;
+        overflow: visible;
+      }
+
+      .dv-el-packshot-image {
+        filter: blur(9px);
+        transform: scale(1.14) rotate(.001deg);
+      }
+    }
+  }
+}
