@@ -20,5 +20,8 @@
     "webpack": "^4.16.5",
     "webpack-command": "^0.4.1"
   },
+  "dependencies": {
+    "element-ready": "^3.0.0"
+  },
   "private": true
 }

@@ -1,8 +1,8 @@
-import waitForNav from './lib/wait-for-nav'
+import elementReady from 'element-ready'
 
 import improveNav from './features/improve-nav'
 
-waitForNav(() => {
+elementReady('.av-retail-m-nav-container').then(() => {
   console.groupCollapsed('Refined Prime Video is being set up ...')
   improveNav()
   console.groupEnd()
