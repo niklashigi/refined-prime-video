@@ -21,7 +21,7 @@ module.exports = {
 	version: require('utc-version')(),
   content_scripts: [
     {
-      run_at: 'document_end',
+      run_at: 'document_start',
       matches: domainSuffixes.map(suffix => `https://www.amazon.${suffix}/*`),
       js: ['content.js'],
       css: ['content.css']
