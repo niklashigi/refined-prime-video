@@ -1,8 +1,16 @@
 module.exports = {
-  entry: './source/content.js',
+  entry: './source/content.ts',
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.ts', '.js'],
   },
+  module: {
+		rules: [
+			{
+				test: /\.ts$/,
+				loader: 'awesome-typescript-loader'
+			}
+		]
+	},
   optimization: {
     minimize: false
   },
