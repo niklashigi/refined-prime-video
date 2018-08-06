@@ -7,7 +7,7 @@
     "build:css": "node-sass source/content.scss distribution/content.css",
     "build:js": "webpack --mode production",
     "release": "run-s release:*",
-    "release:chrome": "cd distribution && webstore upload",
+    "release:chrome": "cd distribution && webstore upload --auto-publish",
     "lint": "sass-lint -v --max-warnings 0",
     "zip": "cd distribution && zip -r ../extension.zip *"
   },
