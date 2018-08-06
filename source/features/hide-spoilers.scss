@@ -1,3 +1,8 @@
+.aiv-wrapper ~ .a-section {
+  display: flex;
+  justify-content: space-between;
+}
+
 .dv-el-packshot {
   overflow: hidden;
 }
@@ -14,22 +19,30 @@ $tr: .15s ease .1s;
   transition: max-height $tr, opacity $tr, margin-bottom $tr;
 }
 
+%hidden-episode-container {
+  .dv-el-synopsis-content .a-text-normal {
+    margin-bottom: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: visible;
+  }
+
+  .dv-el-packshot-image {
+    filter: blur(9px);
+    transform: scale(1.14) rotate(.001deg);
+  }
+}
+
 #dv-episode-list > :first-child {
   .dv-episode-container {
     cursor: default;
+  }
 
-    &:not(.rpv-watched):not(:hover) {
-      .dv-el-synopsis-content .a-text-normal {
-        margin-bottom: 0;
-        max-height: 0;
-        opacity: 0;
-        overflow: visible;
-      }
+  &[data-rpv-spoilers='never'] .dv-episode-container:not(.rpv-watched) {
+    @extend %hidden-episode-container;
+  }
 
-      .dv-el-packshot-image {
-        filter: blur(9px);
-        transform: scale(1.14) rotate(.001deg);
-      }
-    }
+  &[data-rpv-spoilers='on_hover'] .dv-episode-container:not(.rpv-watched):not(:hover) {
+    @extend %hidden-episode-container;
   }
 }

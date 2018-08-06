@@ -18,13 +18,14 @@ module.exports = {
   icons: {
     128: 'icon.png',
   },
-	version: require('utc-version')(),
+  version: require('utc-version')(),
+  permissions: ['storage'],
   content_scripts: [
     {
       run_at: 'document_start',
       matches: domainSuffixes.map(suffix => `https://www.amazon.${suffix}/*`),
       js: ['content.js'],
-      css: ['content.css']
+      css: ['content.css'],
     }
   ],
   manifest_version: 2,

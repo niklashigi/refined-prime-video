@@ -1,12 +1,12 @@
 module.exports = {
   entry: './source/content.ts',
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.tsx', '.js'],
   },
   module: {
 		rules: [
 			{
-				test: /\.ts$/,
+				test: /\.tsx?$/,
 				loader: 'awesome-typescript-loader'
 			}
 		]
