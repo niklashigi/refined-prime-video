@@ -12,7 +12,9 @@
     "watch:wp": "webpack --mode development -w",
     "release": "run-s release:*",
     "release:chrome": "cd distribution && webstore upload --auto-publish",
-    "lint": "sass-lint -v --max-warnings 0",
+    "lint": "run-s lint:*",
+    "lint:sass": "sass-lint -v --max-warnings 0",
+    "lint:ts": "tslint --project .",
     "zip": "cd distribution && zip -r ../extension.zip *",
     "dev": "run-s build watch"
   },
