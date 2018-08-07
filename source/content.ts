@@ -1,14 +1,13 @@
 import elementReady from 'element-ready'
 
-import improveNav from './features/improve-nav'
 import hideSpoilers from './features/hide-spoilers'
+import improveNav from './features/improve-nav'
+import { addSettingsBar, setupSettings } from './libs/settings'
 
-elementReady('.av-retail-m-nav-container').then(() => {
-  console.groupCollapsed('Refined Prime Video is being set up ...')
+elementReady('.av-retail-m-nav-container').then(async () => {
+  await setupSettings()
+  addSettingsBar()
 
   improveNav()
   hideSpoilers()
-
-  console.groupEnd()
-  console.log('Refined Prime Video has been set up!')
 })

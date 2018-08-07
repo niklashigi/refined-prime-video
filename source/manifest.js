@@ -24,7 +24,10 @@ module.exports = {
     {
       run_at: 'document_start',
       matches: domainSuffixes.map(suffix => `https://www.amazon.${suffix}/*`),
-      js: ['content.js'],
+      js: [
+        'browser-polyfill.min.js',
+        'content.js',
+      ],
       css: ['content.css'],
     }
   ],

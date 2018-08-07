@@ -1,0 +1,13 @@
+.aiv-wrapper ~ .a-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.a-dropdown-container {
+  user-select: none;
+}
+
+#rpv-options {
+  align-items: center;
+  display: flex;
+}
