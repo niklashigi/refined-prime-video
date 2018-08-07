@@ -2,7 +2,7 @@
 
 > Browser extension that simplifies the Amazon Prime Video interface and adds useful features
 
-*Amazon Prime Video* is great but its interface is cluttered and it lacks features that series enthusiast would like to have. So, inspired by the [Refined GitHub](https://github.com/sindresorhus/refined-github) browser extension which improves the user experience on GitHub, I decided to create my own browser extension that does the same thing for Prime Video.
+*Amazon Prime Video* is great but its interface is cluttered and it lacks features that series enthusiasts would like to have. So, inspired by the [Refined GitHub](https://github.com/sindresorhus/refined-github) browser extension which improves the user experience on GitHub, I decided to create my own browser extension that does the same thing for Prime Video.
 
 **Note:** This extension was created to enhance the country-specific *Prime Video* sites like amazon.de/video. If you are using primevideo.com, you're fortunate: You don't *need* this extension.
 
