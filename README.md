@@ -8,7 +8,8 @@ Amazon Prime Video is great but its interface is cluttered with annoying banners
 
 ## Installation
 
-I have not published the extension to the Chome WebStore yet, because I have to pay the registration fee first. As soon as that is done, you can download it from there.
+- [**Chrome** extension][cws-link] [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/pieemlagbhnombolehnjdoaoojpphedd.svg?label=download&style=flat-square&logoColor=white">][cws-link]
+- **Opera** extension: Use [this Opera extension](https://addons.opera.com/en/extensions/details/download-chrome-extension-9/) to install the Chrome version.
 
 ## Features
 
@@ -28,3 +29,12 @@ While this browser extension is meant to be used alongside *Amazon Prime Video*,
 ## License
 
 MIT © [Niklas Higi](https://shroudedcode.com)
+## Disclaimer
+
+While this browser extension is meant to be used alongside *Amazon Prime Video*, it is not "official" by any means. I am in no way affiliated with *Amazon​.​com, Inc*.
+
+## License
+
+MIT © [Niklas Higi](https://shroudedcode.com)
+
+[cws-link]: https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd
