@@ -20,6 +20,7 @@ module.exports = {
   },
   version: require('utc-version')(),
   permissions: ['storage'],
+  default_locale: 'en',
   content_scripts: [
     {
       run_at: 'document_start',

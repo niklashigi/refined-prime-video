@@ -1,6 +1,7 @@
 import {h} from 'dom-chef'
 import elementReady from 'element-ready'
 
+import _ from './i18n'
 import SettingsStore from './settings-store'
 import createDropdown from './ui/dropdown'
 
@@ -22,18 +23,18 @@ export function setupSettings() {
 export async function addSettingsBar() {
   const settingsBar = await elementReady('.aiv-wrapper ~ .a-section')
 
+  const showSpoilersOptions = ['never', 'onHover', 'always'].map(
+    value => [value, _(`settings_showSpoilers_options_${value}`)],
+  ) as any
+
   const settingsForm = (
     <form id='rpv-settings'>
       {
         createDropdown(
           'showSpoilers',
-          [
-            ['never', 'Never show spoilers'],
-            ['onHover', 'Show spoilers on hover'],
-            ['always', 'Always show spoilers'],
-          ],
+          showSpoilersOptions,
           settings.cache.showSpoilers,
-          'This setting determines when the thumbnail and description of unwatched episodes are shown.',
+          _('settings_showSpoilers_title'),
         )
       }
     </form>
