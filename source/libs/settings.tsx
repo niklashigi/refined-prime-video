@@ -22,8 +22,8 @@ export function setupSettings() {
 export async function addSettingsBar() {
   const settingsBar = await elementReady('.aiv-wrapper ~ .a-section')
 
-  const optionsForm = (
-    <form id='rpv-options'>
+  const settingsForm = (
+    <form id='rpv-settings'>
       {
         createDropdown(
           'showSpoilers',
@@ -39,8 +39,8 @@ export async function addSettingsBar() {
     </form>
   ) as HTMLFormElement
 
-  settingsBar.appendChild(optionsForm)
-  settings.connectForm(optionsForm)
+  settingsBar.appendChild(settingsForm)
+  settings.connectForm(settingsForm)
 }
 
 export default settings
