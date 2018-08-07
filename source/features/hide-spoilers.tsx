@@ -13,8 +13,8 @@ function markWatchedEpisodes() {
 export default async function() {
   const episodeList = await elementReady('#dv-episode-list > :first-child')
 
-  settings.onChange(({show_spoilers}) => {
-    episodeList.dataset.rpvSpoilers = show_spoilers
+  settings.onChange(({showSpoilers}) => {
+    episodeList.dataset.rpvSpoilers = showSpoilers
   })
 
   markWatchedEpisodes()

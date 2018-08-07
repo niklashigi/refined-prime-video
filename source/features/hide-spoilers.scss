@@ -37,7 +37,7 @@ $tr: .15s ease .1s;
     @extend %hidden-episode-container;
   }
 
-  &[data-rpv-spoilers='on_hover'] .dv-episode-container:not(.rpv-watched):not(:hover) {
+  &[data-rpv-spoilers='onHover'] .dv-episode-container:not(.rpv-watched):not(:hover) {
     @extend %hidden-episode-container;
   }
 }

@@ -5,7 +5,7 @@ import SettingsStore from './settings-store'
 import createDropdown from './ui/dropdown'
 
 export interface Settings {
-  show_spoilers: 'always' | 'on_hover' | 'never'
+  showSpoilers: 'always' | 'onHover' | 'never'
 }
 
 const settings = new SettingsStore<Settings>('settings')
@@ -13,8 +13,9 @@ const settings = new SettingsStore<Settings>('settings')
 export function setupSettings() {
   return settings.setup({
     defaults: {
-      show_spoilers: 'on_hover',
+      showSpoilers: 'onHover',
     } as Settings,
+    migrations: [SettingsStore.migrations.removeUnused],
   })
 }
 
@@ -25,13 +26,13 @@ export async function addSettingsBar() {
     <form id='rpv-options'>
       {
         createDropdown(
-          'show_spoilers',
+          'showSpoilers',
           [
             ['never', 'Never show spoilers'],
-            ['on_hover', 'Show spoilers on hover'],
+            ['onHover', 'Show spoilers on hover'],
             ['always', 'Always show spoilers'],
           ],
-          settings.cache.show_spoilers,
+          settings.cache.showSpoilers,
           'This setting determines when the thumbnail and description of unwatched episodes are shown.',
         )
       }
