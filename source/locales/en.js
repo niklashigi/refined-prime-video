@@ -1,4 +1,7 @@
 module.exports = {
+  manifest: {
+    description: 'Simplifies the Amazon Prime Video interface and adds useful features',
+  },
   settings: {
     showSpoilers: {
       options: {

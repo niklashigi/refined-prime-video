@@ -14,7 +14,7 @@ const domainSuffixes = [
 
 module.exports = {
   name: 'Refined Prime Video',
-  description: 'Simplifies the Amazon Prime Video interface and adds useful features',
+  description: '__MSG_manifest_description__',
   icons: {
     128: 'icon.png',
   },
