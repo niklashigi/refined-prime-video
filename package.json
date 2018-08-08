@@ -2,6 +2,7 @@
   "scripts": {
     "build": "run-s build:*",
     "build:mkdir": "mkdir -p distribution",
+    "build:clean": "rm -rf distribution/*",
     "build:manifest": "node scripts/generate-manifest",
     "build:locales": "node scripts/generate-locales",
     "build:icon": "cp source/icon.png distribution/icon.png",
