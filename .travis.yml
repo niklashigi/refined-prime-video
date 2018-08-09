@@ -3,16 +3,16 @@ node_js: 8
 env:
   - WEXT_SHIPIT_CHROME_EXTENSION_ID=pieemlagbhnombolehnjdoaoojpphedd
 script:
-  - npm run lint
-  - npm run build
+  - yarn lint
+  - yarn build
 deploy:
   skip_cleanup: true
   provider: script
-  script: npm run release
+  script: yarn release
   on:
     branch: master
-    condition: $(npm run can-release --silent)
+    condition: $(yarn -s can-release)
 cache:
+  yarn: true
   directories:
-    - ~/.npm
     - node_modules
