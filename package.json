@@ -13,6 +13,7 @@
     "watch": "run-p watch:*",
     "watch:sass": "node-sass source/content.scss extensions/content.css -w",
     "watch:wp": "webpack --mode development -w",
+		"can-release": "if [ \"$TRAVIS_EVENT_TYPE\" = cron ] && [ $(git rev-list -n 1 --since=\"26 hours ago\" master) ]; then echo :ship-it:; else false; fi",
     "release": "run-s release:*",
     "release:chrome": "shipit chrome extensions/chrome",
     "release:firefox": "shipit firefox extensions/firefox",
