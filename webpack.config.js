@@ -25,7 +25,7 @@ module.exports = {
 		]
 	},
   output: {
-    path: __dirname + '/distribution',
+    path: __dirname + '/extensions/chrome',
     filename: 'content.js',
   },
 }
