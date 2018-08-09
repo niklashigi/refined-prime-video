@@ -1,3 +1,5 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
 module.exports = {
   entry: './source/content.ts',
   resolve: {
@@ -12,8 +14,16 @@ module.exports = {
 		]
 	},
   optimization: {
-    minimize: false
-  },
+		minimizer: [
+			new UglifyJsPlugin({
+				uglifyOptions: {
+					output: {
+            comments: false
+					}
+				}
+      })
+		]
+	},
   output: {
     path: __dirname + '/distribution',
     filename: 'content.js',
