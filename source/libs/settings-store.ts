@@ -3,6 +3,11 @@
 
 type ChangeListener<Settings> = (settings: Settings) => void
 
+interface Config<Settings> {
+  defaults?: Settings
+  migrations?: Array<(settings: any, defaults: any) => void>
+}
+
 export default class SettingsStore<Settings> {
 
   public static migrations = {
@@ -16,32 +21,22 @@ export default class SettingsStore<Settings> {
   }
 
   public cache: Settings
-
   private storageName: string
   private changeListeners = new Set<ChangeListener<Settings>>()
-
-  private forms = new Set<HTMLFormElement>()
-  private updatingForms = new Set<HTMLFormElement>()
-  private formUpdated = false
 
   constructor(storageName = 'settings') {
     this.storageName = storageName
   }
 
-  public async setup(defs) {
-    defs = {
-      defaults: {},
+  public async setup(config: Config<Settings>) {
+    config = {
+      defaults: {} as Settings,
       migrations: [],
-      ...defs,
+      ...config,
     }
 
-    if (browser.runtime.onInstalled) {
-      browser.runtime.onInstalled.addListener(() => this.applyDefinition(defs))
-    } else {
-      this.applyDefinition(defs)
-    }
-
-    return this.cache = await this.getAll()
+    await this.applyConfig(config)
+    return this.cache
   }
 
   public getAll() {
@@ -56,33 +51,17 @@ export default class SettingsStore<Settings> {
   }
 
   public setAll(newSettings) {
-    this.cache = newSettings
     return browser.storage.sync.set({
       [this.storageName]: newSettings,
+    }).then(() => {
+      this.cache = newSettings
+      this.applyNewSettings()
     })
   }
 
   public connectForm(form: HTMLFormElement) {
-    this.forms.add(form)
-
     form.addEventListener('input', e => this.handleFormUpdates(e))
     form.addEventListener('change', e => this.handleFormUpdates(e))
-
-    browser.storage.onChanged.addListener((changes, namespace) => {
-      if (namespace === 'sync') {
-        for (const key of Object.keys(changes)) {
-          if (key === this.storageName) {
-            if (this.formUpdated) {
-              this.formUpdated = false
-              return
-            }
-            const {newValue} = changes[key]
-            this.update(newValue)
-            return
-          }
-        }
-      }
-    })
   }
 
   public onChange(listener: ChangeListener<Settings>) {
@@ -90,86 +69,36 @@ export default class SettingsStore<Settings> {
     listener(this.cache)
   }
 
-  private async applyDefinition(defs) {
+  private async applyConfig(config) {
     const settings = {
-      ...defs.defaults,
+      ...config.defaults,
       ...(await this.getAll()),
     }
 
-    console.group('Appling definitions')
-    console.info('Current settings:', settings)
-    if (defs.migrations.length > 0) {
-      console.info('Running', defs.migrations.length, 'migrations')
-      defs.migrations.forEach(migrate => migrate(settings, defs.defaults))
+    console.info('[RPV] Loaded settings:', settings)
+    if (config.migrations.length > 0) {
+      config.migrations.forEach(migrate => migrate(settings, config.defaults))
     }
-    console.groupEnd()
 
-    this.setAll(settings)
+    await this.setAll(settings)
   }
 
-  private update(changes = {}, updateForms = true) {
-    this.cache = { ...this.cache as any, ...changes }
+  private applyNewSettings() {
     for (const listener of this.changeListeners) {
       listener(this.cache)
     }
-    if (updateForms) {
-      this.updateForms(changes)
-    }
-  }
-
-  private updateForms(settings: object) {
-    for (const form of this.forms) {
-      this.updateForm(form, settings)
-    }
-  }
-
-  private updateForm(form, settings) {
-    if (this.updatingForms.has(form)) return
-    this.updatingForms.add(form)
-
-    console.group('Updating form')
-    for (const name of Object.keys(settings)) {
-      const els = form.querySelector(`[name='${name}']`)
-      const [field] = els
-      if (field) {
-        console.info(name, ':', settings[name])
-        switch (field.type) {
-          case 'checkbox':
-            field.checked = settings[name]
-            break
-          case 'radio': {
-            const [selected] = [...els].filter(el => el.value === settings[name])
-            if (selected) {
-              selected.checked = true
-            }
-            break
-          }
-          default:
-            field.value = settings[name]
-            break
-        }
-        field.dispatchEvent(new Event('change'))
-      } else {
-        console.warn('Stored setting {', name, ':', settings[name], '} was not found on the page')
-      }
-    }
-    console.groupEnd()
-
-    this.updatingForms.delete(form)
   }
 
   private handleFormUpdates({target}) {
-    this.formUpdated = true
     const el = target as HTMLInputElement
 
     const {name} = el
     if (!name || !el.validity.valid) return
 
     const value = el.type === 'checkbox' ? el.checked : el.value
-    console.info('Saving setting', name, 'to', value)
     const change = { [name]: value }
+    console.info('[RPV] Saving change to settings:', change)
     this.set(change)
-    this.update(change, false)
   }
 
   private parseNumbers(settings) {
