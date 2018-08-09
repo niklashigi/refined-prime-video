@@ -11,6 +11,7 @@ deploy:
   script: npm run release
   on:
     branch: master
+    condition: $(npm run can-release --silent)
 cache:
   directories:
     - ~/.npm
