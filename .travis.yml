@@ -1,7 +1,7 @@
 language: node_js
 node_js: 8
 env:
-  - EXTENSION_ID=pieemlagbhnombolehnjdoaoojpphedd
+  - WEXT_SHIPIT_CHROME_EXTENSION_ID=pieemlagbhnombolehnjdoaoojpphedd
 script:
   - npm run lint
   - npm run build
