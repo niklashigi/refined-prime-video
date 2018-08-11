@@ -1,3 +1,3 @@
 export default function() {
-  document.body.classList.add('rpv-inav')
+  document.documentElement.classList.add('rpv-inav')
 }
