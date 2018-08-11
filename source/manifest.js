@@ -12,7 +12,7 @@ const domainSuffixes = [
   'de',
 ]
 
-const urlMatches = domainSuffixes.map(suffix => `https://www.amazon.${suffix}/*`)
+const urlMatches = domainSuffixes.map(suffix => `https://*.amazon.${suffix}/*`)
 
 module.exports = (version, browser) => {
 
