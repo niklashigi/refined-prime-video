@@ -31,7 +31,7 @@
 
 // Hide "More purchase options" link
 // (because I don't want to purchase things I can watch for free)
-#dv-action-box > span, // entire series
+#dv-action-box [data-aiv-modal*='more-purchase-options'], // entire series
 .dv-el-more-offers // single episode
 
 { display: none !important; }
