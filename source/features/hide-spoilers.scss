@@ -28,7 +28,7 @@ $tr: .15s ease .1s;
   }
 }
 
-#dv-episode-list > :first-child {
+#dv-episode-list > .dv-episode-wrap:not(.dv-el-bonus-expander) {
   .dv-episode-container {
     cursor: default;
   }
