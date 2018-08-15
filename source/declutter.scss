@@ -7,7 +7,8 @@
 
 // Hide large banner above movie/series title
 // (because it's annoying and can't be dismissed)
-.super-tcg,
+.super-tcg, // old version
+.dv-dp-top-banner, // new version
 
 // Hide weird margin-only div
 // (because it's weird — the whitespace is added back below)
@@ -19,11 +20,13 @@
 
 // Hide product offer below metadata
 // (because it's also annoying and can't be dismissed)
-.dv-product-offer,
+.dv-product-offer, // old version
+.av-hql-container, // new version
 
 // Hide weird bar below metadata
 // (because I don't want to "Share", "Send us feedback" or "Get Help")
-.dp-main-bottom.aiv-container-limited,
+.dp-main-bottom.aiv-container-limited, // old version
+.avu-page-container.avu-section-alt.av-detail-bottom-bar, // new version
 
 // Hide terms note below metadata container
 // (because I've already read the terms *cough*)
@@ -35,6 +38,17 @@
 .dv-el-more-offers // single episode
 
 { display: none !important; }
+
+// Improve padding inside the (new) metadata container
+.av-detail-section {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding: 40px 0 !important;
+}
+.av-play-box,
+.av-watchlist-button {
+  margin-bottom: 0 !important;
+}
 
 // Re-add whitespace below metadata container
 .dv-dp-top-wrapper {
