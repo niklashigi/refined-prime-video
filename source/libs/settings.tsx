@@ -20,14 +20,12 @@ export function setupSettings() {
   })
 }
 
-export async function addSettingsBar() {
-  const settingsBar = await elementReady('.aiv-wrapper ~ .a-section')
-
+function createSettingsForm() {
   const showSpoilersOptions = ['never', 'onHover', 'always'].map(
     value => [value, _(`settings_showSpoilers_options_${value}`)],
   ) as any
 
-  const settingsForm = (
+  return (
     <form id='rpv-settings'>
       {
         createDropdown(
@@ -39,8 +37,23 @@ export async function addSettingsBar() {
       }
     </form>
   ) as HTMLFormElement
+}
 
-  settingsBar.appendChild(settingsForm)
+export async function insertSettingsForm() {
+  const settingsForm = createSettingsForm()
+
+  if (document.querySelector('.av-droplist__label')) {
+    // New design
+    console.log(document.querySelector('#dv-episode-list'))
+    const episodeList = await elementReady('#dv-episode-list');
+    // TODO: Remove this hack once `ParentNode.prepend` is in the DOM type definitions
+    (episodeList as any).prepend(settingsForm)
+  } else {
+    // Old design
+    const settingsBar = await elementReady('.aiv-wrapper ~ .a-section')
+    settingsBar.appendChild(settingsForm)
+  }
+
   settings.connectForm(settingsForm)
 }
 
