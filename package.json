@@ -11,7 +11,7 @@
     "build:poly": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js extensions/chrome/browser-polyfill.min.js",
     "build:manifest": "node scripts/generate-manifest",
     "watch": "run-p watch:*",
-    "watch:sass": "node-sass source/content.scss extensions/content.css -w",
+    "watch:sass": "node-sass source/content.scss extensions/chrome/content.css -w",
     "watch:wp": "webpack --mode development -w",
 		"can-release": "if [ \"$TRAVIS_EVENT_TYPE\" = cron ] && [ $(git rev-list -n 1 --since=\"26 hours ago\" master) ]; then echo :ship-it:; else false; fi",
     "release": "run-s release:*",
