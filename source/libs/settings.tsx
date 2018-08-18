@@ -42,17 +42,9 @@ function createSettingsForm() {
 export async function insertSettingsForm() {
   const settingsForm = createSettingsForm()
 
-  if (document.querySelector('.av-droplist__label')) {
-    // New design
-    console.log(document.querySelector('#dv-episode-list'))
-    const episodeList = await elementReady('#dv-episode-list');
-    // TODO: Remove this hack once `ParentNode.prepend` is in the DOM type definitions
-    (episodeList as any).prepend(settingsForm)
-  } else {
-    // Old design
-    const settingsBar = await elementReady('.aiv-wrapper ~ .a-section')
-    settingsBar.appendChild(settingsForm)
-  }
+  const episodeList = await elementReady('#dv-episode-list');
+  // TODO: Remove this hack once `ParentNode.prepend` is in the DOM type definitions
+  (episodeList as any).prepend(settingsForm)
 
   settings.connectForm(settingsForm)
 }

@@ -7,8 +7,7 @@
 
 // Hide large banner above movie/series title
 // (because it's annoying and can't be dismissed)
-.super-tcg, // old version
-.dv-dp-top-banner, // new version
+.dv-dp-top-banner,
 
 // Hide weird margin-only div
 // (because it's weird — the whitespace is added back below)
@@ -20,13 +19,11 @@
 
 // Hide product offer below metadata
 // (because it's also annoying and can't be dismissed)
-.dv-product-offer, // old version
-.av-hql-container, // new version
+.av-hql-container,
 
 // Hide weird bar below metadata
 // (because I don't want to "Share", "Send us feedback" or "Get Help")
-.dp-main-bottom.aiv-container-limited, // old version
-.avu-page-container.avu-section-alt.av-detail-bottom-bar, // new version
+.avu-page-container.avu-section-alt.av-detail-bottom-bar,
 
 // Hide terms note below metadata container
 // (because I've already read the terms *cough*)
