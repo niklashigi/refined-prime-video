@@ -19,7 +19,7 @@ module.exports = (version, browser) => {
   const manifest = {
     name: 'Refined Prime Video',
     description: '__MSG_manifest_description__',
-    homepage_url: 'https://github.com/sindresorhus/refined-github',
+    homepage_url: 'https://github.com/shroudedcode/refined-prime-video',
     icons: {
       128: 'icon.png',
     },
