@@ -1,8 +1,8 @@
 {
   "scripts": {
     "build": "run-s build:*",
+    "build:clean": "rm -rf extensions",
     "build:mkdir": "mkdir -p extensions/chrome extensions/firefox",
-    "build:clean": "rm -rf extensions/chrome/* extensions/firefox/*",
     "build:icon": "cp source/icon.png extensions/chrome/icon.png",
     "build:locales": "node scripts/generate-locales",
     "build:sass": "node-sass source/content.scss extensions/chrome/content.css",
@@ -13,8 +13,7 @@
     "watch": "run-p watch:*",
     "watch:sass": "node-sass source/content.scss extensions/chrome/content.css -w",
     "watch:wp": "webpack --mode development -w",
-		"can-release": "if [ \"$TRAVIS_EVENT_TYPE\" = cron ] && [ $(git rev-list -n 1 --since=\"26 hours ago\" master) ]; then echo :ship-it:; else false; fi",
-    "release": "run-s release:*",
+    "release": ". ./.env && run-s release:*",
     "release:chrome": "shipit chrome extensions/chrome",
     "release:firefox": "shipit firefox extensions/firefox",
     "lint": "run-s lint:*",

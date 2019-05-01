@@ -1,18 +1,10 @@
 language: node_js
-node_js: 8
-env:
-  - WEXT_SHIPIT_CHROME_EXTENSION_ID=pieemlagbhnombolehnjdoaoojpphedd
+node_js: ['10']
+
+cache:
+  yarn: true
+  directories: ['node_modules']
+
 script:
   - yarn lint
   - yarn build
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: yarn release
-  on:
-    branch: master
-    condition: $(yarn -s can-release)
-cache:
-  yarn: true
-  directories:
-    - node_modules
