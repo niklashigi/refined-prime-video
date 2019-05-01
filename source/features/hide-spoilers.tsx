@@ -24,7 +24,7 @@ function markWatchedEpisodes(episodes: NodeListOf<Element>) {
 }
 
 export default async function() {
-  const episodeList = await elementReady('#dv-episode-list .dv-episode-wrap:not(.dv-el-bonus-expander)')
+  const episodeList: HTMLElement = await elementReady('#dv-episode-list .dv-episode-wrap:not(.dv-el-bonus-expander)')
   markWatchedEpisodes(episodeList.querySelectorAll('.dv-episode-container'))
   settings.onChange(({showSpoilers}) => {
     episodeList.dataset.rpvSpoilers = showSpoilers
