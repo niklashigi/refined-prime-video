@@ -32,6 +32,8 @@
     "tslint": "^5.11.0",
     "typescript": "^3.0.1",
     "utc-version": "^1.1.0",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
     "web-ext-types": "^3.1.0",
     "webext-i18n": "^1.1.0",
     "webpack": "^4.16.5",
@@ -40,6 +42,7 @@
   "dependencies": {
     "dom-chef": "shroudedcode/dom-chef#fix-type-issues",
     "element-ready": "^3.0.0",
+    "vue": "^2.6.10",
     "webextension-polyfill": "^0.4.0"
   },
   "private": true

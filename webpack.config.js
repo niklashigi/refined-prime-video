@@ -1,4 +1,5 @@
 const TerserPlugin = require('terser-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
@@ -6,13 +7,18 @@ module.exports = {
     popup: './source/popup/popup.ts',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.vue'],
   },
   module: {
 		rules: [
 			{
+				test: /\.vue$/,
+				loader: 'vue-loader'
+			},
+			{
 				test: /\.tsx?$/,
-				loader: 'ts-loader'
+				loader: 'ts-loader',
+        options: { appendTsSuffixTo: [/\.vue$/] }
 			}
 		]
   },
@@ -30,4 +36,5 @@ module.exports = {
     filename: '[name].js',
   },
   devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
+  plugins: [new VueLoaderPlugin()],
 }
