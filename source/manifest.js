@@ -23,6 +23,11 @@ module.exports = (version, browser) => {
     icons: {
       128: 'icon.png',
     },
+    browser_action: {
+      default_icon: "icon.png",
+      default_title: "Refined Prime Video",
+      default_popup: "popup.html"
+    },
     version,
     permissions: ['storage'],
     default_locale: 'en',
