@@ -5,7 +5,10 @@
     </em>
     <ul v-else>
       <li v-for="video in videos">
-        <a :href="`https://www.amazon.de/gp/video/detail/${video.id}?autoplay=1`">
+        <a
+          :href="getContinueWatchingUrl(video)"
+          @click="continueWatching(video)"
+        >
           {{ video.title }}
         </a>
       </li>
@@ -20,6 +23,16 @@ export default {
   data: () => ({
     videos: [],
   }),
+  methods: {
+    continueWatching(video) {
+      browser.tabs.create({
+        url: this.getContinueWatchingUrl(video)
+      })
+    },
+    getContinueWatchingUrl(video) {
+      return `https://www.amazon.de/gp/video/detail/${video.id}?autoplay=1`
+    },
+  },
   async created() {
     this.videos = await fetchMyVideos()
   },
