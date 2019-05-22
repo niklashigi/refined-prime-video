@@ -29,7 +29,7 @@ module.exports = (version, browser) => {
       default_popup: "popup.html"
     },
     version,
-    permissions: ['storage'],
+    permissions: ['storage', 'tabs'],
     default_locale: 'en',
     content_scripts: [
       {
