@@ -5,10 +5,12 @@
   ],
   "jsRules": {},
   "rules": {
+    "radix": false,
     "no-console": false,
     "array-type": false,
     "arrow-parens": false,
     "interface-name": false,
+    "object-literal-sort-keys": false,
     "curly": [true, "ignore-same-line"],
     "indent": [true, "spaces", 2],
     "semicolon": [true, "never"],

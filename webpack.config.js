@@ -29,4 +29,5 @@ module.exports = {
     path: __dirname + '/extensions/chrome',
     filename: '[name].js',
   },
+  devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
 }
