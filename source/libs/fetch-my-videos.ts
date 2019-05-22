@@ -16,12 +16,18 @@ async function fetchStorefront() {
 function parseCollectionItem(item: Item) {
   return {
     id: item.titleID,
-    title: item.title,
+    ...sanitizeTitle(item.title),
     isPrime: item.entitlements.includes('prime'),
     hasSubtitles: item.hasSubtitles === '1',
     maturityRating: item.maturityRating ? parseInt(item.maturityRating.rating) : undefined,
     image: item.image.url,
   }
+}
+
+const TITLE_PATTERN = /^(?<title>[^[(\n]*)(?<titleSuffix>.+)?$/
+
+function sanitizeTitle(title: string) {
+  return TITLE_PATTERN.exec(title).groups as { title: string, titleSuffix?: string }
 }
 
 interface Storefront {
