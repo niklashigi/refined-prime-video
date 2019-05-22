@@ -1,7 +1,10 @@
 const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
-  entry: './source/content.ts',
+  entry: {
+    content: './source/content.ts',
+    popup: './source/popup/popup.ts',
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
@@ -24,6 +27,6 @@ module.exports = {
   },
   output: {
     path: __dirname + '/extensions/chrome',
-    filename: 'content.js',
+    filename: '[name].js',
   },
 }
