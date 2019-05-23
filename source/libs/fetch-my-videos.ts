@@ -16,7 +16,7 @@ async function fetchStorefront() {
 function parseCollectionItem(item: Item) {
   return {
     id: item.titleID,
-    ...sanitizeTitle(item.title),
+    ...parseTitle(item.title),
     isPrime: item.entitlements.includes('prime'),
     hasSubtitles: item.hasSubtitles === '1',
     maturityRating: item.maturityRating ? parseInt(item.maturityRating.rating) : undefined,
@@ -24,10 +24,14 @@ function parseCollectionItem(item: Item) {
   }
 }
 
-const TITLE_PATTERN = /^(?<title>[^[(\n]*)(?<titleSuffix>.+)?$/
+const TITLE_PATTERN = /^(?<title>.+?)(?:[:\- ]+(?<season>(?:Season|Staffel) \d+))?(?: (?<titleSuffix>\[.+\]|\(.+\)))?$/
 
-function sanitizeTitle(title: string) {
-  return TITLE_PATTERN.exec(title).groups as { title: string, titleSuffix?: string }
+function parseTitle(title: string) {
+  return TITLE_PATTERN.exec(title).groups as {
+    title: string,
+    season?: string,
+    titleSuffix?: string,
+  }
 }
 
 interface Storefront {
