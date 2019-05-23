@@ -17,7 +17,8 @@
         @click="continueWatching(video)"
       >
         <img
-          class="mr-3 h-12 block rounded-sm flex-shrink"
+          class="bg-grey-900 mr-3 w-24 block rounded-sm flex-shrink"
+          style="height: 54px"
           :src="video.image"
         >
         <div class="truncate">
