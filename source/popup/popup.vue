@@ -17,34 +17,25 @@
         @click="continueWatching(video)"
       >
         <img
-          class="bg-grey-900 mr-3 w-24 block rounded-sm flex-shrink"
-          style="height: 54px"
+          class="bg-grey-900 mr-3 w-20 block rounded-sm flex-shrink"
+          style="height: 45px"
           :src="video.image"
         >
         <div class="truncate">
-          <div class="truncate">
-            <span class="text-sm font-medium">
-              {{ video.title }}
-            </span>
-            <span
-              v-if="video.titleSuffix"
-              class="text-xs text-gray-600"
-            >
-              {{ video.titleSuffix }}
-            </span>
+          <div class="truncate text-base font-medium">
+            {{ video.title }}
           </div>
-          <div class="mt-1">
+          <div
+            class="truncate text-sm text-gray-400"
+          >
+            <template v-if="video.season">
+              {{ video.season }}
+            </template>
             <span
-              v-if="video.isPrime"
-              class="inline-block px-1 mr-2 rounded-sm  border border-prime-500 text-prime-500"
+              v-else
+              class="italic"
             >
-              Prime
-            </span>
-            <span
-              v-if="video.hasSubtitles"
-              class="inline-block px-1 rounded-sm bg-gray-800"
-            >
-              Has subtitles
+              Movie
             </span>
           </div>
         </div>
