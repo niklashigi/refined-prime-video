@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col h-screen">
-    <div class="border-b border-blue-300 bg-blue-200 text-blue-800 p-3 shadow">
+    <div class="z-10 border-b border-blue-300 bg-blue-200 text-blue-800 p-3 shadow">
       What do you want to <strong>continue watching</strong>?
     </div>
     <div
