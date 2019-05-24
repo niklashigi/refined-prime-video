@@ -23,6 +23,7 @@ module.exports = {
         800: '#555555',
       },
       carbon: {
+        500: '#354959',
         600: '#24333f',
         700: '#1e2a33',
         800: '#1c262e',
@@ -31,6 +32,8 @@ module.exports = {
     },
     extend: {},
   },
-  variants: {},
+  variants: {
+    display: ['group-hover'],
+  },
   plugins: [],
 }
