@@ -12,6 +12,7 @@
     <div v-else class="flex-grow overflow-y-auto">
       <a
         v-for="video in videos"
+        :key="video.id"
         class="flex p-3 border-b border-carbon-600 hover:bg-carbon-600 items-center group"
         :href="getContinueWatchingUrl(video)"
         @click="continueWatching(video)"
