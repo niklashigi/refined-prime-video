@@ -5,17 +5,17 @@ import settings from '../libs/settings'
 function checkEpisode(episode: HTMLDivElement) {
   return episode.classList.toggle(
     'rpv-watched',
-    !!episode.querySelector('.dv-linear-progress'),
+    !!episode.querySelector('.dv-episode-playback-title span[role="progressbar"]'),
   )
 }
 
-function markWatchedEpisodes(episodeList: HTMLDivElement) {
-  const episodes: NodeListOf<HTMLDivElement> = episodeList.querySelectorAll('.dv-episode-container')
+function markWatchedEpisodes(episodeList: HTMLOListElement) {
+  const episodes: NodeListOf<HTMLDivElement> = episodeList.querySelectorAll('.js-node-episode-container')
   for (const episode of episodes) checkEpisode(episode)
 }
 
 export default async function() {
-  const episodeList: HTMLDivElement = await elementReady('#dv-episode-list .dv-episode-wrap:not(.dv-el-bonus-expander)')
+  const episodeList: HTMLOListElement = await elementReady('#js-node-btf ol')
   markWatchedEpisodes(episodeList)
 
   new MutationObserver(() => {

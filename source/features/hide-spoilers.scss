@@ -1,43 +1,35 @@
-.dv-el-packshot {
-  overflow: hidden;
-}
-
 $tr: .15s ease .1s;
 
-.dv-el-packshot-image {
-  transform: rotate(.001deg);
-  transition: filter $tr, transform $tr;
-}
-
-.dv-el-synopsis-content .a-text-normal {
-  max-height: 100px;
-  transition: max-height $tr, opacity $tr, margin-bottom $tr;
-}
-
 %hidden-episode-container {
-  .dv-el-synopsis-content .a-text-normal {
-    margin-bottom: 0;
-    max-height: 0;
-    opacity: 0;
-    overflow: visible;
-  }
-
-  .dv-el-packshot-image {
+  img[srcset] {
     filter: blur(9px);
     transform: scale(1.14) rotate(.001deg);
   }
+
+  div[data-automation-id^='synopsis-'] {
+    opacity: 0;
+  }
 }
 
-#dv-episode-list > .dv-episode-wrap:not(.dv-el-bonus-expander) {
-  .dv-episode-container {
+#js-node-btf ol {
+  .js-node-episode-container {
     cursor: default;
+
+    img[srcset] {
+      transform: rotate(.001deg);
+      transition: filter $tr, transform $tr;
+    }
+
+    div[data-automation-id^='synopsis-'] {
+      transition: opacity $tr;
+    }
   }
 
-  &[data-rpv-spoilers='never'] .dv-episode-container:not(.rpv-watched) {
+  &[data-rpv-spoilers='never'] .js-node-episode-container:not(.rpv-watched) {
     @extend %hidden-episode-container;
   }
 
-  &[data-rpv-spoilers='onHover'] .dv-episode-container:not(.rpv-watched):not(:hover) {
+  &[data-rpv-spoilers='onHover'] .js-node-episode-container:not(.rpv-watched):not(:hover) {
     @extend %hidden-episode-container;
   }
 }

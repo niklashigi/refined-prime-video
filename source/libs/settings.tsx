@@ -42,9 +42,8 @@ function createSettingsForm() {
 export async function insertSettingsForm() {
   const settingsForm = createSettingsForm()
 
-  const episodeList = await elementReady('#dv-episode-list');
-  // TODO: Remove this hack once `ParentNode.prepend` is in the DOM type definitions
-  (episodeList as any).prepend(settingsForm)
+  const header = await elementReady('#js-node-btf h1')
+  header.append(settingsForm)
 
   settings.connectForm(settingsForm)
 }

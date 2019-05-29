@@ -9,64 +9,17 @@
 // (because it's annoying and can't be dismissed)
 .dv-dp-top-banner,
 
-// Hide weird margin-only div
-// (because it's weird — the whitespace is added back below)
-.dv-dp-top-streamed-badge-wrapper,
-
-// Hide info about supported devices
-// (because I already know what devices I can watch Prime on)
-.dv-dp-meta-content .meta-text,
-
 // Hide product offer below metadata
 // (because it's also annoying and can't be dismissed)
 .av-hql-container,
 
 // Hide weird bar below metadata
 // (because I don't want to "Share", "Send us feedback" or "Get Help")
-.avu-page-container.avu-section-alt.av-detail-bottom-bar,
-
-// Hide terms note below metadata container
-// (because I've already read the terms *cough*)
-.dv-dp-top-wrapper > div:nth-child(1),
+.av-detail-bottom-bar,
 
 // Hide "More purchase options" link
 // (because I don't want to purchase things I can watch for free)
 #dv-action-box [data-aiv-modal*='more-purchase-options'], // entire series
-.dv-el-more-offers // single episode
+.js-episode-offers // single episode
 
 { display: none !important; }
-
-// Improve padding inside the (new) metadata container
-.av-detail-section {
-  margin-bottom: 0 !important;
-  margin-top: 0 !important;
-  padding: 40px 0 !important;
-}
-.av-play-box,
-.av-watchlist-button {
-  margin-bottom: 0 !important;
-}
-
-// Re-add whitespace below metadata container
-.dv-dp-top-wrapper {
-  padding-top: 40px !important;
-}
-
-// Remove "complicated" whitespace
-.dv-dp-meta-content,
-.dv-dp-meta-content > div > p,
-#dv-action-box-wrapper,
-.dv-watchlist-toggle {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-// Add whitespace back
-#aiv-main-content {
-  padding: 40px 27px !important;
-}
-
-// Add more padding to the description
-.dv-dp-meta-content {
-  padding-right: 20px;
-}

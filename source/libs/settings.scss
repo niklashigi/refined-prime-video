@@ -1,10 +1,11 @@
-.aiv-wrapper ~ .a-section {
-  display: flex;
-  justify-content: space-between;
-}
-
 .a-dropdown-container {
   user-select: none;
+}
+
+#js-node-btf h1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 #rpv-settings {
