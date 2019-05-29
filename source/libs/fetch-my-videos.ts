@@ -1,4 +1,7 @@
-const STOREFRONT_ENDPOINT_URL = 'https://www.amazon.de/gp/video/api/storefront'
+import settings from './settings'
+import sites from './sites'
+
+let baseUrl = null
 
 export default async function fetchMyVideos() {
   const storefront = await fetchStorefront()
@@ -10,15 +13,26 @@ export default async function fetchMyVideos() {
 }
 
 async function fetchStorefront() {
-  return (await (await fetch(STOREFRONT_ENDPOINT_URL)).json()) as Storefront
+  baseUrl = await getBaseUrl()
+  const endpointUrl = `${baseUrl}/gp/video/api/storefront`
+  return (await (await fetch(endpointUrl)).json()) as Storefront
 }
 
 function parseCollectionItem(item: Item) {
+  const id = item.titleID
+
   return {
-    id: item.titleID,
+    id,
     ...parseTitle(item.title),
     image: item.image.url,
+    continueWatchingUrl: `${baseUrl}/gp/video/detail/${id}?autoplay=1`,
   }
+}
+
+async function getBaseUrl() {
+  const { preferredSite } = await settings.getAll()
+  const { domainSuffix } = sites[preferredSite]
+  return `https://www.amazon.${domainSuffix}`
 }
 
 const TITLE_PATTERN = /^(?<title>.+?)(?:[:\- ]+(?<season>(?:Season|Staffel) \d+))?(?: (?<titleSuffix>\[.+\]|\(.+\)))?$/

@@ -22,14 +22,12 @@
 </template>
 
 <script lang="ts">
+import sites from '../../libs/sites'
+
 export default {
   props: ['value'],
   data: () => ({
-    sites: {
-      us: { flag: '🇺🇸', domainSuffix: 'com' },
-      uk: { flag: '🇬🇧', domainSuffix: 'co.uk' },
-      de: { flag: '🇩🇪', domainSuffix: 'de' },
-    },
+    sites,
   }),
 }
 </script>

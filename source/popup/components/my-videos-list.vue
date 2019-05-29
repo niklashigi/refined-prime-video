@@ -4,14 +4,20 @@
       v-if="videos.length === 0"
       class="p-5 text-center font-italic text-gray-300"
     >
-      Loading your videos…
+      <template v-if="error">
+        <div class="font-semibold mb-1">
+          No videos found!
+        </div>
+        Check your internet connection or try selecting a different region in the settings.
+      </template>
+      <template v-else>Loading your videos…</template>
     </div>
     <div v-else>
       <a
         v-for="video in videos"
         :key="video.id"
         class="flex p-3 border-b border-carbon-600 hover:bg-carbon-600 items-center group"
-        :href="getContinueWatchingUrl(video)"
+        :href="video.continueWatchingUrl"
         @click="continueWatching(video)"
       >
         <img
@@ -46,24 +52,25 @@
 </template>
 
 <script lang="ts">
+import sites from '../../libs/sites'
 import fetchMyVideos from '../../libs/fetch-my-videos'
 
 export default {
   data: () => ({
     videos: [],
+    error: false,
   }),
   methods: {
     continueWatching(video) {
       browser.tabs.create({
-        url: this.getContinueWatchingUrl(video)
+        url: video.continueWatchingUrl,
       })
-    },
-    getContinueWatchingUrl(video) {
-      return `https://www.amazon.de/gp/video/detail/${video.id}?autoplay=1`
     },
   },
   async created() {
-    this.videos = await fetchMyVideos()
+    this.videos = await fetchMyVideos().catch(() => {
+      this.error = true
+    })
   },
 }
 </script>
