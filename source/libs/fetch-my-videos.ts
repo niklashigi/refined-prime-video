@@ -17,9 +17,6 @@ function parseCollectionItem(item: Item) {
   return {
     id: item.titleID,
     ...parseTitle(item.title),
-    isPrime: item.entitlements.includes('prime'),
-    hasSubtitles: item.hasSubtitles === '1',
-    maturityRating: item.maturityRating ? parseInt(item.maturityRating.rating) : undefined,
     image: item.image.url,
   }
 }
@@ -46,9 +43,6 @@ interface Collection {
 
 interface Item {
   link: Image
-  hasSubtitles: string
-  entitlements: 'prime'[]
-  maturityRating?: MaturityRating
   image: Image
   title: string
   titleID: string
@@ -57,8 +51,4 @@ interface Item {
 
 interface Image {
   url: string
-}
-
-interface MaturityRating {
-  rating: string
 }
