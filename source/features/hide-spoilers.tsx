@@ -24,7 +24,7 @@ export default async function() {
     childList: true, subtree: true,
   })
 
-  settings.onChange(({showSpoilers}) => {
+  settings.onChange(({ showSpoilers }) => {
     episodeList.dataset.rpvSpoilers = showSpoilers
   })
 }

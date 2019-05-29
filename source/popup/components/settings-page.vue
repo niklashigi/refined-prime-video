@@ -22,16 +22,26 @@
 </template>
 
 <script lang="ts">
+import settings from '../../libs/settings'
+
 import SiteSelector from './site-selector'
 import ShowSpoilersSelector from './show-spoilers-selector'
 
 export default {
   components: { SiteSelector, ShowSpoilersSelector },
   data: () => ({
-    settings: {
-      preferredSite: 'de',
-      showSpoilers: 'never',
-    },
+    settings: {},
   }),
+  watch: {
+    settings: {
+      handler(newSettings) {
+        settings.set(newSettings)
+      },
+      deep: true,
+    }
+  },
+  async created() {
+    this.settings = await settings.getAll()
+  },
 }
 </script>
