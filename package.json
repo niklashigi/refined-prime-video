@@ -45,7 +45,6 @@
     "webpack-cli": "^3.3.1"
   },
   "dependencies": {
-    "dom-chef": "shroudedcode/dom-chef#fix-type-issues",
     "element-ready": "^3.0.0",
     "vue": "^2.6.10",
     "webextension-polyfill": "^0.4.0"
