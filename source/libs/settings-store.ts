@@ -36,6 +36,15 @@ export default class SettingsStore<Settings> {
     }
 
     await this.applyConfig(config)
+
+    browser.storage.onChanged.addListener((changes, areaName) => {
+      if (areaName !== 'sync' || !changes[this.storageName]) return
+
+      const newSettings = changes[this.storageName].newValue
+      for (const listener of this.changeListeners) listener(newSettings)
+      this.cache = newSettings
+    })
+
     return this.cache
   }
 
@@ -55,13 +64,7 @@ export default class SettingsStore<Settings> {
       [this.storageName]: newSettings,
     }).then(() => {
       this.cache = newSettings
-      this.applyNewSettings()
     })
-  }
-
-  public connectForm(form: HTMLFormElement) {
-    form.addEventListener('input', e => this.handleFormUpdates(e))
-    form.addEventListener('change', e => this.handleFormUpdates(e))
   }
 
   public onChange(listener: ChangeListener<Settings>) {
@@ -81,24 +84,6 @@ export default class SettingsStore<Settings> {
     }
 
     await this.setAll(settings)
-  }
-
-  private applyNewSettings() {
-    for (const listener of this.changeListeners) {
-      listener(this.cache)
-    }
-  }
-
-  private handleFormUpdates({target}) {
-    const el = target as HTMLInputElement
-
-    const {name} = el
-    if (!name || !el.validity.valid) return
-
-    const value = el.type === 'checkbox' ? el.checked : el.value
-    const change = { [name]: value }
-    console.info('[RPV] Saving change to settings:', change)
-    this.set(change)
   }
 
   private parseNumbers(settings) {
