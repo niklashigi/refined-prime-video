@@ -6,5 +6,9 @@ html {
   user-select: none;
 }
 
+:focus {
+  outline: none !important;
+}
+
 @tailwind components;
 @tailwind utilities;
