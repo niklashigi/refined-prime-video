@@ -47,6 +47,7 @@
   "dependencies": {
     "element-ready": "^3.0.0",
     "vue": "^2.6.10",
+    "vue-feather-icons": "^4.21.0",
     "webextension-polyfill": "^0.4.0"
   },
   "private": true
