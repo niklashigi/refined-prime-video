@@ -9,7 +9,7 @@
 
       <template v-if="screen === 'continue-watching'">
         <icon-button
-          v-if="settings.region"
+          v-if="settings && settings.region"
           class="mr-3"
           title="Prime Video homepage"
           @click="openHome"
@@ -37,6 +37,7 @@
 
     <div
       v-if="settings"
+      ref="scrollArea"
       class="flex-grow overflow-y-auto"
     >
       <my-videos-list
@@ -68,6 +69,11 @@ export default {
     screenTitle() {
       return this.screen === 'continue-watching'
         ? 'Continue watching' : 'Extension settings'
+    },
+  },
+  watch: {
+    screen() {
+      this.$refs.scrollArea.scrollTop = 0
     },
   },
   methods: {
