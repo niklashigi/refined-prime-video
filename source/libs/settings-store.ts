@@ -45,7 +45,7 @@ export default class SettingsStore<Settings> {
       this.cache = newSettings
     })
 
-    return this.cache
+    for (const listener of this.changeListeners) listener(this.cache)
   }
 
   public getAll() {
@@ -69,7 +69,7 @@ export default class SettingsStore<Settings> {
 
   public onChange(listener: ChangeListener<Settings>) {
     this.changeListeners.add(listener)
-    listener(this.cache)
+    if (this.cache) listener(this.cache)
   }
 
   private async applyConfig(config) {

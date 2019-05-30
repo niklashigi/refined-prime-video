@@ -10,7 +10,7 @@ const settings = new SettingsStore<Settings>('settings')
 settings.setup({
   defaults: {
     showSpoilers: 'onHover',
-    region: 'de',
+    region: null,
   },
   migrations: [SettingsStore.migrations.removeUnused],
 })
