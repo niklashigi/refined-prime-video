@@ -2,12 +2,12 @@
   <div>
     <div class="px-5 py-4">
       <div class="mb-1 font-semibold">
-        What's your preferred Amazon site?
+        What's your Amazon region?
       </div>
       <div class="mb-3 text-gray-400">
         This is used to fetch your <em>Continue watching</em> list.
       </div>
-      <site-selector v-model="settings.preferredSite"/>
+      <region-selector v-model="settings.region"/>
     </div>
     <div class="px-5 py-4 border-t border-carbon-500">
       <div class="mb-1 font-semibold">
@@ -24,11 +24,11 @@
 <script lang="ts">
 import settings from '../../libs/settings'
 
-import SiteSelector from './site-selector'
+import RegionSelector from './region-selector'
 import ShowSpoilersSelector from './show-spoilers-selector'
 
 export default {
-  components: { SiteSelector, ShowSpoilersSelector },
+  components: { RegionSelector, ShowSpoilersSelector },
   data: () => ({
     settings: {},
   }),

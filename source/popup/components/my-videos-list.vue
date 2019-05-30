@@ -52,7 +52,6 @@
 </template>
 
 <script lang="ts">
-import sites from '../../libs/sites'
 import fetchMyVideos from '../../libs/fetch-my-videos'
 
 export default {
