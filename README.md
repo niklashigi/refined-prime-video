@@ -1,10 +1,8 @@
 # Refined Prime Video
 
-> Browser extension that simplifies the Amazon Prime Video interface and adds useful features
+Amazon Prime Video is great but its user interface is cluttered and sometimes very clunky to use. Refined Prime Video is a browser extension that cleans up the interface and adds [useful features](#features) series enthusiasts won't want to live without ever again.
 
-*Amazon Prime Video* is great but its interface is cluttered and it lacks features that series enthusiasts would like to have. So, inspired by the [Refined GitHub](https://github.com/sindresorhus/refined-github) browser extension which improves the user experience on GitHub, I decided to create my own browser extension that does the same thing for Prime Video.
-
-**Note:** This extension was created to enhance the country-specific *Prime Video* sites like amazon.de/video. If you are using primevideo.com, you're fortunate: You don't *need* this extension.
+_Please note that this extension does **NOT** work with **primevideo.com**. It only supports **amazon.com**, **.co.uk**, and **.de**._
 
 ## Installation
 
@@ -14,9 +12,15 @@
 
 ## Features
 
+### Continue watching
+
+<img align="right" width=200 title="The different modes of this feature" src="https://user-images.githubusercontent.com/29176678/58662651-027ba200-832b-11e9-917f-74f5a12f0436.png">
+
+Wanna quickly continue watching your favorite series without drowning in the sea of thumbnails of Prime Video's home page or managing bookmarks? Just click on the Refined Prime Video icon, select the series from a list of things you've recently watched, and that's it! The episode you left off at will start playing instantly.
+
 ### Hide spoilers
 
-<img align="right" title="The different modes of this feature" src="https://user-images.githubusercontent.com/29176678/43796858-ba959560-9a85-11e8-8adb-dd08c15dde86.png">
+<img align="right" title="The different modes of this feature" src="https://user-images.githubusercontent.com/29176678/58661188-8af84380-8327-11e9-82e8-c8f6f89c54e4.png">
 
 Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. Refined Prime Video allows you to hide them by blurring the thumbnails and hiding the descriptions of episodes you haven't watched yet. You can control when that happens through a dropdown above the episode list.
 
@@ -28,6 +32,8 @@ Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. R
   <br>
 
   <img title="The 'Hide spoilers' feature in action" src="https://user-images.githubusercontent.com/29176678/43830483-9d9e8274-9b01-11e8-8441-8f9deb179ce3.gif">
+
+  <em>This feature can now be configured from the settings (extension icon → ⚙️) but still works the same way.</em>
 </details>
 
 
@@ -48,7 +54,7 @@ When watching movies or series, you don't care about what's in your *Shopping Ba
 
 ### Clean user interface
 
-At least the German *Prime Video* is cluttered with annoying banners telling you about supposedly *new* features that have existed for ages and other useless elements like share buttons or a note about their terms of use. Refined Prime Video gets rid of these things.
+At least the German Prime Video is cluttered with annoying banners telling you about supposedly _new_ features that have existed for ages and other useless elements like share buttons or a note about their terms of use. Refined Prime Video gets rid of these things.
 
 
 <details>
@@ -63,7 +69,7 @@ At least the German *Prime Video* is cluttered with annoying banners telling you
 
 ## Disclaimer
 
-While this browser extension is meant to be used alongside *Amazon Prime Video*, it is not "official" by any means. I am in no way affiliated with *Amazon​.​com, Inc*.
+While this browser extension is meant to be used alongside _Amazon Prime Video_, it is not "official" by any means. I am in no way affiliated with _Amazon​.com, Inc_.
 
 ## License
 
