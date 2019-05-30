@@ -10,5 +10,17 @@ html {
   outline: none !important;
 }
 
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-carbon-500;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-prime-500;
+}
+
 @tailwind components;
 @tailwind utilities;
