@@ -12,9 +12,9 @@
         You can open them by clicking on the icon in the top right.
       </template>
       <template v-else-if="error">
-        <div class="font-semibold mb-1">
+        <h3 class="font-semibold mb-1">
           No videos found!
-        </div>
+        </h3>
         Check your internet connection or try selecting a different region in the settings.
       </template>
       <template v-else>Loading your videos…</template>

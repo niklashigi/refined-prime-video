@@ -35,14 +35,11 @@ async function getBaseUrl() {
   return `https://www.amazon.${domainSuffix}`
 }
 
-const TITLE_PATTERN = /^(?<title>.+?)(?:[:\- ]+(?<season>(?:Season|Staffel) \d+))?(?: (?<titleSuffix>\[.+\]|\(.+\)))?$/
+const TITLE_PATTERN = /^(.+?)(?:[:\- ]+((?:Season|Staffel) \d+))?(?: (\[.+\]|\(.+\)))?$/
 
-function parseTitle(title: string) {
-  return TITLE_PATTERN.exec(title).groups as {
-    title: string,
-    season?: string,
-    titleSuffix?: string,
-  }
+function parseTitle(sourceTitle: string) {
+  const [_, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle)
+  return { title, season, titleSuffix }
 }
 
 interface Storefront {
