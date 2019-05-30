@@ -13,10 +13,8 @@
         @input="$emit('input', optionId)"
         class="form-radio cursor-pointer text-xl"
       >
-      <span class="text-lg mx-2">
-        {{ option.emoji }}
-      </span>
-      {{ option.description }}
+      <span class="text-lg mx-2">{{ option.emoji }}</span>
+      {{ $(`settings_showSpoilers_options_${optionId}`) }}
     </label>
   </div>
 </template>
@@ -26,9 +24,9 @@ export default {
   props: ['value'],
   data: () => ({
     options: {
-      never: { emoji: '🙈', description: 'Never show spoilers' },
-      onHover: { emoji: '🔍', description: 'When hovering over an episode' },
-      always: { emoji: '🐵', description: 'Always show spoilers' },
+      never: { emoji: '🙈' },
+      onHover: { emoji: '🔍' },
+      always: { emoji: '🐵' },
     },
   }),
 }

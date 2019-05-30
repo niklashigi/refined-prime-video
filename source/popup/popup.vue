@@ -7,17 +7,17 @@
       </div>
       <div class="flex-grow"/>
 
-      <template v-if="screen === 'continue-watching'">
+      <template v-if="screen === 'continueWatching'">
         <icon-button
           v-if="settings && settings.region"
           class="mr-3"
-          title="Prime Video homepage"
+          :title="$('navigation_home')"
           @click="openHome"
         >
           <home-icon class="m-auto"/>
         </icon-button>
         <icon-button
-          title="Settings"
+          :title="$('navigation_settings')"
           @click="screen = 'settings'"
         >
           <settings-icon class="m-auto"/>
@@ -27,8 +27,8 @@
       <template v-else-if="screen === 'settings'">
         <button
           class="h-10 w-10 rounded-full flex bg-carbon-600 hover:bg-carbon-500 text-gray-500 hover:text-gray-300"
-          title="Done"
-          @click="screen = 'continue-watching'"
+          :title="$('navigation_done')"
+          @click="screen = 'continueWatching'"
         >
           <check-circle-icon class="m-auto"/>
         </button>
@@ -41,7 +41,7 @@
       class="flex-grow overflow-y-auto"
     >
       <my-videos-list
-        v-if="screen === 'continue-watching'"
+        v-if="screen === 'continueWatching'"
         :settings="settings"
       />
       <settings-page v-else-if="screen === 'settings'"/>
@@ -62,13 +62,12 @@ import regions from '../libs/regions';
 export default {
   components: { IconButton, MyVideosList, SettingsPage, HomeIcon, SettingsIcon, CheckCircleIcon },
   data: () => ({
-    screen: 'continue-watching',
+    screen: 'continueWatching',
     settings: null,
   }),
   computed: {
     screenTitle() {
-      return this.screen === 'continue-watching'
-        ? 'Continue watching' : 'Extension settings'
+      return this.$(`screens_${this.screen}`)
     },
   },
   watch: {

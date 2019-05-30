@@ -2,19 +2,20 @@
   <div>
     <div class="px-5 py-4">
       <div class="mb-1 font-semibold">
-        What's your Amazon region?
+        {{ $('settings_region_title') }}
       </div>
-      <div class="mb-3 text-gray-400">
-        This is used to fetch your <em>Continue watching</em> list.
-      </div>
+      <div
+        class="mb-3 text-gray-400"
+        v-html="$('settings_region_description')"
+      />
       <region-selector v-model="settings.region"/>
     </div>
     <div class="px-5 py-4 border-t border-carbon-500">
       <div class="mb-1 font-semibold">
-        When should spoilers be displayed?
+        {{ $('settings_showSpoilers_title') }}
       </div>
       <div class="mb-3 text-gray-400">
-        Thumbnails and descriptions of episodes you haven't watched yet are considered spoilers.
+        {{ $('settings_showSpoilers_description') }}
       </div>
       <show-spoilers-selector v-model="settings.showSpoilers"/>
     </div>
