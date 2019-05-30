@@ -16,6 +16,8 @@ function markWatchedEpisodes(episodeList: HTMLOListElement) {
 
 export default async function() {
   const episodeList: HTMLOListElement = await elementReady('#js-node-btf ol')
+  if (!episodeList) return
+
   markWatchedEpisodes(episodeList)
 
   new MutationObserver(() => {
