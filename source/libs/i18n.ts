@@ -1,2 +1,2 @@
-const _ = browser.i18n.getMessage
-export default _
+const $ = browser.i18n.getMessage
+export default $

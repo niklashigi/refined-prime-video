@@ -6,18 +6,19 @@
     >
       <template v-if="!settings.region">
         <div class="font-semibold mb-1">
-          No region selected!
+          {{ $('continueWatching_noRegion_title') }}
         </div>
-        In order to use the <em>Continue watching</em> feature, select a region in the settings.
-        You can open them by clicking on the icon in the top right.
+        <div v-html="$('continueWatching_noRegion_description')"/>
       </template>
       <template v-else-if="error">
         <h3 class="font-semibold mb-1">
-          No videos found!
+          {{ $('continueWatching_noVideos_title') }}
         </h3>
-        Check your internet connection or try selecting a different region in the settings.
+        <div v-html="$('continueWatching_noVideos_description')"/>
       </template>
-      <template v-else>Loading your videos…</template>
+      <template v-else>
+        {{ $('continueWatching_loadingVideos') }}
+      </template>
     </div>
     <div v-else>
       <a
@@ -46,7 +47,7 @@
               v-else
               class="italic"
             >
-              Movie
+              {{ $('continueWatching_movie') }}
             </span>
           </div>
         </div>
