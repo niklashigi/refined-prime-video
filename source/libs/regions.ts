@@ -1,12 +1,12 @@
-interface Site {
+interface Region {
   flag: string
   domainSuffix: string
 }
 
-const sites: { [id: string]: Site } = {
+const regions: { [id: string]: Region } = {
   us: { flag: '🇺🇸', domainSuffix: 'com' },
   uk: { flag: '🇬🇧', domainSuffix: 'co.uk' },
   de: { flag: '🇩🇪', domainSuffix: 'de' },
 }
 
-export default sites
+export default regions

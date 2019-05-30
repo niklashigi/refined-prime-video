@@ -1,5 +1,5 @@
+import regions from './regions'
 import settings from './settings'
-import sites from './sites'
 
 let baseUrl = null
 
@@ -30,8 +30,8 @@ function parseCollectionItem(item: Item) {
 }
 
 async function getBaseUrl() {
-  const { preferredSite } = await settings.getAll()
-  const { domainSuffix } = sites[preferredSite]
+  const { region } = await settings.getAll()
+  const { domainSuffix } = regions[region]
   return `https://www.amazon.${domainSuffix}`
 }
 
