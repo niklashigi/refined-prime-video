@@ -1,8 +1,8 @@
 @tailwind base;
 
 html {
-  width: 350px;
-  height: 400px;
+  width: 320px;
+  height: 326px;
   user-select: none;
 }
 
