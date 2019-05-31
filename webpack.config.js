@@ -32,7 +32,7 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname + '/extensions/chrome',
+    path: __dirname + '/extensions/common',
     filename: '[name].js',
   },
   devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
