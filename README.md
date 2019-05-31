@@ -7,7 +7,7 @@ _Please note that this extension does **NOT** work with **primevideo.com**. It o
 ## Installation
 
 - [**Chrome** extension][cws-link]: [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/pieemlagbhnombolehnjdoaoojpphedd.svg?label=download&style=flat-square">][cws-link]
-- [**Firefox** addon][amo-link]: [<img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=download&style=flat-square">][amo-link]
+- [**Firefox** add-on][amo-link]: [<img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=download&style=flat-square">][amo-link]
 - **Opera** extension: Use [this Opera extension](https://addons.opera.com/en/extensions/details/download-chrome-extension-9/) to install the Chrome version.
 
 ## Features
