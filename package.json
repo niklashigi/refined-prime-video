@@ -16,7 +16,7 @@
     "watch": "run-p watch:*",
     "watch:sass": "node-sass source/content.scss extensions/chrome/content.css -w",
     "watch:wp": "webpack --mode development -w",
-    "release": ". ./.env && run-s release:*",
+    "release": ". ./.env && run-s build release:*",
     "release:chrome": "shipit chrome extensions/chrome",
     "release:firefox": "shipit firefox extensions/firefox",
     "lint": "run-s lint:*",
