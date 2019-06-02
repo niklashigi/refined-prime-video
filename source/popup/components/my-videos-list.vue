@@ -26,7 +26,6 @@
         :key="video.id"
         class="flex p-3 border-b border-carbon-600 hover:bg-carbon-600 items-center group"
         :href="video.continueWatchingUrl"
-        @click.prevent="continueWatching(video)"
       >
         <img
           class="bg-grey-900 mr-3 w-20 block rounded-sm flex-shrink"
@@ -68,12 +67,6 @@ export default {
     videos: [],
     error: false,
   }),
-  methods: {
-    continueWatching(video) {
-      browser.tabs.create({ url: video.continueWatchingUrl })
-      window.close()
-    },
-  },
   created() {
     if (!this.settings.region) return
 
