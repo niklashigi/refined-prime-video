@@ -21,7 +21,7 @@
     "build:chrome:common": "cp -r extensions/common/* extensions/chrome",
     "build:chrome:html": "cp source/popup/popup.chrome.html extensions/chrome/popup.html",
     "build:chrome:polyfill": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js extensions/chrome",
-    "watch": "run-p watch:*",
+    "watch": "NODE_ENV=development run-p watch:*",
     "watch:sass": "node-sass source/content.scss extensions/chrome/content.css -w",
     "watch:webpack": "webpack --mode development -w",
     "dev": "run-s build watch",

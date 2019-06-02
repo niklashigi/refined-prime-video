@@ -1,6 +1,8 @@
 const TerserPlugin = require('terser-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+const extensionDirectory = process.env.NODE_ENV === 'development' ? 'chrome' : 'common'
+
 module.exports = {
   entry: {
     content: './source/content.ts',
@@ -32,7 +34,7 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname + '/extensions/common',
+    path: `${__dirname}/extensions/${extensionDirectory}`,
     filename: '[name].js',
   },
   devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
