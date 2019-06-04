@@ -41,4 +41,22 @@ module.exports = {
       },
     },
   },
+  support: {
+    title: 'Gefällt dir Refined Prime Video?',
+    description: 'Hier sind ein paar Dinge, die du tun kannst, um das Projekt zu unterstützen.',
+    actions: {
+      review: {
+        title: 'Hinterlasse eine Bewertung',
+        description: 'Teile deine Meinung mit anderen.',
+      },
+      github: {
+        title: 'Schau dir das GitHub-Repository an',
+        description: 'Werfe einen Blick auf den Code und hinterlasse einen Stern.',
+      },
+      twitter: {
+        title: 'Folge dem Entwickler auf Twitter',
+        description: 'Bleibe auf dem neusten Stand.',
+      },
+    },
+  },
 }

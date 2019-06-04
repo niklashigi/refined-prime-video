@@ -41,4 +41,22 @@ module.exports = {
       },
     },
   },
+  support: {
+    title: 'Do you enjoy using Refined Prime Video?',
+    description: "Here are some things you can do to support the project. Your help is greatly appreciated.",
+    actions: {
+      review: {
+        title: 'Leave a review',
+        description: 'Tell others what you think.',
+      },
+      github: {
+        title: 'Check out the GitHub repo',
+        description: 'Look at the source code and leave a star.',
+      },
+      twitter: {
+        title: 'Follow the author on Twitter',
+        description: 'Stay up to date on all sorts of projects.',
+      },
+    },
+  },
 }
