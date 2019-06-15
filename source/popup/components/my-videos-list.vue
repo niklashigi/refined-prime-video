@@ -29,6 +29,7 @@
       >
         <img
           class="bg-grey-900 mr-3 w-20 block rounded-sm flex-shrink"
+          loading="lazy"
           style="height: 45px"
           :src="video.image"
         >
