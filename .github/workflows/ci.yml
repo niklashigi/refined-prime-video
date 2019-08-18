@@ -2,6 +2,7 @@ name: Continuous integration
 on: [push]
 jobs:
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
     - name: Check out repository
@@ -17,6 +18,7 @@ jobs:
     - name: Lint code
       run: yarn lint
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
     - name: Check out repository
