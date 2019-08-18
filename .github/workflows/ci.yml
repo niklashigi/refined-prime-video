@@ -1,0 +1,20 @@
+name: Continuous integration
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: Install Yarn
+      run: npm install -g yarn
+    - name: Install dependencies
+      run: yarn
+    - name: Lint code
+      run: yarn lint
+    - name: Build extension
+      run: yarn build
