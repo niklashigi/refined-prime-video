@@ -1,16 +1,5 @@
 $tr: .15s ease .1s;
 
-%hidden-episode-container {
-  img[srcset] {
-    filter: blur(9px);
-    transform: scale(1.14) rotate(.001deg);
-  }
-
-  div[data-automation-id^='synopsis-'] {
-    opacity: 0;
-  }
-}
-
 #js-node-btf ol {
   .js-node-episode-container {
     cursor: default;
@@ -25,11 +14,15 @@ $tr: .15s ease .1s;
     }
   }
 
-  &[data-rpv-spoilers='never'] .js-node-episode-container:not(.rpv-watched) {
-    @extend %hidden-episode-container;
-  }
-
+  &[data-rpv-spoilers='never'] .js-node-episode-container:not(.rpv-watched),
   &[data-rpv-spoilers='onHover'] .js-node-episode-container:not(.rpv-watched):not(:hover) {
-    @extend %hidden-episode-container;
+    img[srcset] {
+      filter: blur(9px);
+      transform: scale(1.14) rotate(.001deg);
+    }
+
+    div[data-automation-id^='synopsis-'] {
+      opacity: 0;
+    }
   }
 }
