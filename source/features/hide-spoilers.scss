@@ -16,7 +16,7 @@ $tr: .15s ease .1s;
     cursor: default;
 
     img[srcset] {
-      transform: rotate(.001deg);
+      backface-visibility: hidden;
       transition: filter $tr, transform $tr;
     }
 
