@@ -1,18 +1,11 @@
-/**
- * List of the suffixes of all the Amazon domains the "local version" of Prime
- * Video is supported on. The list is based on the page linked below, has been
- * filtered by checking which sites are "actually local" (do not redirect to
- * "primevideo.com") and might not be complete.
- *
- * @see https://www.primevideo.com/help?nodeId=202065060
- */
-const domainSuffixes = [
-  'com',
-  'co.uk',
-  'de',
+const domains = [
+  'primevideo.com',
+  'amazon.com',
+  'amazon.co.uk',
+  'amazon.de',
 ]
 
-const urlMatches = domainSuffixes.map(suffix => `https://*.amazon.${suffix}/*`)
+const urlMatches = domains.map(domain => `https://*.${domain}/*`)
 
 module.exports = (version, browser) => {
 
