@@ -31,8 +31,8 @@ function parseCollectionItem(item: Item) {
 
 async function getBaseUrl() {
   const { region } = await settings.getAll()
-  const { domainSuffix } = regions[region]
-  return `https://www.amazon.${domainSuffix}`
+  const { domain } = regions[region]
+  return `https://www.${domain}`
 }
 
 const TITLE_PATTERN = /^(.+?)(?:[:\- ]+((?:Season|Staffel) \d+))?(?: (\[.+\]|\(.+\)))?$/
