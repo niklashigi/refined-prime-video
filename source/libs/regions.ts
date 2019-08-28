@@ -1,12 +1,13 @@
 interface Region {
   flag: string
-  domainSuffix: string
+  domain: string
 }
 
 const regions: { [id: string]: Region } = {
-  us: { flag: '🇺🇸', domainSuffix: 'com' },
-  uk: { flag: '🇬🇧', domainSuffix: 'co.uk' },
-  de: { flag: '🇩🇪', domainSuffix: 'de' },
+  global: { flag: '🌎', domain: 'primevideo.com' },
+  us: { flag: '🇺🇸', domain: 'amazon.com' },
+  uk: { flag: '🇬🇧', domain: 'amazon.co.uk' },
+  de: { flag: '🇩🇪', domain: 'amazon.de' },
 }
 
 export default regions

@@ -16,7 +16,7 @@
       <span class="text-lg mx-2">
         {{ region.flag }}
       </span>
-      amazon.<span class="font-medium">{{ region.domainSuffix }}</span>
+      <span class="font-medium">{{ region.domain }}</span>
     </label>
   </div>
 </template>

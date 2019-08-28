@@ -77,8 +77,8 @@ export default {
   },
   methods: {
     openHome() {
-      const { domainSuffix } = regions[this.settings.region]
-      const url = `https://amazon.${domainSuffix}/video`
+      const { domain } = regions[this.settings.region]
+      const url = `https://${domain}/video`
       browser.tabs.create({ url })
     },
   },
