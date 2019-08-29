@@ -46,7 +46,7 @@ export default {
   watch: {
     settings: {
       handler(newSettings) {
-        settings.set(newSettings)
+        settings.setAll(newSettings)
       },
       deep: true,
     }

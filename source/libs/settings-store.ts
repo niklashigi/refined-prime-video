@@ -4,14 +4,14 @@
 type ChangeListener<Settings> = (settings: Settings) => void
 
 interface Config<Settings> {
-  defaults?: Settings
-  migrations?: Array<(settings: any, defaults: any) => void>
+  defaults: Settings
+  migrations: Array<(settings: any, defaults: any) => void>
 }
 
 export default class SettingsStore<Settings> {
 
   public static migrations = {
-    removeUnused(settings, defaults) {
+    removeUnused(settings: any, defaults: any) {
       for (const key of Object.keys(settings)) {
         if (!(key in defaults)) {
           delete settings[key]
@@ -20,27 +20,21 @@ export default class SettingsStore<Settings> {
     },
   }
 
-  public cache: Settings
-  private storageName: string
+  private cache: Settings
   private changeListeners = new Set<ChangeListener<Settings>>()
 
-  constructor(storageName = 'settings') {
+  constructor(private storageName: string) {
     this.storageName = storageName
   }
 
   public async setup(config: Config<Settings>) {
-    config = {
-      defaults: {} as Settings,
-      migrations: [],
-      ...config,
-    }
-
     await this.applyConfig(config)
 
     browser.storage.onChanged.addListener((changes, areaName) => {
       if (areaName !== 'sync' || !changes[this.storageName]) return
 
       const newSettings = changes[this.storageName].newValue
+
       for (const listener of this.changeListeners) listener(newSettings)
       this.cache = newSettings
     })
@@ -48,23 +42,18 @@ export default class SettingsStore<Settings> {
     for (const listener of this.changeListeners) listener(this.cache)
   }
 
-  public getAll() {
-    return browser.storage.sync.get(this.storageName)
-      .then(keys =>  keys[this.storageName] || {})
-      .then(this.parseNumbers)
+  public async getAll(): Promise<Settings> {
+    const storage = await browser.storage.sync.get(this.storageName)
+
+    return storage[this.storageName] as any
   }
 
-  public async set(newSettings) {
-    const settings = await this.getAll()
-    this.setAll({ ...settings, ...newSettings })
-  }
-
-  public setAll(newSettings) {
-    return browser.storage.sync.set({
-      [this.storageName]: newSettings,
-    }).then(() => {
-      this.cache = newSettings
+  public async setAll(newSettings: Settings) {
+    await browser.storage.sync.set({
+      [this.storageName]: newSettings as any,
     })
+
+    this.cache = newSettings
   }
 
   public onChange(listener: ChangeListener<Settings>) {
@@ -72,27 +61,16 @@ export default class SettingsStore<Settings> {
     if (this.cache) listener(this.cache)
   }
 
-  private async applyConfig(config) {
+  private async applyConfig(config: Config<Settings>) {
     const settings = {
       ...config.defaults,
       ...(await this.getAll()),
     }
 
+    for (const migrate of config.migrations) migrate(settings, config.defaults)
+
     console.info('[RPV] Loaded settings:', settings)
-    if (config.migrations.length > 0) {
-      config.migrations.forEach(migrate => migrate(settings, config.defaults))
-    }
-
     await this.setAll(settings)
-  }
-
-  private parseNumbers(settings) {
-    for (const name of Object.keys(settings)) {
-      if (settings[name] === String(Number(settings[name]))) {
-        settings[name] = Number(settings[name])
-      }
-    }
-    return settings
   }
 
 }
