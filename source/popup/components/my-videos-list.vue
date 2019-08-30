@@ -28,9 +28,9 @@
         :href="video.continueWatchingUrl"
       >
         <img
-          class="bg-grey-900 mr-3 w-20 block rounded-sm flex-shrink"
+          class="block mr-3 bg-carbon-900 flex-shrink-0 rounded-sm"
           loading="lazy"
-          style="height: 45px"
+          style="width: 90px; height: 50.59px"
           :src="video.image"
         >
         <div class="truncate flex-grow">
