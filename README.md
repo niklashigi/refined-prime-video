@@ -2,12 +2,12 @@
 
 Amazon Prime Video is great but its user interface is cluttered and sometimes very clunky to use. Refined Prime Video is a browser extension that cleans up the interface and adds [useful features](#features) series enthusiasts won't want to live without ever again.
 
-_Please note that this extension does **NOT** work with **primevideo.com**. It only supports **amazon.com**, **.co.uk**, and **.de**._
+_Refined Prime Video works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv-uk], and [amazon.de][pv-de]._
 
 ## Installation
 
-- [**Chrome** extension][cws-link]: [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/pieemlagbhnombolehnjdoaoojpphedd.svg?label=download&style=flat-square">][cws-link]
-- [**Firefox** add-on][amo-link]: [<img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=download&style=flat-square">][amo-link]
+- [**Chrome** extension][cws]: [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/pieemlagbhnombolehnjdoaoojpphedd.svg?label=download&style=flat-square">][cws]
+- [**Firefox** add-on][amo]: [<img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=download&style=flat-square">][amo]
 - **Opera** extension: Use [this Opera extension](https://addons.opera.com/en/extensions/details/download-chrome-extension-9/) to install the Chrome version.
 
 ## Features
@@ -75,5 +75,10 @@ While this browser extension is meant to be used alongside _Amazon Prime Video_,
 
 MIT © [Niklas Higi](https://shroudedcode.com)
 
-[cws-link]: https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd
-[amo-link]: https://addons.mozilla.org/firefox/addon/refined-prime-video
+[pv-global]: https://www.primevideo.com/
+[pv-us]: https://www.amazon.com/video
+[pv-uk]: https://www.amazon.co.uk/video
+[pv-de]: https://www.amazon.de/video
+
+[cws]: https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd
+[amo]: https://addons.mozilla.org/firefox/addon/refined-prime-video
