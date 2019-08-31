@@ -28,7 +28,7 @@ module.exports = {
   },
   settings: {
     region: {
-      title: "What's your Amazon region?",
+      title: "What site do you visit to use Prime Video?",
       description: "This is used to fetch your <em>Continue watching</em> list.",
     },
     showSpoilers: {
