@@ -23,6 +23,7 @@ $tr: .15s ease .1s;
 
     div[data-automation-id^='synopsis-'] {
       opacity: 0;
+      pointer-events: none;
     }
   }
 }
