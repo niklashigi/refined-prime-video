@@ -6,9 +6,62 @@ _Refined Prime Video works on [primevideo.com][pv-global], [amazon.com][pv-us], 
 
 ## Installation
 
-- [**Chrome** extension][cws]: [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/pieemlagbhnombolehnjdoaoojpphedd.svg?label=download&style=flat-square">][cws]
-- [**Firefox** add-on][amo]: [<img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=download&style=flat-square">][amo]
-- **Opera** extension: Use [this Opera extension](https://addons.opera.com/en/extensions/details/download-chrome-extension-9/) to install the Chrome version.
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_64x64.png"></a>
+        <br>
+        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><strong>Chrome</strong> extension</a>
+        <br>
+        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img valign="middle" src="https://img.shields.io/chrome-web-store/v/pieemlagbhnombolehnjdoaoojpphedd.svg?label=version&style=flat-square"></a>
+        <br>
+      </td>
+      <td align="center">
+        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_64x64.png"></a>
+        <br>
+        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><strong>Firefox</strong> add-on</a>
+        <br>
+        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=version&style=flat-square"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <details>
+    <summary>
+      <strong>Using a different browser?</strong>
+    </summary>
+    <br>
+    Other browsers are not officially supported at the moment, but there are some workarounds:
+    <p></p>
+    <table>
+      <tbody>
+        <tr>
+          <td align="center">
+            <img valign="middle" src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_24x24.png">
+            <br>
+            <strong>Edge</strong>
+          </td>
+          <td>
+            By <a href="https://microsoftedgesupport.microsoft.com/hc/en-us/articles/360017581013">enabling the <em>Allow extensions from other stores</em> setting</a> you can install <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd">the Chrome extension</a> in Edge. Please note that, as of September 2019, this feature is <strong>only</strong> availabe in <a href="https://www.microsoftedgeinsider.com">preview builds of Edge</a>.
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <img valign="middle" src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_24x24.png">
+            <br>
+            <strong>Opera</strong>
+          </td>
+          <td>
+            Using <a href="https://addons.opera.com/en/extensions/details/download-chrome-extension-9/">this extension</a>, you can install <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd">the Chrome extension</a> in Opera.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+</blockquote>
 
 ## Features
 
