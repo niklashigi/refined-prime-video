@@ -77,48 +77,46 @@ Wanna quickly continue watching your favorite series without drowning in the sea
 
 Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. Refined Prime Video allows you to hide them by blurring the thumbnails and hiding the descriptions of episodes you haven't watched yet. You can control when that happens through a dropdown above the episode list.
 
-<details>
-  <summary>
-    <strong><em>See this feature in action</em></strong>
-  </summary>
-
-  <br>
-
-  <img title="The 'Hide spoilers' feature in action" src="https://user-images.githubusercontent.com/29176678/43830483-9d9e8274-9b01-11e8-8441-8f9deb179ce3.gif">
-
-  <em>This feature can now be configured from the settings (extension icon → ⚙️) but still works the same way.</em>
-</details>
+<blockquote>
+  <details>
+    <summary>
+      <strong>See this feature in action</strong>
+    </summary>
+    <br>
+    <img title="The 'Hide spoilers' feature in action" src="https://user-images.githubusercontent.com/29176678/43830483-9d9e8274-9b01-11e8-8441-8f9deb179ce3.gif">
+    <em>This feature can now be configured from the settings (extension icon → ⚙️) but still works the same way.</em>
+  </details>
+</blockquote>
 
 
 ### Improved top navigation
 
 When watching movies or series, you don't care about what's in your *Shopping Basket* or what *Today's Deals* are. Refined Prime Video removes the default Amazon navigation and widens the search bar so you can more quickly find the movies and series you love.
 
-<details>
-  <summary>
-    <strong><em>See the difference</em></strong>
-  </summary>
-
-  <br>
-
-  <img title="The navigation bar without Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43827618-9065af76-9afa-11e8-86ee-6efa5590995c.png">
-  <img title="The navigation bar with Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43827628-9580ef20-9afa-11e8-81c2-8b548dc5cc85.png">
-</details>
+<blockquote>
+  <details>
+    <summary>
+      <strong>See the difference</strong>
+    </summary>
+    <br>
+    <img title="The navigation bar without Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43827618-9065af76-9afa-11e8-86ee-6efa5590995c.png">
+    <img title="The navigation bar with Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43827628-9580ef20-9afa-11e8-81c2-8b548dc5cc85.png">
+  </details>
+</blockquote>
 
 ### Clean user interface
 
 At least the German Prime Video is cluttered with annoying banners telling you about supposedly _new_ features that have existed for ages and other useless elements like share buttons or a note about their terms of use. Refined Prime Video gets rid of these things.
 
-
-<details>
-  <summary>
-    <strong><em>See the difference</em></strong>
-  </summary>
-
-  <br>
-
-  <img title="The interface without and with Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43651140-de7519f2-9741-11e8-9565-dcfdb6fbf898.png">
-</details>
+<blockquote>
+  <details>
+    <summary>
+      <strong>See the difference</strong>
+    </summary>
+    <br>
+    <img title="The interface without and with Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43651140-de7519f2-9741-11e8-9565-dcfdb6fbf898.png">
+  </details>
+</blockquote>
 
 ## Disclaimer
 
