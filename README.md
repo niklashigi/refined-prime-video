@@ -18,11 +18,11 @@ _Refined Prime Video works on [primevideo.com][pv-global], [amazon.com][pv-us], 
         <br>
       </td>
       <td align="center">
-        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_64x64.png"></a>
+        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_64x64.png"></a>
         <br>
         <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><strong>Firefox</strong> add-on</a>
         <br>
-        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=version&style=flat-square"></a>
+        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=version&style=flat-square"></a>
       </td>
     </tr>
   </tbody>
