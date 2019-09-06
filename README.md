@@ -1,8 +1,8 @@
 # Refined Prime Video
 
-Amazon Prime Video is great but its user interface is cluttered and sometimes very clunky to use. Refined Prime Video is a browser extension that cleans up the interface and adds [useful features](#features) series enthusiasts won't want to live without ever again.
+Refined Prime Video is a browser extension that adds small tweaks and [useful new features](#features) to Amazon's streaming platform Prime Video. It's a must-have for anyone who uses the site on a regular basis because it can highly improve the user experience.
 
-_Refined Prime Video works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv-uk], and [amazon.de][pv-de]._
+_It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv-uk], and [amazon.de][pv-de]._
 
 ## Installation
 
