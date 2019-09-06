@@ -87,7 +87,7 @@ Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. R
   </details>
 </blockquote>
 
-### Skip using a shortcut
+### Skip shortcut
 
 Seeing a trailer for a new series while watching something else is super annoying and in the time that it takes for you to move your mouse to the *Skip* button and click, the trailer has already finished playing. With Refined Prime Video all you have to do is press the <kbd>S</kbd> key on your keyboard. This works with trailers, intros, and recaps.
 
