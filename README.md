@@ -75,7 +75,7 @@ Wanna quickly continue watching your favorite series without drowning in the sea
 
 <img align="right" title="The different modes of this feature" src="https://user-images.githubusercontent.com/29176678/58661188-8af84380-8327-11e9-82e8-c8f6f89c54e4.png">
 
-Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. Refined Prime Video allows you to hide them by blurring the thumbnails and hiding the descriptions of episodes you haven't watched yet. You can control when that happens through a dropdown above the episode list.
+Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. Refined Prime Video allows you to hide them by blurring the thumbnails and hiding the descriptions of episodes you haven't watched yet. You can control when that happens in the extension settings.
 
 <blockquote>
   <details>
@@ -84,7 +84,6 @@ Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. R
     </summary>
     <br>
     <img title="The 'Hide spoilers' feature in action" src="https://user-images.githubusercontent.com/29176678/64418616-a1870700-d09b-11e9-801b-ace599b2694f.gif">
-    <em>This feature can now be configured from the settings (extension icon → ⚙️) but still works the same way.</em>
   </details>
 </blockquote>
 
