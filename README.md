@@ -91,21 +91,6 @@ Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. R
 
 Seeing a trailer for a new series while watching something else is super annoying and in the time that it takes for you to move your mouse to the *Skip* button and click, the trailer has already finished playing. With Refined Prime Video all you have to do is press the <kbd>S</kbd> key on your keyboard. This works with trailers, intros, and recaps.
 
-### Improved top navigation
-
-When watching movies or series, you don't care about what's in your *Shopping Basket* or what *Today's Deals* are. Refined Prime Video removes the default Amazon navigation and widens the search bar so you can more quickly find the movies and series you love.
-
-<blockquote>
-  <details>
-    <summary>
-      <strong>See the difference</strong>
-    </summary>
-    <br>
-    <img title="The navigation bar without Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43827618-9065af76-9afa-11e8-86ee-6efa5590995c.png">
-    <img title="The navigation bar with Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43827628-9580ef20-9afa-11e8-81c2-8b548dc5cc85.png">
-  </details>
-</blockquote>
-
 ### Clean user interface
 
 At least the German Prime Video is cluttered with annoying banners telling you about supposedly _new_ features that have existed for ages and other useless elements like share buttons or a note about their terms of use. Refined Prime Video gets rid of these things.
@@ -117,6 +102,23 @@ At least the German Prime Video is cluttered with annoying banners telling you a
     </summary>
     <br>
     <img title="The interface without and with Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43651140-de7519f2-9741-11e8-9565-dcfdb6fbf898.png">
+  </details>
+</blockquote>
+
+### Improved top navigation
+
+*This feature does **not** apply to users of [primevideo.com](https://primevideo.com).*
+
+When watching movies or series, you don't care about what's in your *Shopping Basket* or what *Today's Deals* are. Refined Prime Video removes the default Amazon navigation and widens the search bar so you can more quickly find the movies and series you love.
+
+<blockquote>
+  <details>
+    <summary>
+      <strong>See the difference</strong>
+    </summary>
+    <br>
+    <img title="The navigation bar without Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43827618-9065af76-9afa-11e8-86ee-6efa5590995c.png">
+    <img title="The navigation bar with Refined Prime Video" src="https://user-images.githubusercontent.com/29176678/43827628-9580ef20-9afa-11e8-81c2-8b548dc5cc85.png">
   </details>
 </blockquote>
 
