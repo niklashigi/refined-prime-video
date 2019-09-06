@@ -124,7 +124,7 @@ When watching movies or series, you don't care about what's in your *Shopping Ba
 
 ## Disclaimer
 
-While this browser extension is meant to be used alongside _Amazon Prime Video_, it is not "official" by any means. I am in no way affiliated with _Amazon​.com, Inc_.
+*Prime Video* is a trademark of *Amazon Technologies, Inc.*, a subsidiary of *Amazon, Inc*. The author of *Refined Prime Video* is not affiliated with these companies.
 
 ## License
 
