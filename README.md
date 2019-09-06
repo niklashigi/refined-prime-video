@@ -130,6 +130,3 @@ MIT © [Niklas Higi](https://shroudedcode.com)
 [pv-us]: https://www.amazon.com/video
 [pv-uk]: https://www.amazon.co.uk/video
 [pv-de]: https://www.amazon.de/video
-
-[cws]: https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd
-[amo]: https://addons.mozilla.org/firefox/addon/refined-prime-video
