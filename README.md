@@ -83,7 +83,7 @@ Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. R
       <strong>See this feature in action</strong>
     </summary>
     <br>
-    <img title="The 'Hide spoilers' feature in action" src="https://user-images.githubusercontent.com/29176678/43830483-9d9e8274-9b01-11e8-8441-8f9deb179ce3.gif">
+    <img title="The 'Hide spoilers' feature in action" src="https://user-images.githubusercontent.com/29176678/64418616-a1870700-d09b-11e9-801b-ace599b2694f.gif">
     <em>This feature can now be configured from the settings (extension icon → ⚙️) but still works the same way.</em>
   </details>
 </blockquote>
