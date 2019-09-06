@@ -10,7 +10,7 @@ _Refined Prime Video works on [primevideo.com][pv-global], [amazon.com][pv-us], 
   <tbody>
     <tr>
       <td align="center">
-        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_64x64.png"></a>
+        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img width="64" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/56.3.2/chrome/chrome.svg"></a>
         <br>
         <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><strong>Chrome</strong> extension</a>
         <br>
@@ -18,7 +18,7 @@ _Refined Prime Video works on [primevideo.com][pv-global], [amazon.com][pv-us], 
         <br>
       </td>
       <td align="center">
-        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_64x64.png"></a>
+        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img width="64" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/56.3.2/firefox/firefox.svg"></a>
         <br>
         <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><strong>Firefox</strong> add-on</a>
         <br>
@@ -40,7 +40,7 @@ _Refined Prime Video works on [primevideo.com][pv-global], [amazon.com][pv-us], 
       <tbody>
         <tr>
           <td align="center">
-            <img valign="middle" src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_24x24.png">
+            <img valign="middle" width="24" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/56.3.2/edge/edge.svg">
             <br>
             <strong>Edge</strong>
           </td>
@@ -50,7 +50,7 @@ _Refined Prime Video works on [primevideo.com][pv-global], [amazon.com][pv-us], 
         </tr>
         <tr>
           <td align="center">
-            <img valign="middle" src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_24x24.png">
+            <img valign="middle" width="24" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/56.3.2/opera/opera.svg">
             <br>
             <strong>Opera</strong>
           </td>
