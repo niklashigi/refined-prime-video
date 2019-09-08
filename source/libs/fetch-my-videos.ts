@@ -35,7 +35,7 @@ async function getBaseUrl() {
   return `https://www.${domain}`
 }
 
-const TITLE_PATTERN = /^(.+?)(?:[:\- ]+((?:Season|Staffel) \d+))?(?: (\[.+\]|\(.+\)))?$/
+const TITLE_PATTERN = /^(.+?)(?:[:\- ]+(\S+? \d+))?(?: (\[.+\]|\(.+\)))?$/
 
 function parseTitle(sourceTitle: string) {
   const [_, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle)
