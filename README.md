@@ -1,6 +1,6 @@
 # Refined Prime Video
 
-Refined Prime Video is a browser extension that adds small tweaks and [useful new features](#features) to Amazon's streaming platform Prime Video. It's a must-have for anyone who uses the site on a regular basis because it can highly improve the user experience.
+Refined Prime Video is a browser extension that adds small tweaks and [useful new features](#features) to Amazon’s streaming platform Prime Video. It’s a must-have for anyone who uses the site on a regular basis because it can highly improve the user experience.
 
 _It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv-uk], and [amazon.de][pv-de]._
 
@@ -65,17 +65,11 @@ _It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv
 
 ## Features
 
-### Continue watching
-
-<img align="right" width=200 title="The different modes of this feature" src="https://user-images.githubusercontent.com/29176678/58662651-027ba200-832b-11e9-917f-74f5a12f0436.png">
-
-Wanna quickly continue watching your favorite series without drowning in the sea of thumbnails of Prime Video's home page or managing bookmarks? Just click on the Refined Prime Video icon, select the series from a list of things you've recently watched, and that's it! The episode you left off at will start playing instantly.
-
 ### Hide spoilers
 
 <img align="right" title="The different modes of this feature" src="https://user-images.githubusercontent.com/29176678/58661188-8af84380-8327-11e9-82e8-c8f6f89c54e4.png">
 
-Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. Refined Prime Video allows you to hide them by blurring the thumbnails and hiding the descriptions of episodes you haven't watched yet. You can control when that happens in the extension settings.
+Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. Refined Prime Video allows you to hide them by blurring the thumbnails and hiding the descriptions of episodes you haven’t watched yet. You can control when that happens in the extension settings.
 
 <blockquote>
   <details>
@@ -87,9 +81,15 @@ Accidentally scrolling too far down and catching a glimpse of a spoiler sucks. R
   </details>
 </blockquote>
 
+### Continue watching
+
+<img align="right" width=200 title="The different modes of this feature" src="https://user-images.githubusercontent.com/29176678/58662651-027ba200-832b-11e9-917f-74f5a12f0436.png">
+
+Wanna quickly continue watching your favorite series without drowning in the sea of thumbnails of Prime Video’s home page or managing bookmarks? Just click on the Refined Prime Video icon, select the series from a list of things you’ve recently watched, and that’s it! The episode you left off at will start playing instantly.
+
 ### Skip shortcut
 
-Seeing a trailer for a new series while watching something else is super annoying and in the time that it takes for you to move your mouse to the *Skip* button and click, the trailer has already finished playing. With Refined Prime Video all you have to do is press the <kbd>S</kbd> key on your keyboard. This works with trailers, intros, recaps, and the "Next up" countdown.
+Seeing a trailer for a new series while watching something else is super annoying and in the time that it takes for you to move your mouse to the *Skip* button and click, the trailer has already finished playing. With Refined Prime Video all you have to do is press the <kbd>S</kbd> key on your keyboard. This works with trailers, intros, recaps, and the *Next up* countdown.
 
 ### Clean user interface
 
@@ -109,7 +109,7 @@ At least the German Prime Video is cluttered with annoying banners telling you a
 
 *This feature does **not** apply to users of [primevideo.com](https://primevideo.com).*
 
-When watching movies or series, you don't care about what's in your *Shopping Basket* or what *Today's Deals* are. Refined Prime Video removes the default Amazon navigation and widens the search bar so you can more quickly find the movies and series you love.
+When watching movies or series, you don’t care about what’s in your *Shopping Basket* or what *Today’s Deals* are. Refined Prime Video removes the default Amazon navigation and widens the search bar so you can more quickly find the movies and series you love.
 
 <blockquote>
   <details>
@@ -124,7 +124,7 @@ When watching movies or series, you don't care about what's in your *Shopping Ba
 
 ## Disclaimer
 
-*Prime Video* is a trademark of *Amazon Technologies, Inc.*, a subsidiary of *Amazon, Inc*. The author of *Refined Prime Video* is not affiliated with these companies.
+*Prime Video* is a trademark of *Amazon Technologies, Inc.*, a subsidiary of *Amazon.com, Inc*. The author of *Refined Prime Video* is not affiliated with these companies.
 
 ## License
 
