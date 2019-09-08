@@ -1,6 +1,6 @@
 module.exports = {
   manifest: {
-    description: 'Simplifies the Amazon Prime Video interface and adds useful features',
+    description: 'Adds small tweaks and useful new features to Amazon Prime Video.',
   },
   navigation: {
     home: 'Prime Video homepage',
