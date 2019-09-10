@@ -10,7 +10,7 @@ _It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv
   <tbody>
     <tr>
       <td align="center">
-        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img width="64" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/56.3.2/chrome/chrome.svg"></a>
+        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img height="64" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/56.3.2/chrome/chrome.svg"></a>
         <br>
         <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><strong>Chrome</strong> extension</a>
         <br>
@@ -18,7 +18,7 @@ _It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv
         <br>
       </td>
       <td align="center">
-        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img width="64" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/56.3.2/firefox/firefox.svg"></a>
+        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img height="64" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/56.3.2/firefox/firefox.svg"></a>
         <br>
         <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><strong>Firefox</strong> add-on</a>
         <br>
