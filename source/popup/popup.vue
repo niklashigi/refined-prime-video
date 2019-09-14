@@ -11,13 +11,13 @@
         <icon-button
           v-if="settings && settings.region"
           class="mr-3"
-          :title="$('navigation_home')"
+          title="Prime Video homepage"
           @click="openHome"
         >
           <home-icon class="m-auto"/>
         </icon-button>
         <icon-button
-          :title="$('navigation_settings')"
+          title="Settings"
           @click="screen = 'settings'"
         >
           <settings-icon class="m-auto"/>
@@ -27,7 +27,7 @@
       <template v-else-if="screen === 'settings'">
         <button
           class="h-10 w-10 rounded-full flex bg-carbon-600 hover:bg-carbon-500 text-gray-500 hover:text-gray-300"
-          :title="$('navigation_done')"
+          title="Done"
           @click="screen = 'continueWatching'"
         >
           <check-circle-icon class="m-auto"/>
@@ -63,11 +63,15 @@ export default {
   components: { IconButton, MyVideosList, SettingsPage, HomeIcon, SettingsIcon, CheckCircleIcon },
   data: () => ({
     screen: 'continueWatching',
+    screenTitles: {
+      continueWatching: 'Continue watching',
+      settings: 'Extension settings',
+    },
     settings: null,
   }),
   computed: {
     screenTitle() {
-      return this.$(`screens_${this.screen}`)
+      return this.screenTitles[this.screen]
     },
   },
   watch: {

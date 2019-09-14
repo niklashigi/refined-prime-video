@@ -8,8 +8,8 @@
     >
       <div class="text-xl mr-3">{{ action.emoji }}</div>
       <div>
-        <div class="font-semibold">{{ $(`support_actions_${actionId}_title`) }}</div>
-        <div class="text-gray-400">{{ $(`support_actions_${actionId}_description`) }}</div>
+        <div class="font-semibold">{{ action.title }}</div>
+        <div class="text-gray-400">{{ action.description }}</div>
       </div>
     </a>
   </div>
@@ -25,14 +25,20 @@ export default {
     actions: {
       review: {
         emoji: '⭐',
+        title: 'Leave a review',
+        description: 'Tell others what you think.',
         url: reviewUrl,
       },
       github: {
         emoji: '🐙',
+        title: 'Check out the GitHub repo',
+        description: 'Look at the source code and leave a star.',
         url: 'https://github.com/shroudedcode/refined-prime-video',
       },
       twitter: {
         emoji: '🐦',
+        title: 'Follow the author on Twitter',
+        description: 'Stay up to date on all sorts of projects.',
         url: 'https://twitter.com/shroudedcode',
       },
     },

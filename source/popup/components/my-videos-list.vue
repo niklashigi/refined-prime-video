@@ -6,20 +6,25 @@
     >
       <template v-if="!settings.region">
         <div class="text-base mb-1">
-          {{ $('continueWatching_noRegion_title') }}
+          No region selected!
         </div>
-        <div v-html="$('continueWatching_noRegion_description')"/>
+        In order to use the <em>Continue watching</em> feature, select a region in the settings.
+        You can open them by clicking on the icon in the top right.
       </template>
 
       <template v-else-if="error">
         <div class="text-base mb-1">
-          {{ $('continueWatching_noVideos_title') }}
+          No videos found!
         </div>
-        <div v-html="$('continueWatching_noVideos_description').replace('%domain%', currentRegion.domain)"/>
+        Make sure you've selected the correct region in the settings and are logged in on
+        <a
+          :href="`https://${currentRegion.domain}`"
+          class="underline"
+        >{{ currentRegion.domain }}</a>.
       </template>
 
       <template v-else>
-        {{ $('continueWatching_loadingVideos') }}
+        Loading videos…
       </template>
     </div>
     <div v-else>
@@ -45,12 +50,7 @@
             <template v-if="video.season">
               {{ video.season }}
             </template>
-            <span
-              v-else
-              class="italic"
-            >
-              {{ $('continueWatching_movie') }}
-            </span>
+            <template v-else>Movie</template>
           </div>
         </div>
         <div class="hidden group-hover:flex ml-2 mr-1 flex-shrink-0 h-10 w-10 rounded-full bg-prime-500 items-center justify-center">

@@ -5,12 +5,11 @@
       class="px-5 py-4"
     >
       <div class="mb-1 font-semibold">
-        {{ $('settings_region_title') }}
+        What's your Prime Video region?
       </div>
-      <div
-        class="mb-3 text-gray-400"
-        v-html="$('settings_region_description')"
-      />
+      <div class="mb-3 text-gray-400">
+        This is used to fetch your <em>Continue watching</em> list.
+      </div>
       <region-selector
         v-model="settings.region"
         @collapse="$refs.regionSection.scrollIntoView({ behavior: 'smooth' })"
@@ -21,10 +20,10 @@
       class="px-5 py-4 border-t border-carbon-500"
     >
       <div class="mb-1 font-semibold">
-        {{ $('settings_showSpoilers_title') }}
+        When should spoilers be displayed?
       </div>
       <div class="mb-3 text-gray-400">
-        {{ $('settings_showSpoilers_description') }}
+        Thumbnails and descriptions of episodes you haven't watched yet are considered spoilers.
       </div>
       <show-spoilers-selector
         v-model="settings.showSpoilers"
@@ -33,10 +32,10 @@
     </div>
     <div class="px-5 py-4 bg-carbon-600 border-t border-carbon-500">
       <div class="mb-1 font-semibold">
-        {{ $('support_title') }}
+        Do you enjoy using Refined Prime Video?
       </div>
       <div class="mb-3 text-gray-400">
-        {{ $('support_description') }}
+        Here are some things you can do to support the project. Your help is greatly appreciated.
       </div>
       <support-section/>
     </div>

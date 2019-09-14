@@ -9,7 +9,7 @@
       {{ option.emoji }}
     </div>
     <div class="ml-3">
-      {{ $(`settings_showSpoilers_options_${optionId}`) }}
+      {{ option.label }}
     </div>
   </base-selector>
 </template>
@@ -22,9 +22,18 @@ export default {
   props: ['value'],
   data: () => ({
     options: {
-      never: { emoji: '🙈' },
-      onHover: { emoji: '🔍' },
-      always: { emoji: '🐵' },
+      never: {
+        emoji: '🙈',
+        label: 'Never show spoilers',
+      },
+      onHover: {
+        emoji: '🔍',
+        label: 'Show spoilers on hover',
+      },
+      always: {
+        emoji: '🐵',
+        label: 'Always show spoilers',
+      },
     },
   }),
 }

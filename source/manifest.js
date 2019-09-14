@@ -11,7 +11,7 @@ module.exports = (version, browser) => {
 
   const manifest = {
     name: 'Refined Prime Video',
-    description: '__MSG_manifest_description__',
+    description: 'Adds small tweaks and useful new features to Amazon Prime Video.',
     homepage_url: 'https://github.com/shroudedcode/refined-prime-video#readme',
     icons: {
       128: 'icon.png',
@@ -24,7 +24,6 @@ module.exports = (version, browser) => {
     },
     version,
     permissions: ['storage', 'tabs'],
-    default_locale: 'en',
     content_scripts: [
       {
         run_at: 'document_start',

@@ -9,7 +9,6 @@
     "build:mkdir": "mkdir -p extensions/common extensions/chrome extensions/firefox",
     "build:common": "run-p build:common:*",
     "build:common:icon": "cp source/icon.png extensions/common/icon.png",
-    "build:common:locales": "node scripts/generate-locales",
     "build:common:sass": "node-sass source/content.scss extensions/common/content.css",
     "build:common:tailwind": "tailwind build source/popup/popup.css -o extensions/common/popup.css",
     "build:common:webpack": "webpack --mode production",
@@ -45,7 +44,6 @@
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.10",
     "web-ext-types": "^3.1.0",
-    "webext-i18n": "^1.1.0",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4"
   },
