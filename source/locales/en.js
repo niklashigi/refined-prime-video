@@ -21,14 +21,14 @@ module.exports = {
     },
     noVideos: {
       title: 'No videos found!',
-      description: "Make sure you've selected the correct region in the settings and are logged into Amazon.",
+      description: "Make sure you've selected the correct region in the settings and are logged in on <strong>%domain%</strong>.",
     },
     loadingVideos: 'Loading videos…',
     movie: 'Movie',
   },
   settings: {
     region: {
-      title: "What site do you visit to use Prime Video?",
+      title: "What's your Prime Video region?",
       description: "This is used to fetch your <em>Continue watching</em> list.",
     },
     showSpoilers: {

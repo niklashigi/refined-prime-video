@@ -21,7 +21,7 @@ module.exports = {
     },
     noVideos: {
       title: 'Keine Videos gefunden!',
-      description: "Stelle sicher, dass du die richtige Version in den Einstellungen ausgewählt hast und du bei Amazon angemeldet bist.",
+      description: "Stelle sicher, dass du die richtige Version in den Einstellungen ausgewählt hast und du auf <strong>%domain%</strong> angemeldet bist.",
     },
     loadingVideos: 'Videos werden geladen…',
     movie: 'Film',

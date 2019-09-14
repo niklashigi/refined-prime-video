@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="px-5 py-4">
+    <div class="px-5 py-4" ref="regionSection">
       <div class="mb-1 font-semibold">
         {{ $('settings_region_title') }}
       </div>
@@ -8,7 +8,10 @@
         class="mb-3 text-gray-400"
         v-html="$('settings_region_description')"
       />
-      <region-selector v-model="settings.region"/>
+      <region-selector
+        v-model="settings.region"
+        @collapse="$refs.regionSection.scrollIntoView({ behavior: 'smooth' })"
+      />
     </div>
     <div class="px-5 py-4 border-t border-carbon-500">
       <div class="mb-1 font-semibold">

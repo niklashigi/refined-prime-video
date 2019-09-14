@@ -5,17 +5,19 @@
       class="p-8 text-center font-italic text-gray-300"
     >
       <template v-if="!settings.region">
-        <div class="font-semibold mb-1">
+        <div class="text-base mb-1">
           {{ $('continueWatching_noRegion_title') }}
         </div>
         <div v-html="$('continueWatching_noRegion_description')"/>
       </template>
+
       <template v-else-if="error">
-        <h3 class="font-semibold mb-1">
+        <div class="text-base mb-1">
           {{ $('continueWatching_noVideos_title') }}
-        </h3>
-        <div v-html="$('continueWatching_noVideos_description')"/>
+        </div>
+        <div v-html="$('continueWatching_noVideos_description').replace('%domain%', currentRegion.domain)"/>
       </template>
+
       <template v-else>
         {{ $('continueWatching_loadingVideos') }}
       </template>
@@ -61,6 +63,7 @@
 
 <script lang="ts">
 import fetchMyVideos from '../../libs/fetch-my-videos'
+import regions from '../../libs/regions'
 
 export default {
   props: ['settings'],
@@ -68,6 +71,11 @@ export default {
     videos: [],
     error: false,
   }),
+  computed: {
+    currentRegion() {
+      return regions[this.settings.region]
+    },
+  },
   created() {
     if (!this.settings.region) return
 
