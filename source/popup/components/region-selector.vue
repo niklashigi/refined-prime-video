@@ -13,7 +13,7 @@
     <div class="text-lg">
       {{ region.flag }}
     </div>
-    <div class="ml-3 flex-grow">
+    <div class="ml-3">
       <div class="font-medium">
         {{ region.name }}
       </div>

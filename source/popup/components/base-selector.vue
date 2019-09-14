@@ -4,7 +4,13 @@
       class="w-full px-3 py-2 flex items-center cursor-pointer bg-carbon-500 hover:bg-carbon-400"
       @click="toggleExpanded"
     >
-      <slot name="option" :option="selectedOption"/>
+      <div class="flex-grow flex items-center">
+        <slot
+          name="option"
+          :option="selectedOption"
+          :option-id="value"
+        />
+      </div>
 
       <chevron-up-icon v-if="expanded" class="text-gray-400"/>
       <chevron-down-icon v-else class="text-gray-400"/>
@@ -18,7 +24,14 @@
         class="w-full px-3 py-2 flex items-center cursor-pointer hover:bg-carbon-600"
         @click="selectOption(optionId)"
       >
-        <slot name="option" :option="option"/>
+        <div class="flex-grow flex items-center">
+          <slot
+            name="option"
+            :option="option"
+            :option-id="optionId"
+          />
+        </div>
+
         <check-icon v-if="optionId === value" class="text-gray-500"/>
       </button>
     </div>
@@ -51,14 +64,16 @@ export default {
     toggleExpanded() {
       this.expanded = !this.expanded
 
-      if (this.expanded) {
-        this.$nextTick(() => this.$el.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        }))
-      } else {
-        this.$emit('collapse')
-      }
+      this.$nextTick(() => {
+        if (this.expanded) {
+          this.$el.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          })
+        } else {
+          this.$emit('collapse')
+        }
+      })
     },
   }
 }

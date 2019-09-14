@@ -1,26 +1,24 @@
 <template>
-  <div>
-    <label
-      v-for="(option, optionId) in options"
-      :key="optionId"
-      :for="`show-spoilers-${optionId}`"
-      class="flex items-center cursor-pointer"
-    >
-      <input
-        type="radio"
-        :id="`show-spoilers-${optionId}`"
-        :checked="value === optionId"
-        @input="$emit('input', optionId)"
-        class="form-radio cursor-pointer text-xl"
-      >
-      <span class="text-lg mx-2">{{ option.emoji }}</span>
+  <base-selector
+    :value="value"
+    :options="options"
+    v-on="$listeners"
+    #option="{ option, optionId }"
+  >
+    <div class="text-lg">
+      {{ option.emoji }}
+    </div>
+    <div class="ml-3">
       {{ $(`settings_showSpoilers_options_${optionId}`) }}
-    </label>
-  </div>
+    </div>
+  </base-selector>
 </template>
 
 <script lang="ts">
+import BaseSelector from './base-selector'
+
 export default {
+  components: { BaseSelector },
   props: ['value'],
   data: () => ({
     options: {

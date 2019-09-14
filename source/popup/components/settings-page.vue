@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <div class="px-5 py-4" ref="regionSection">
+  <div v-if="settings">
+    <div
+      ref="regionSection"
+      class="px-5 py-4"
+    >
       <div class="mb-1 font-semibold">
         {{ $('settings_region_title') }}
       </div>
@@ -13,14 +16,20 @@
         @collapse="$refs.regionSection.scrollIntoView({ behavior: 'smooth' })"
       />
     </div>
-    <div class="px-5 py-4 border-t border-carbon-500">
+    <div
+      ref="showSpoilersSection"
+      class="px-5 py-4 border-t border-carbon-500"
+    >
       <div class="mb-1 font-semibold">
         {{ $('settings_showSpoilers_title') }}
       </div>
       <div class="mb-3 text-gray-400">
         {{ $('settings_showSpoilers_description') }}
       </div>
-      <show-spoilers-selector v-model="settings.showSpoilers"/>
+      <show-spoilers-selector
+        v-model="settings.showSpoilers"
+        @collapse="$refs.showSpoilersSection.scrollIntoView({ behavior: 'smooth', block: 'center' })"
+      />
     </div>
     <div class="px-5 py-4 bg-carbon-600 border-t border-carbon-500">
       <div class="mb-1 font-semibold">
@@ -44,7 +53,7 @@ import SupportSection from './support-section'
 export default {
   components: { RegionSelector, ShowSpoilersSelector, SupportSection },
   data: () => ({
-    settings: {},
+    settings: null,
   }),
   watch: {
     settings: {
