@@ -29,7 +29,7 @@
     "release:firefox": "shipit firefox extensions/firefox"
   },
   "devDependencies": {
-    "@wext/shipit": "^0.2.0",
+    "@wext/shipit": "shroudedcode/wext-shipit",
     "eslint": "^6.4.0",
     "eslint-plugin-vue": "^5.2.3",
     "node-sass": "^4.9.2",
