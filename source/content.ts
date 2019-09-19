@@ -5,22 +5,25 @@ import cleanUrls from './features/clean-urls'
 import hideSpoilers from './features/hide-spoilers'
 import improveNav from './features/improve-nav'
 
-function enableCommonFeatures() {
+function bootstrap() {
   addSkipShortcut()
   cleanUrls()
   hideSpoilers()
+  improveNav()
 }
 
 async function main() {
-  if (location.origin.endsWith('primevideo.com')) {
-    enableCommonFeatures()
-  } else {
-    const container = await elementReady('.av-retail-m-nav-container')
-    if (!container) return
+  if (!location.origin.endsWith('primevideo.com')) {
+    const primeVideoNav = await elementReady([
+      '.av-retail-m-nav-container',
+      // Some sites (like amazon.co.jp) are still using the old navigation
+      '[data-category="instant-video"]',
+    ].join())
 
-    enableCommonFeatures()
-    improveNav()
+    if (!primeVideoNav) return
   }
+
+  bootstrap()
 }
 
 main()

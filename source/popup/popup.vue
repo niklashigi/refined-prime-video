@@ -81,9 +81,8 @@ export default {
   },
   methods: {
     openHome() {
-      const { domain } = regions[this.settings.region]
-      const url = `https://${domain}/video`
-      browser.tabs.create({ url })
+      const { homeUrl } = regions[this.settings.region]
+      browser.tabs.create({ url: homeUrl })
     },
   },
   created() {

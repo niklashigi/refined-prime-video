@@ -3,6 +3,7 @@ const domains = [
   'amazon.com',
   'amazon.co.uk',
   'amazon.de',
+  'amazon.co.jp',
 ]
 
 const urlMatches = domains.map(domain => `https://*.${domain}/*`)
