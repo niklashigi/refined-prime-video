@@ -3,7 +3,7 @@
     <div class="z-10 bg-carbon-900 p-3 pl-4 shadow flex items-center">
       <div>
         <div class="text-gray-500">Refined Prime Video</div>
-        <div class="text-lg font-hairline">{{ screenTitle }}</div>
+        <div class="text-lg font-medium">{{ screenTitle }}</div>
       </div>
       <div class="flex-grow"/>
 
