@@ -3,7 +3,7 @@
     :value="value"
     :options="options"
     v-on="$listeners"
-    #option="{ option, optionId }"
+    #option="{ option }"
   >
     <div class="text-lg">
       {{ option.emoji }}
