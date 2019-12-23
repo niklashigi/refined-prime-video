@@ -36,7 +36,7 @@
           </template>
 
           <template v-else>
-            Loading videos…
+            <spinner/>
           </template>
         </div>
       </div>
@@ -93,13 +93,14 @@
 
 <script lang="ts">
 import { MapPinIcon, AlertTriangleIcon } from 'vue-feather-icons'
+import Spinner from '../components/spinner'
 
 import fetchMyVideos from '../../libs/fetch-my-videos'
 import regions from '../../libs/regions'
 
 export default {
   props: ['settings'],
-  components: { MapPinIcon, AlertTriangleIcon },
+  components: { MapPinIcon, AlertTriangleIcon, Spinner },
   data: () => ({
     videos: [],
     failed: false,
