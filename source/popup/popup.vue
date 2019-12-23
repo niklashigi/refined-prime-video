@@ -40,11 +40,11 @@
       ref="scrollArea"
       class="flex-grow overflow-y-auto"
     >
-      <my-videos-list
+      <continue-watching-screen
         v-if="screen === 'continueWatching'"
         :settings="settings"
       />
-      <settings-page v-else-if="screen === 'settings'"/>
+      <settings-screen v-else-if="screen === 'settings'"/>
     </div>
   </div>
 </template>
@@ -53,14 +53,18 @@
 import { HomeIcon, SettingsIcon, CheckCircleIcon } from 'vue-feather-icons'
 
 import IconButton from './components/icon-button'
-import MyVideosList from './components/my-videos-list'
-import SettingsPage from './components/settings-page'
+
+import ContinueWatchingScreen from './screens/continue-watching'
+import SettingsScreen from './screens/settings'
 
 import settings from '../libs/settings'
-import regions from '../libs/regions';
+import regions from '../libs/regions'
 
 export default {
-  components: { IconButton, MyVideosList, SettingsPage, HomeIcon, SettingsIcon, CheckCircleIcon },
+  components: {
+    HomeIcon, SettingsIcon, CheckCircleIcon, IconButton,
+    ContinueWatchingScreen, SettingsScreen,
+  },
   data: () => ({
     screen: 'continueWatching',
     screenTitles: {

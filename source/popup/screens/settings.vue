@@ -45,9 +45,9 @@
 <script lang="ts">
 import settings from '../../libs/settings'
 
-import RegionSelector from './region-selector'
-import ShowSpoilersSelector from './show-spoilers-selector'
-import SupportSection from './support-section'
+import RegionSelector from '../components/region-selector'
+import ShowSpoilersSelector from '../components/show-spoilers-selector'
+import SupportSection from '../components/support-section'
 
 export default {
   components: { RegionSelector, ShowSpoilersSelector, SupportSection },
