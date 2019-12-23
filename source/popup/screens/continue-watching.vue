@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-full overflow-y-auto">
     <div
       v-if="videos.length === 0"
       class="p-8 text-center font-italic text-gray-300"

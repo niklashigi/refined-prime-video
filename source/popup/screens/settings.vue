@@ -1,5 +1,8 @@
 <template>
-  <div v-if="settings">
+  <div
+    v-if="settings"
+    class="h-full overflow-y-auto"
+  >
     <div
       ref="regionSection"
       class="px-5 py-4"

@@ -37,8 +37,7 @@
 
     <div
       v-if="settings"
-      ref="scrollArea"
-      class="flex-grow overflow-y-auto"
+      class="flex-grow overflow-hidden"
     >
       <continue-watching-screen
         v-if="screen === 'continueWatching'"
@@ -76,11 +75,6 @@ export default {
   computed: {
     screenTitle() {
       return this.screenTitles[this.screen]
-    },
-  },
-  watch: {
-    screen() {
-      this.$refs.scrollArea.scrollTop = 0
     },
   },
   methods: {
