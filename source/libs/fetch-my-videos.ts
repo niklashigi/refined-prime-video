@@ -9,7 +9,22 @@ export default async function fetchMyVideos() {
   const collection = storefront.collections.filter(c => c.edit)[0]
   if (!collection) throw new Error('No videos found!')
 
+  browser.storage.local.set({ [await getCacheKey()]: collection.items as any })
+
   return collection.items.map(parseCollectionItem)
+}
+
+export async function getCachedVideos(): Promise<Video[]> {
+  const key = await getCacheKey()
+  const { [key]: items } = await browser.storage.local.get([key])
+  if (!items) return []
+
+  return (items as any).map(parseCollectionItem)
+}
+
+async function getCacheKey() {
+  const { region } = await settings.getAll()
+  return `cachedVideoItems-${region}`
 }
 
 async function fetchStorefront() {
@@ -18,7 +33,7 @@ async function fetchStorefront() {
   return (await (await fetch(endpointUrl)).json()) as Storefront
 }
 
-function parseCollectionItem(item: Item) {
+function parseCollectionItem(item: Item): Video {
   const id = item.titleID
 
   return {
@@ -62,4 +77,13 @@ interface Item {
 
 interface Image {
   url: string
+}
+
+interface Video {
+  image: string
+  continueWatchingUrl: string
+  title: string
+  season: string
+  titleSuffix: string
+  id: string
 }

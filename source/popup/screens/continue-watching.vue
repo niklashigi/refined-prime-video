@@ -40,11 +40,17 @@
           </template>
         </div>
       </div>
-      <div v-else class="h-full overflow-y-auto">
+      <div
+        v-else
+        class="h-full overflow-y-auto"
+        :class="{ 'opacity-50': replacing }"
+        style="transition: opacity .2s"
+      >
         <a
           v-for="video in videos"
           :key="video.id"
           class="flex p-3 border-b border-carbon-600 hover:bg-carbon-600 items-center group"
+          :class="{ 'cursor-wait': replacing }"
           :href="video.continueWatchingUrl"
         >
           <img
@@ -95,7 +101,7 @@
 import { MapPinIcon, AlertTriangleIcon } from 'vue-feather-icons'
 import Spinner from '../components/spinner'
 
-import fetchMyVideos from '../../libs/fetch-my-videos'
+import fetchMyVideos, { getCachedVideos } from '../../libs/fetch-my-videos'
 import regions from '../../libs/regions'
 
 export default {
@@ -104,6 +110,7 @@ export default {
   data: () => ({
     videos: [],
     failed: false,
+    replacing: false,
   }),
   computed: {
     currentRegion() {
@@ -113,9 +120,23 @@ export default {
   created() {
     if (!this.settings.region) return
 
+    getCachedVideos().then(videos => this.videos = videos)
+
     fetchMyVideos()
-      .then(videos => this.videos = videos)
-      .catch(() => this.failed = true)
+      .then(videos => {
+        const videosUnchanged = this.videos.every((video, i) => videos[i].id === video.id)
+        if (videosUnchanged) return this.videos = videos
+
+        this.replacing = true
+        setTimeout(() => {
+          this.videos = videos
+          this.replacing = false
+        }, 500)
+      })
+      .catch(error => {
+        this.failed = true
+        console.error('[RPV] Loading videos failed!', error)
+      })
   },
 }
 </script>
