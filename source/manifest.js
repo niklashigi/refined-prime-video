@@ -59,6 +59,11 @@ module.exports = (version, browser) => {
     // preventing content scripts from being inserted in 'sandbox' mode
     manifest.permissions.push(...urlMatches)
 
+    // Disable tracking protection for domains, so that "Continue watching"
+    // requests are not blocked (see https://discourse.mozilla.org/t/50900)
+    const wwwHosts = domains.map(domain => `https://www.${domain}/`)
+    manifest.permissions.push(...wwwHosts)
+
   }
 
   return manifest
