@@ -14,15 +14,14 @@ _It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv
         <br>
         <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><strong>Chrome</strong> extension</a>
         <br>
-        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img valign="middle" src="https://img.shields.io/chrome-web-store/v/pieemlagbhnombolehnjdoaoojpphedd.svg?label=version&style=flat-square"></a>
-        <br>
+        <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd"><img valign="middle" src="https://img.shields.io/chrome-web-store/users/pieemlagbhnombolehnjdoaoojpphedd?style=flat-square&color=success&label=used+by&logo=google-chrome&logoColor=white"></a>
       </td>
       <td align="center">
         <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img height="64" src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/61.1.3/firefox/firefox.svg"></a>
         <br>
         <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><strong>Firefox</strong> add-on</a>
         <br>
-        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img valign="middle" src="https://img.shields.io/amo/v/refined-prime-video.svg?label=version&style=flat-square"></a>
+        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img valign="middle" src="https://img.shields.io/amo/users/refined-prime-video?style=flat-square&color=success&label=used+by&logo=mozilla-firefox&logoColor=white"></a>
       </td>
     </tr>
   </tbody>
