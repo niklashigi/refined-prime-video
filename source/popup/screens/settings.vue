@@ -33,14 +33,8 @@
         @collapse="$refs.showSpoilersSection.scrollIntoView({ behavior: 'smooth', block: 'center' })"
       />
     </div>
-    <div class="px-5 py-4 bg-carbon-600 border-t border-carbon-500">
-      <div class="mb-1 font-semibold">
-        Do you enjoy using Refined Prime Video?
-      </div>
-      <div class="mb-3 text-gray-400">
-        Here are some things you can do to support the project. Your help is greatly appreciated.
-      </div>
-      <support-section/>
+    <div>
+      <footer-section/>
     </div>
   </div>
 </template>
@@ -50,10 +44,10 @@ import settings from '../../libs/settings'
 
 import RegionSelector from '../components/region-selector'
 import ShowSpoilersSelector from '../components/show-spoilers-selector'
-import SupportSection from '../components/support-section'
+import FooterSection from '../components/footer-section'
 
 export default {
-  components: { RegionSelector, ShowSpoilersSelector, SupportSection },
+  components: { RegionSelector, ShowSpoilersSelector, FooterSection },
   data: () => ({
     settings: null,
   }),
