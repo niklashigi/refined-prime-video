@@ -1,4 +1,4 @@
-function cleanUrl(urlString: string) {
+function cleanUrl(urlString: string): string {
   const url = new URL(urlString)
 
   url.search = cleanSearchParams(url.search)
@@ -10,7 +10,7 @@ function cleanUrl(urlString: string) {
   return url.toString()
 }
 
-function cleanSearchParams(searchString: string) {
+function cleanSearchParams(searchString: string): string {
   const params = new URLSearchParams(searchString)
 
   // Used to track how the user came to the page
@@ -28,7 +28,7 @@ function cleanSearchParams(searchString: string) {
   return params.toString()
 }
 
-export default function() {
+export default function(): void {
   const pageUrl = location.href
   const cleanedUrl = cleanUrl(location.href)
 

@@ -27,7 +27,7 @@ export default class SettingsStore<Settings> {
     this.storageName = storageName
   }
 
-  public async setup(config: Config<Settings>) {
+  public async setup(config: Config<Settings>): Promise<void> {
     await this.applyConfig(config)
 
     browser.storage.onChanged.addListener((changes, areaName) => {
@@ -48,7 +48,7 @@ export default class SettingsStore<Settings> {
     return storage[this.storageName] as any
   }
 
-  public async setAll(newSettings: Settings) {
+  public async setAll(newSettings: Settings): Promise<void> {
     await browser.storage.sync.set({
       [this.storageName]: newSettings as any,
     })
@@ -56,12 +56,12 @@ export default class SettingsStore<Settings> {
     this.cache = newSettings
   }
 
-  public onChange(listener: ChangeListener<Settings>) {
+  public onChange(listener: ChangeListener<Settings>): void {
     this.changeListeners.add(listener)
     if (this.cache) listener(this.cache)
   }
 
-  private async applyConfig(config: Config<Settings>) {
+  private async applyConfig(config: Config<Settings>): Promise<void> {
     const settings = {
       ...config.defaults,
       ...(await this.getAll()),

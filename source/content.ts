@@ -5,14 +5,14 @@ import cleanUrls from './features/clean-urls'
 import hideSpoilers from './features/hide-spoilers'
 import improveNav from './features/improve-nav'
 
-function bootstrap() {
+function bootstrap(): void {
   addSkipShortcut()
   cleanUrls()
   hideSpoilers()
   improveNav()
 }
 
-async function main() {
+async function main(): Promise<void> {
   if (!location.origin.endsWith('primevideo.com')) {
     const primeVideoNav = await elementReady([
       '.av-retail-m-nav-container',

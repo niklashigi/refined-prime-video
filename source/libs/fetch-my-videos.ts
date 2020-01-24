@@ -3,7 +3,7 @@ import settings from './settings'
 
 let baseUrl = null
 
-export default async function fetchMyVideos() {
+export default async function fetchMyVideos(): Promise<Video[]> {
   const storefront = await fetchStorefront()
 
   const collection = storefront.collections.filter(c => c.edit)[0]
@@ -22,12 +22,12 @@ export async function getCachedVideos(): Promise<Video[]> {
   return (items as any).map(parseCollectionItem)
 }
 
-async function getCacheKey() {
+async function getCacheKey(): Promise<string> {
   const { region } = await settings.getAll()
   return `cachedVideoItems-${region}`
 }
 
-async function fetchStorefront() {
+async function fetchStorefront(): Promise<Storefront> {
   baseUrl = await getBaseUrl()
   const endpointUrl = `${baseUrl}/gp/video/api/storefront`
   return (await (await fetch(endpointUrl)).json()) as Storefront
@@ -44,7 +44,7 @@ function parseCollectionItem(item: Item): Video {
   }
 }
 
-async function getBaseUrl() {
+async function getBaseUrl(): Promise<string> {
   const { region } = await settings.getAll()
   const { domain } = regions[region]
   return `https://www.${domain}`
@@ -52,8 +52,14 @@ async function getBaseUrl() {
 
 const TITLE_PATTERN = /^(.+?)(?:[:\- ]+(\S+? \d+))?(?: (\[.+\]|\(.+\)))?$/
 
-function parseTitle(sourceTitle: string) {
-  const [_, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle)
+interface TitleInfo {
+  title: string
+  season: string
+  titleSuffix: string
+}
+
+function parseTitle(sourceTitle: string): TitleInfo {
+  const [, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle)
   return { title, season, titleSuffix }
 }
 

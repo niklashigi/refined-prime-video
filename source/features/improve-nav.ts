@@ -1,4 +1,4 @@
-export default function() {
+export default function(): void {
   // primevideo.com's navigation doesn't need to be cleaned up
   if (location.origin.endsWith('primevideo.com')) return
 

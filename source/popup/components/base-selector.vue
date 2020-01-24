@@ -75,6 +75,6 @@ export default {
         }
       })
     },
-  }
+  },
 }
 </script>

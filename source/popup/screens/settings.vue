@@ -63,7 +63,7 @@ export default {
         settings.setAll(newSettings)
       },
       deep: true,
-    }
+    },
   },
   async created() {
     this.settings = await settings.getAll()

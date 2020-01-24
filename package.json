@@ -2,8 +2,7 @@
   "scripts": {
     "lint": "run-s lint:*",
     "lint:sass": "sass-lint -v --max-warnings 0",
-    "lint:ts": "tslint --project .",
-    "lint:vue": "eslint --ext .vue source",
+    "lint:ts": "eslint --ext .ts,.vue source",
     "build": "NODE_ENV=production run-s build:*",
     "build:clean": "rm -rf extensions/*",
     "build:mkdir": "mkdir -p extensions/common extensions/chrome extensions/firefox",
@@ -29,6 +28,8 @@
     "release:firefox": "shipit firefox extensions/firefox"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
     "@wext/shipit": "^0.2.1",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.1.2",
@@ -38,7 +39,6 @@
     "tailwindcss": "^1.1.4",
     "terser-webpack-plugin": "^2.3.2",
     "ts-loader": "^6.2.1",
-    "tslint": "^5.20.1",
     "typescript": "^3.7.5",
     "utc-version": "^2.0.1",
     "vue-loader": "^15.8.3",

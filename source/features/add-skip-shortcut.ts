@@ -4,14 +4,14 @@ const BUTTON_SELECTORS = [
   /* Next episode countdown */ '.nextUpCard',
 ]
 
-function skip() {
+function skip(): void {
   for (const selector of BUTTON_SELECTORS) {
     const button: HTMLElement = document.querySelector(selector)
     if (button) return button.click()
   }
 }
 
-export default function() {
+export default function(): void {
   window.addEventListener('keydown', ({ code }) => {
     if (code === 'KeyS') skip()
   })
