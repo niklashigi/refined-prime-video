@@ -1,16 +1,16 @@
 .rpv-inav,
 .avu-retail-page
 {
-  // Hide regular Amazon nav
+  // Hide shopping-related nav items
   #nav-main,
-
-  // Hide right nav (empty container)
-  #nav-belt > .nav-right
+  #nav-cart,
+  #nav-link-prime,
+  #nav-orders
 
   { display: none !important; }
 
   // Fix distance between "Amazon" nav and "Prime Video" nav
-  #navbar {
+  #navbar:not(.layout2) {
     padding-bottom: 20px !important;
   }
 
