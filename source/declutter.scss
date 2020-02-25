@@ -7,19 +7,23 @@
 
 // Hide large banner above movie/series title
 // (because it's annoying and can't be dismissed)
-.dv-dp-top-banner,
+.dv-dp-top-banner, // Old
+img[src*='Device_Stripe'], // New
 
 // Hide product offer below metadata
 // (because it's also annoying and can't be dismissed)
-.av-hql-container,
+.av-hql-container, // Old
+.av-detail-section article .avu-clearfix, // New
 
 // Hide weird bar below metadata
 // (because I don't want to "Share", "Send us feedback" or "Get Help")
-.av-detail-bottom-bar,
+.av-detail-bottom-bar, // Old
+.dv-dp-node-bottom, // New
 
 // Hide "More purchase options" link
 // (because I don't want to purchase things I can watch for free)
-#dv-action-box [data-aiv-modal*='more-purchase-options'], // entire series
-.js-episode-offers // single episode
+#dv-action-box [data-aiv-modal*='more-purchase-options'], // Entire series
+.js-episode-offers, // Single episode
+[data-automation-id='other-formats'] // New
 
 { display: none !important; }
