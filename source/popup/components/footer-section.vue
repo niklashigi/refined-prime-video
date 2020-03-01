@@ -3,7 +3,7 @@
     <div class="px-5 py-3 flex items-center bg-carbon-600 border-t border-carbon-500">
       <div class="mr-3 text-gray-400">
         <span class="font-medium">Refined Prime Video</span>
-        is a a free and open-source project by
+        is a free and open-source project by
         <a class="underline" href="https://shroudedcode.com">Niklas Higi</a>.
       </div>
       <div class="flex-grow"/>
