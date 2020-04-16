@@ -1,5 +1,5 @@
 name: Continuous integration
-on: [push]
+on: push
 jobs:
   lint:
     name: Lint
@@ -11,8 +11,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - name: Install Yarn
-      run: npm install -g yarn
     - name: Install dependencies
       run: yarn
     - name: Lint code
@@ -27,8 +25,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - name: Install Yarn
-      run: npm install -g yarn
     - name: Install dependencies
       run: yarn
     - name: Build extension
