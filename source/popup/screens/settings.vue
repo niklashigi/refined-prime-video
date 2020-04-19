@@ -42,9 +42,9 @@
 <script lang="ts">
 import settings from '../../libs/settings'
 
-import RegionSelector from '../components/region-selector'
-import ShowSpoilersSelector from '../components/show-spoilers-selector'
-import FooterSection from '../components/footer-section'
+import RegionSelector from '../components/region-selector.vue'
+import ShowSpoilersSelector from '../components/show-spoilers-selector.vue'
+import FooterSection from '../components/footer-section.vue'
 
 export default {
   components: { RegionSelector, ShowSpoilersSelector, FooterSection },

@@ -99,7 +99,7 @@
 
 <script lang="ts">
 import { MapPinIcon, AlertTriangleIcon } from 'vue-feather-icons'
-import Spinner from '../components/spinner'
+import Spinner from '../components/spinner.vue'
 
 import fetchMyVideos, { getCachedVideos } from '../../libs/fetch-my-videos'
 import regions from '../../libs/regions'

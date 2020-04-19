@@ -51,10 +51,10 @@
 <script lang="ts">
 import { HomeIcon, SettingsIcon, CheckCircleIcon } from 'vue-feather-icons'
 
-import IconButton from './components/icon-button'
+import IconButton from './components/icon-button.vue'
 
-import ContinueWatchingScreen from './screens/continue-watching'
-import SettingsScreen from './screens/settings'
+import ContinueWatchingScreen from './screens/continue-watching.vue'
+import SettingsScreen from './screens/settings.vue'
 
 import settings from '../libs/settings'
 import regions from '../libs/regions'
