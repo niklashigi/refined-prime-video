@@ -7,12 +7,12 @@ let baseUrl = null
 export default async function fetchMyVideos(): Promise<Video[]> {
   const storefront = await fetchStorefront()
 
-  const collection = storefront.collections.filter(c => c.edit)[0]
+  const collection = storefront.collections.find(c => c.edit)
   if (!collection) throw new Error('No videos found!')
 
   browser.storage.local.set({ [await getCacheKey()]: collection.items as any })
 
-  return collection.items.map(parseCollectionItem)
+  return parseCollectionItems(collection.items)
 }
 
 export async function getCachedVideos(): Promise<Video[]> {
@@ -20,7 +20,7 @@ export async function getCachedVideos(): Promise<Video[]> {
   const { [key]: items } = await browser.storage.local.get([key])
   if (!items) return []
 
-  return (items as any).map(parseCollectionItem)
+  return parseCollectionItems(items as any)
 }
 
 async function getCacheKey(): Promise<string> {
@@ -32,6 +32,12 @@ async function fetchStorefront(): Promise<Storefront> {
   baseUrl = await getBaseUrl()
   const endpointUrl = `${baseUrl}/gp/video/api/storefront`
   return (await (await fetch(endpointUrl)).json()) as Storefront
+}
+
+function parseCollectionItems(items: CollectionItem[]): Video[] {
+  return items
+    .filter(item => item.playbackAction)
+    .map(parseCollectionItem)
 }
 
 function parseCollectionItem(item: CollectionItem): Video {

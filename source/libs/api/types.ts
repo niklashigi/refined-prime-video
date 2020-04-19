@@ -13,6 +13,7 @@ export interface CollectionItem {
   image: Image
   title: string
   titleID: string
+  playbackAction?: any
   edit?: any
 }
 
