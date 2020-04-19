@@ -1,5 +1,6 @@
 import regions from './regions'
 import settings from './settings'
+import { Storefront, CollectionItem } from './api/types'
 
 let baseUrl = null
 
@@ -33,7 +34,7 @@ async function fetchStorefront(): Promise<Storefront> {
   return (await (await fetch(endpointUrl)).json()) as Storefront
 }
 
-function parseCollectionItem(item: Item): Video {
+function parseCollectionItem(item: CollectionItem): Video {
   const id = item.titleID
 
   return {
@@ -61,28 +62,6 @@ interface TitleInfo {
 function parseTitle(sourceTitle: string): TitleInfo {
   const [, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle)
   return { title, season, titleSuffix }
-}
-
-interface Storefront {
-  collections: Collection[]
-}
-
-interface Collection {
-  text: string
-  items: Item[]
-  edit?: any
-}
-
-interface Item {
-  link: Image
-  image: Image
-  title: string
-  titleID: string
-  edit?: any
-}
-
-interface Image {
-  url: string
 }
 
 interface Video {
