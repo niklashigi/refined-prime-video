@@ -130,7 +130,8 @@ export default {
 
     fetchMyVideos()
       .then(videos => {
-        const videosUnchanged = this.videos.every((video, i) => videos[i].id === video.id)
+        const videosUnchanged = this.videos.length === videos.length
+          && this.videos.every((video, i) => videos[i].id === video.id)
         if (videosUnchanged) return this.videos = videos
 
         this.replacing = true
