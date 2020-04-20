@@ -67,7 +67,9 @@
               class="truncate text-sm text-gray-400"
             >
               <template v-if="video.season">
-                {{ video.season }}
+                Season <strong class="font-medium">{{ video.season }}</strong>
+                <span class="text-gray-600">/</span>
+                Ep. <strong class="font-medium">{{ video.episode }}</strong>
               </template>
               <template v-else>Movie</template>
             </div>

@@ -43,9 +43,15 @@ function parseCollectionItems(items: CollectionItem[]): Video[] {
 function parseCollectionItem(item: CollectionItem): Video {
   const id = item.titleID
 
+  const titleInfo = parseTitle(item.title)
+  const playbackInfo = parsePlaybackAction(item.playbackAction.label)
+
   return {
     id,
-    ...parseTitle(item.title),
+    title: titleInfo.title,
+    titleSuffix: titleInfo.titleSuffix,
+    season: playbackInfo?.season,
+    episode: playbackInfo?.episode,
     image: item.image.url,
     continueWatchingUrl: `${baseUrl}/gp/video/detail/${id}?autoplay=1`,
   }
@@ -58,6 +64,7 @@ async function getBaseUrl(): Promise<string> {
 }
 
 const TITLE_PATTERN = /^(.+?)(?:[:\- ]+(\S+? \d+))?(?: (\[.+\]|\(.+\)))?$/
+const PLAYBACK_ACTION_PATTERN = /Play S(\d+) E(\d+)/
 
 interface TitleInfo {
   title: string
@@ -70,11 +77,25 @@ function parseTitle(sourceTitle: string): TitleInfo {
   return { title, season, titleSuffix }
 }
 
+interface PlaybackInfo {
+  season: number
+  episode: number
+}
+
+function parsePlaybackAction(playbackAction: string): PlaybackInfo {
+  const match = PLAYBACK_ACTION_PATTERN.exec(playbackAction)
+  if (!match) return
+
+  const [, season, episode] = PLAYBACK_ACTION_PATTERN.exec(playbackAction)
+  return { season: parseInt(season), episode: parseInt(episode) }
+}
+
 interface Video {
   image: string
   continueWatchingUrl: string
   title: string
-  season: string
   titleSuffix: string
+  season?: number
+  episode?: number
   id: string
 }

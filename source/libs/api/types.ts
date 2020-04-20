@@ -13,8 +13,12 @@ export interface CollectionItem {
   image: Image
   title: string
   titleID: string
-  playbackAction?: any
+  playbackAction?: PlaybackAction
   edit?: any
+}
+
+export interface PlaybackAction {
+  label: string
 }
 
 export interface Image {
