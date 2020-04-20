@@ -71,7 +71,11 @@
                 <span class="text-gray-600">/</span>
                 Ep. <strong class="font-medium">{{ video.episode }}</strong>
               </template>
-              <template v-else>Movie</template>
+              <template v-else>
+                Movie
+                <span class="text-gray-600">/</span>
+                {{ video.runtime }}
+              </template>
             </div>
           </div>
           <div class="hidden group-hover:flex ml-2 mr-1 flex-shrink-0 h-10 w-10 rounded-full bg-prime-500 items-center justify-center">

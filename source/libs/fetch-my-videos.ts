@@ -52,6 +52,7 @@ function parseCollectionItem(item: CollectionItem): Video {
     titleSuffix: titleInfo.titleSuffix,
     season: playbackInfo?.season,
     episode: playbackInfo?.episode,
+    runtime: item.runtime,
     image: item.image.url,
     continueWatchingUrl: `${baseUrl}/gp/video/detail/${id}?autoplay=1`,
   }
@@ -97,5 +98,6 @@ interface Video {
   titleSuffix: string
   season?: number
   episode?: number
+  runtime?: string
   id: string
 }

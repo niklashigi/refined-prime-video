@@ -14,6 +14,7 @@ export interface CollectionItem {
   title: string
   titleID: string
   playbackAction?: PlaybackAction
+  runtime?: string
   edit?: any
 }
 
