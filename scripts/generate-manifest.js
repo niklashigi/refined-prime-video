@@ -9,6 +9,6 @@ for (const browser of ['chrome', 'firefox']) {
   const json = JSON.stringify(manifest, null, 2)
   fs.writeFileSync(
     path.resolve(__dirname, `../extensions/${browser}/manifest.json`),
-    json
+    json,
   )
 }

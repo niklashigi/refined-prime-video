@@ -1,7 +1,8 @@
 const TerserPlugin = require('terser-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-const extensionDirectory = process.env.NODE_ENV === 'development' ? 'chrome' : 'common'
+const extensionDirectory =
+  process.env.NODE_ENV === 'development' ? 'chrome' : 'common'
 
 module.exports = {
   entry: {
@@ -15,14 +16,14 @@ module.exports = {
 		rules: [
 			{
 				test: /\.vue$/,
-				loader: 'vue-loader'
+				loader: 'vue-loader',
 			},
 			{
 				test: /\.tsx?$/,
 				loader: 'ts-loader',
-        options: { appendTsSuffixTo: [/\.vue$/] }
-			}
-		]
+        options: { appendTsSuffixTo: [/\.vue$/] },
+			},
+		],
   },
   optimization: {
     minimizer: [

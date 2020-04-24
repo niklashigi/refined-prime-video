@@ -2,7 +2,7 @@
   "scripts": {
     "lint": "run-s lint:*",
     "lint:sass": "sass-lint -v --max-warnings 0",
-    "lint:ts": "eslint --ext .ts,.vue source",
+    "lint:js": "eslint --ext .ts,.js,.vue source --ignore-path .gitignore",
     "build": "NODE_ENV=production run-s build:*",
     "build:clean": "rm -rf extensions/*",
     "build:mkdir": "mkdir -p extensions/common extensions/chrome extensions/firefox",

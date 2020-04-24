@@ -27,4 +27,12 @@ module.exports = {
       singleline: { delimiter: 'comma', requireLast: false },
     }],
   },
+  overrides: [
+    {
+      files: ['**/*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    }
+  ],
 }

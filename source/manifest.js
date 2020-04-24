@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */
+
 const domains = [
   'primevideo.com',
   'amazon.com',
@@ -31,7 +33,7 @@ module.exports = (version, browser) => {
         matches: urlMatches,
         js: ['content.js'],
         css: ['content.css'],
-      }
+      },
     ],
     manifest_version: 2,
   }
@@ -51,8 +53,8 @@ module.exports = (version, browser) => {
     manifest.applications = {
       gecko: {
         id: '{d2d5c630-405c-4415-a627-e6c90dd8f568}',
-        strict_min_version: '55.0'
-      }
+        strict_min_version: '55.0',
+      },
     }
 
     // Add host permissions required to work around Firefox's CSP implementation
