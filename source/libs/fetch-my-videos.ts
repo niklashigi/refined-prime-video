@@ -30,7 +30,7 @@ async function getCacheKey(): Promise<string> {
 
 async function fetchStorefront(): Promise<Storefront> {
   baseUrl = await getBaseUrl()
-  const endpointUrl = `${baseUrl}/gp/video/api/storefront`
+  const endpointUrl = `${baseUrl}/gp/video/api/storefront?language=en`
   return (await (await fetch(endpointUrl)).json()) as Storefront
 }
 
