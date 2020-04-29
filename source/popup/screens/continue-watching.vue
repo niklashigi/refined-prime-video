@@ -40,48 +40,50 @@
           </template>
         </div>
       </div>
-      <div
-        v-else
-        class="h-full overflow-y-auto"
-        :class="{ 'opacity-50': replacing }"
-        style="transition: opacity .2s"
-      >
-        <a
-          v-for="video in videos"
-          :key="video.id"
-          class="flex p-3 border-b border-carbon-600 hover:bg-carbon-600 items-center group"
-          :class="{ 'cursor-wait': replacing }"
-          :href="video.continueWatchingUrl"
+      <div v-else class="h-full overflow-y-auto overflow-x-hidden">
+        <transition-group
+          move-class="transition-transform duration-500 ease-in-out"
+          enter-active-class="transition duration-500 ease-out transform"
+          enter-class="opacity-0 -translate-x-6"
+          leave-active-class="transition duration-500 ease-in transform absolute"
+          leave-to-class="opacity-0 translate-x-6"
         >
-          <img
-            class="block mr-3 bg-carbon-900 flex-shrink-0 rounded-sm"
-            loading="lazy"
-            style="width: 90px; height: 50.59px"
-            :src="video.image"
+          <a
+            v-for="video in videos"
+            :key="video.id"
+            class="flex p-3 border-b border-carbon-600 bg-carbon-700 hover:bg-carbon-600 items-center group"
+            :href="video.continueWatchingUrl"
           >
-          <div class="truncate flex-grow">
-            <div class="truncate text-base font-medium">
-              {{ video.title }}
-            </div>
-            <div
-              class="truncate text-sm text-gray-400"
+            <img
+              class="block mr-3 bg-carbon-900 flex-shrink-0 rounded-sm"
+              loading="lazy"
+              style="width: 90px; height: 50.59px"
+              :src="video.image"
             >
-              <template v-if="video.season">
-                Season <strong class="font-medium">{{ video.season }}</strong>
-                <span class="text-gray-600">/</span>
-                Ep. <strong class="font-medium">{{ video.episode }}</strong>
-              </template>
-              <template v-else>
-                Movie
-                <span class="text-gray-600">/</span>
-                {{ video.runtime }}
-              </template>
+            <div class="truncate flex-grow">
+              <div class="truncate text-base font-medium">
+                {{ video.title }}
+              </div>
+              <div
+                class="truncate text-sm text-gray-400"
+              >
+                <template v-if="video.season">
+                  Season <strong class="font-medium">{{ video.season }}</strong>
+                  <span class="text-gray-600">/</span>
+                  Ep. <strong class="font-medium">{{ video.episode }}</strong>
+                </template>
+                <template v-else>
+                  Movie
+                  <span class="text-gray-600">/</span>
+                  {{ video.runtime }}
+                </template>
+              </div>
             </div>
-          </div>
-          <div class="hidden group-hover:flex ml-2 mr-1 flex-shrink-0 h-10 w-10 rounded-full bg-prime-500 items-center justify-center">
-            <svg class="ml-1 w-4 h-4 fill-current text-white" viewBox="0 0 20 20"><path d="M1.79 19.73c-.99.5-1.79.02-1.79-1.1V1.3C0 .19.8-.3 1.79.2L19.2 9.06c1 .5 1 1.31 0 1.82L1.8 19.73z"/></svg>
-          </div>
-        </a>
+            <div class="hidden group-hover:flex ml-2 mr-1 flex-shrink-0 h-10 w-10 rounded-full bg-prime-500 items-center justify-center">
+              <svg class="ml-1 w-4 h-4 fill-current text-white" viewBox="0 0 20 20"><path d="M1.79 19.73c-.99.5-1.79.02-1.79-1.1V1.3C0 .19.8-.3 1.79.2L19.2 9.06c1 .5 1 1.31 0 1.82L1.8 19.73z"/></svg>
+            </div>
+          </a>
+        </transition-group>
       </div>
     </div>
     <div
@@ -116,7 +118,6 @@ export default {
   data: () => ({
     videos: [],
     failed: false,
-    replacing: false,
   }),
   computed: {
     currentRegion() {
@@ -129,17 +130,7 @@ export default {
     getCachedVideos().then(videos => this.videos = videos)
 
     fetchMyVideos()
-      .then(videos => {
-        const videosUnchanged = this.videos.length === videos.length
-          && this.videos.every((video, i) => videos[i].id === video.id)
-        if (videosUnchanged) return this.videos = videos
-
-        this.replacing = true
-        setTimeout(() => {
-          this.videos = videos
-          this.replacing = false
-        }, 500)
-      })
+      .then(videos => this.videos = videos)
       .catch(error => {
         this.failed = true
         console.error('[RPV] Loading videos failed!', error)
