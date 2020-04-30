@@ -3,11 +3,6 @@ module.exports = {
     colors: {
       white: '#fff',
       black: '#000',
-      amazon: {
-        300: '#ffc770',
-        400: '#ff9633',
-        500: '#ff9633',
-      },
       prime: {
         300: '#00cefb',
         400: '#00c1fa',
@@ -33,11 +28,9 @@ module.exports = {
         900: '#141d23',
       },
     },
-    extend: {},
   },
   variants: {
     display: ['group-hover'],
   },
-  plugins: [],
   purge: ['./source/popup/**/*.vue'],
 }
