@@ -39,4 +39,5 @@ module.exports = {
     display: ['group-hover'],
   },
   plugins: [],
+  purge: ['./source/popup/**/*.vue'],
 }
