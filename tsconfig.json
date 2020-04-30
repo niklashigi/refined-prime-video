@@ -3,6 +3,10 @@
     "target": "es2019",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["node_modules/@types", "node_modules/web-ext-types"]
+    "typeRoots": ["node_modules/@types", "node_modules/web-ext-types"],
+    "baseUrl": ".",
+    "paths": {
+      "~feather-icons/*": ["node_modules/feather-icons/dist/icons/*"]
+    }
   }
 }

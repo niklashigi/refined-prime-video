@@ -1,3 +1,4 @@
+const path = require('path')
 const TerserPlugin = require('terser-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -11,6 +12,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.vue', '.svg'],
+    alias: {
+      '~feather-icons': path.resolve(
+        __dirname,
+        'node_modules/feather-icons/dist/icons',
+      ),
+    },
   },
   module: {
 		rules: [
@@ -26,6 +33,14 @@ module.exports = {
 			{
 				test: /\.svg/,
 				loader: 'vue-svg-loader',
+        options: {
+          svgo: {
+            plugins: [
+              { removeXMLNS: true },
+              { removeAttrs: { attrs: ['class'] } },
+            ],
+          },
+        },
 			},
 		],
   },

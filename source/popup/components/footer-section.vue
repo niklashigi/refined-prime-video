@@ -31,11 +31,12 @@
 </template>
 
 <script lang="ts">
+import TwitterIcon from '~feather-icons/twitter.svg'
+import GithubIcon from '~feather-icons/github.svg'
+
 const reviewUrl = navigator.userAgent.includes('Firefox') ?
   'https://addons.mozilla.org/firefox/addon/refined-prime-video/'
   : 'https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd/reviews'
-
-import { TwitterIcon, GithubIcon } from 'vue-feather-icons'
 
 export default {
   components: { TwitterIcon, GithubIcon },

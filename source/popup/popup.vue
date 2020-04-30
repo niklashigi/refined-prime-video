@@ -49,7 +49,9 @@
 </template>
 
 <script lang="ts">
-import { HomeIcon, SettingsIcon, CheckCircleIcon } from 'vue-feather-icons'
+import HomeIcon from '~feather-icons/home.svg'
+import SettingsIcon from '~feather-icons/settings.svg'
+import CheckCircleIcon from '~feather-icons/check-circle.svg'
 
 import IconButton from './components/icon-button.vue'
 

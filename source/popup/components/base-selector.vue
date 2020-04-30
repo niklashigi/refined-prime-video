@@ -39,7 +39,9 @@
 </template>
 
 <script lang="ts">
-import { ChevronUpIcon, ChevronDownIcon, CheckIcon } from 'vue-feather-icons'
+import ChevronUpIcon from '~feather-icons/chevron-up.svg'
+import ChevronDownIcon from '~feather-icons/chevron-down.svg'
+import CheckIcon from '~feather-icons/check.svg'
 
 export default {
   components: { ChevronUpIcon, ChevronDownIcon, CheckIcon },

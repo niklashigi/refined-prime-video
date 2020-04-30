@@ -76,7 +76,9 @@
 </template>
 
 <script lang="ts">
-import { MapPinIcon, AlertTriangleIcon } from 'vue-feather-icons'
+import MapPinIcon from '~feather-icons/map-pin.svg'
+import AlertTriangleIcon from '~feather-icons/alert-triangle.svg'
+
 import Spinner from '../components/spinner.vue'
 import VideoItem from '../components/video-item.vue'
 
