@@ -51,6 +51,7 @@
     "element-ready": "^4.1.1",
     "vue": "^2.6.11",
     "vue-feather-icons": "^5.0.0",
+    "vue-svg-loader": "^0.16.0",
     "webextension-polyfill": "^0.6.0"
   },
   "private": true

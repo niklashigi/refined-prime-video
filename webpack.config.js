@@ -10,7 +10,7 @@ module.exports = {
     popup: './source/popup/popup.ts',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.vue'],
+    extensions: ['.ts', '.tsx', '.js', '.vue', '.svg'],
   },
   module: {
 		rules: [
@@ -22,6 +22,10 @@ module.exports = {
 				test: /\.tsx?$/,
 				loader: 'ts-loader',
         options: { appendTsSuffixTo: [/\.vue$/] },
+			},
+			{
+				test: /\.svg/,
+				loader: 'vue-svg-loader',
 			},
 		],
   },
