@@ -2,16 +2,16 @@ const path = require('path')
 const TerserPlugin = require('terser-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-const extensionDirectory =
-  process.env.NODE_ENV === 'development' ? 'chrome' : 'common'
+const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  mode: isProduction ? 'production' : 'development',
   entry: {
     content: './source/content.ts',
     popup: './source/popup/popup.ts',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.vue', '.svg'],
+    extensions: ['.ts', '.js', '.vue', '.svg'],
     alias: {
       '~feather-icons': path.resolve(
         __dirname,
@@ -26,7 +26,7 @@ module.exports = {
 				loader: 'vue-loader',
 			},
 			{
-				test: /\.tsx?$/,
+				test: /\.ts$/,
 				loader: 'ts-loader',
         options: { appendTsSuffixTo: [/\.vue$/] },
 			},
@@ -45,19 +45,18 @@ module.exports = {
 		],
   },
   optimization: {
-    minimizer: [
+    minimizer: isProduction ? [
       new TerserPlugin({
         extractComments: false,
         terserOptions: {
           output: { comments: false },
         },
       }),
-    ],
+    ] : [],
   },
   output: {
-    path: `${__dirname}/extensions/${extensionDirectory}`,
     filename: '[name].js',
   },
-  devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
+  devtool: isProduction ? false : 'source-map',
   plugins: [new VueLoaderPlugin()],
 }
