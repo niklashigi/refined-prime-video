@@ -44,7 +44,7 @@ _It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv
             <strong>Edge</strong>
           </td>
           <td>
-            By <a href="https://microsoftedgesupport.microsoft.com/hc/en-us/articles/360017581013">enabling the <em>Allow extensions from other stores</em> setting</a> you can install <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd">the Chrome extension</a> in Edge. Please note that, as of September 2019, this feature is <strong>only</strong> availabe in <a href="https://www.microsoftedgeinsider.com">preview builds of Edge</a>.
+            You should be able to install <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd">the Chrome extension</a> in up-to-date versions of Edge, although you might have to <em>"Allow extensions from other stores"</em>.
           </td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@ _It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv
             <strong>Opera</strong>
           </td>
           <td>
-            Using <a href="https://addons.opera.com/en/extensions/details/download-chrome-extension-9/">this extension</a>, you can install <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd">the Chrome extension</a> in Opera.
+            Using <a href="https://addons.opera.com/en/extensions/details/download-chrome-extension-9/">this Opera extension</a>, you can install <a href="https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd">the Chrome extension</a> in Opera.
           </td>
         </tr>
       </tbody>
