@@ -1,30 +1,23 @@
+import elementReady from 'element-ready'
+
 import settings from '../libs/settings'
 
-function checkEpisode(episode: HTMLDivElement): boolean {
-  return episode.classList.toggle(
-    'rpv-watched',
-    !!episode.querySelector('.dv-episode-playback-title span[role="progressbar"]'),
-  )
+function checkEpisode(episode: HTMLElement): boolean {
+  const progressBarShown = !!episode.querySelector('[role="progressbar"]')
+  return episode.classList.toggle('rpv-watched', progressBarShown)
 }
 
-function markWatchedEpisodes(episodeList: HTMLOListElement): void {
-  const episodes: NodeListOf<HTMLDivElement> = episodeList.querySelectorAll('.js-node-episode-container')
+function markWatchedEpisodes(episodeList: HTMLElement): void {
+  const episodes: NodeListOf<HTMLElement> =
+    episodeList.querySelectorAll('.js-node-episode-container')
   for (const episode of episodes) checkEpisode(episode)
-}
 
-function domReady(): Promise<void> {
-  return new Promise(resolve => document.addEventListener(
-    'DOMContentLoaded', () => resolve(),
-  ))
+  console.log('[RPV] Updated watched episodes.')
 }
 
 export default async function(): Promise<void> {
-  // Amazon seems to replace the `#js-node-btf ol` element in their JavaScript
-  // code which is why `elementReady` can't be used here
-  await domReady()
-
-  const episodeList: HTMLOListElement =
-    document.querySelector('#js-node-btf ol')
+  const episodeList =
+    await elementReady<HTMLElement>('.DVWebNode-detail-btf-wrapper')
   if (!episodeList) return
 
   markWatchedEpisodes(episodeList)

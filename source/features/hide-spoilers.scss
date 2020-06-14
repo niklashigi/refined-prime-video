@@ -1,29 +1,27 @@
 $tr: .15s ease .1s;
 
-#js-node-btf ol {
-  .js-node-episode-container {
-    cursor: default;
+.js-node-episode-container {
+  cursor: default;
 
-    img[srcset] {
-      backface-visibility: hidden;
-      transition: filter $tr, transform $tr;
-    }
-
-    div[data-automation-id^='synopsis-'] {
-      transition: opacity $tr;
-    }
+  img[srcset] {
+    backface-visibility: hidden;
+    transition: filter $tr, transform $tr;
   }
 
-  &[data-rpv-spoilers='never'] .js-node-episode-container:not(.rpv-watched),
-  &[data-rpv-spoilers='onHover'] .js-node-episode-container:not(.rpv-watched):not(:hover) {
-    img[srcset] {
-      filter: blur(9px);
-      transform: scale(1.14) rotate(.001deg);
-    }
+  div[data-automation-id^='synopsis-'] {
+    transition: opacity $tr;
+  }
+}
 
-    div[data-automation-id^='synopsis-'] {
-      opacity: 0;
-      pointer-events: none;
-    }
+[data-rpv-spoilers='never'] .js-node-episode-container:not(.rpv-watched),
+[data-rpv-spoilers='onHover'] .js-node-episode-container:not(.rpv-watched):not(:hover) {
+  img[srcset] {
+    filter: blur(9px);
+    transform: scale(1.14) rotate(.001deg);
+  }
+
+  div[data-automation-id^='synopsis-'] {
+    opacity: 0;
+    pointer-events: none;
   }
 }
