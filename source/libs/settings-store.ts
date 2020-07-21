@@ -20,7 +20,7 @@ export default class SettingsStore<Settings> {
     },
   }
 
-  private cache: Settings
+  private cache: Settings | undefined
   private changeListeners = new Set<ChangeListener<Settings>>()
 
   constructor(private storageName: string) {
@@ -39,7 +39,7 @@ export default class SettingsStore<Settings> {
       this.cache = newSettings
     })
 
-    for (const listener of this.changeListeners) listener(this.cache)
+    for (const listener of this.changeListeners) listener(this.cache!)
   }
 
   public async getAll(): Promise<Settings> {

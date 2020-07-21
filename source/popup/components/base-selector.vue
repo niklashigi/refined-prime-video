@@ -39,11 +39,13 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+
 import ChevronUpIcon from '~feather-icons/chevron-up.svg'
 import ChevronDownIcon from '~feather-icons/chevron-down.svg'
 import CheckIcon from '~feather-icons/check.svg'
 
-export default {
+export default Vue.extend({
   components: { ChevronUpIcon, ChevronDownIcon, CheckIcon },
   props: {
     value: String,
@@ -54,12 +56,12 @@ export default {
     expanded: false,
   }),
   computed: {
-    selectedOption() {
+    selectedOption(): any {
       return this.options[this.value] || this.fallbackOption
     },
   },
   methods: {
-    selectOption(optionId) {
+    selectOption(optionId: string) {
       this.$emit('input', optionId)
       this.toggleExpanded()
     },
@@ -78,5 +80,5 @@ export default {
       })
     },
   },
-}
+})
 </script>

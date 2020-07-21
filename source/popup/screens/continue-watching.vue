@@ -76,25 +76,30 @@
 </template>
 
 <script lang="ts">
+import Vue, { PropType } from 'vue'
+
 import MapPinIcon from '~feather-icons/map-pin.svg'
 import AlertTriangleIcon from '~feather-icons/alert-triangle.svg'
 
 import Spinner from '../components/spinner.vue'
 import VideoItem from '../components/video-item.vue'
 
-import fetchMyVideos, { getCachedVideos } from '../../libs/fetch-my-videos'
-import regions from '../../libs/regions'
+import { Settings } from '../../libs/settings'
+import fetchMyVideos, { getCachedVideos, Video } from '../../libs/fetch-my-videos'
+import regions, { Region } from '../../libs/regions'
 
-export default {
-  props: ['settings'],
+export default Vue.extend({
+  props: {
+    settings: Object as PropType<Settings>,
+  },
   components: { MapPinIcon, AlertTriangleIcon, Spinner, VideoItem },
   data: () => ({
-    videos: [],
+    videos: [] as Video[],
     failed: false,
   }),
   computed: {
-    currentRegion() {
-      return regions[this.settings.region]
+    currentRegion(): Region {
+      return regions[this.settings.region!]
     },
   },
   created() {
@@ -109,5 +114,5 @@ export default {
         console.error('[RPV] Loading videos failed!', error)
       })
   },
-}
+})
 </script>

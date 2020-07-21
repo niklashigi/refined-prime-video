@@ -25,15 +25,17 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+
 import regions from '../../libs/regions'
 
-import BaseSelector from './base-selector'
+import BaseSelector from './base-selector.vue'
 
-export default {
+export default Vue.extend({
   components: { BaseSelector },
   props: ['value'],
   data: () => ({
     regions,
   }),
-}
+})
 </script>

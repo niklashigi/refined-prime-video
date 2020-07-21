@@ -2,7 +2,7 @@ import regions from './regions'
 import settings from './settings'
 import { Storefront, CollectionItem } from './api/types'
 
-let baseUrl = null
+let baseUrl: string | null = null
 
 export default async function fetchMyVideos(): Promise<Video[]> {
   const storefront = await fetchStorefront()
@@ -44,7 +44,7 @@ function parseCollectionItem(item: CollectionItem): Video {
   const id = item.titleID
 
   const titleInfo = parseTitle(item.title)
-  const playbackInfo = parsePlaybackAction(item.playbackAction.label)
+  const playbackInfo = parsePlaybackAction(item.playbackAction!.label)
 
   return {
     id,
@@ -60,7 +60,7 @@ function parseCollectionItem(item: CollectionItem): Video {
 
 async function getBaseUrl(): Promise<string> {
   const { region } = await settings.getAll()
-  const { domain } = regions[region]
+  const { domain } = regions[region!]
   return `https://www.${domain}`
 }
 
@@ -78,7 +78,7 @@ interface TitleInfo {
 const TITLE_PATTERN = /^(.+?)(?:[:\-–— ]+(\S+? \d+))?(?: (\[.+\]|\(.+\)))?$/
 
 function parseTitle(sourceTitle: string): TitleInfo {
-  const [, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle)
+  const [, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle) as any
   return { title, season, titleSuffix }
 }
 
@@ -89,15 +89,15 @@ interface PlaybackInfo {
 
 const PLAYBACK_ACTION_PATTERN = /(\d+)[^\d]+(\d+)/
 
-function parsePlaybackAction(playbackAction: string): PlaybackInfo {
+function parsePlaybackAction(playbackAction: string): PlaybackInfo | undefined {
   const match = PLAYBACK_ACTION_PATTERN.exec(playbackAction)
   if (!match) return
 
-  const [, season, episode] = PLAYBACK_ACTION_PATTERN.exec(playbackAction)
+  const [, season, episode] = match
   return { season: parseInt(season), episode: parseInt(episode) }
 }
 
-interface Video {
+export interface Video {
   image: string
   continueWatchingUrl: string
   title: string

@@ -49,6 +49,8 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+
 import HomeIcon from '~feather-icons/home.svg'
 import SettingsIcon from '~feather-icons/settings.svg'
 import CheckCircleIcon from '~feather-icons/check-circle.svg'
@@ -58,10 +60,10 @@ import IconButton from './components/icon-button.vue'
 import ContinueWatchingScreen from './screens/continue-watching.vue'
 import SettingsScreen from './screens/settings.vue'
 
-import settings from '../libs/settings'
+import settings, { Settings } from '../libs/settings'
 import regions from '../libs/regions'
 
-export default {
+export default Vue.extend({
   components: {
     HomeIcon, SettingsIcon, CheckCircleIcon, IconButton,
     ContinueWatchingScreen, SettingsScreen,
@@ -71,8 +73,8 @@ export default {
     screenTitles: {
       continueWatching: 'Continue watching',
       settings: 'Extension settings',
-    },
-    settings: null,
+    } as Record<string, string>,
+    settings: null as Settings | null,
   }),
   computed: {
     screenTitle() {
@@ -81,12 +83,12 @@ export default {
   },
   methods: {
     openHome() {
-      const { homeUrl } = regions[this.settings.region]
+      const { homeUrl } = regions[this.settings!.region!]
       browser.tabs.create({ url: homeUrl })
     },
   },
   created() {
     settings.onChange(settings => this.settings = settings)
   },
-}
+})
 </script>

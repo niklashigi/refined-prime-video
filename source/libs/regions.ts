@@ -1,11 +1,11 @@
-interface Region {
+export interface Region {
   flag: string
   name: string
   domain: string
   homeUrl: string
 }
 
-const regions: { [id: string]: Region } = {
+const regions: Record<string, Region> = {
   global: {
     flag: '🌎',
     name: 'Most countries',

@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es2019",
     "moduleResolution": "node",
+    "strict": true,
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["node_modules/@types", "node_modules/web-ext-types"],
     "baseUrl": ".",

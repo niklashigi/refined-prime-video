@@ -31,6 +31,8 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+
 import TwitterIcon from '~feather-icons/twitter.svg'
 import GithubIcon from '~feather-icons/github.svg'
 
@@ -38,8 +40,8 @@ const reviewUrl = navigator.userAgent.includes('Firefox') ?
   'https://addons.mozilla.org/firefox/addon/refined-prime-video/'
   : 'https://chrome.google.com/webstore/detail/refined-prime-video/pieemlagbhnombolehnjdoaoojpphedd/reviews'
 
-export default {
+export default Vue.extend({
   components: { TwitterIcon, GithubIcon },
   data: () => ({ reviewUrl }),
-}
+})
 </script>

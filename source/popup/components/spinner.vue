@@ -6,7 +6,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'spinner',
   props: {
     size: { type: Number, default: 32 },
@@ -26,5 +28,5 @@ export default {
       }
     },
   },
-}
+})
 </script>

@@ -34,10 +34,14 @@
   </a>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+
+import { Video } from '../../libs/fetch-my-videos'
+
+export default Vue.extend({
   props: {
-    video: Object,
+    video: Object as PropType<Video>,
   },
-}
+})
 </script>
