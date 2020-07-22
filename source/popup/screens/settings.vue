@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, ref, watch } from '@vue/composition-api'
 
 import settings, { Settings } from '../../libs/settings'
 
@@ -48,21 +48,19 @@ import RegionSelector from '../components/region-selector.vue'
 import ShowSpoilersSelector from '../components/show-spoilers-selector.vue'
 import FooterSection from '../components/footer-section.vue'
 
-export default Vue.extend({
+export default defineComponent({
   components: { RegionSelector, ShowSpoilersSelector, FooterSection },
-  data: () => ({
-    settings: null as Settings | null,
-  }),
-  watch: {
-    settings: {
-      handler(newSettings: Settings) {
-        settings.setAll(newSettings)
-      },
-      deep: true,
-    },
-  },
-  async created() {
-    this.settings = await settings.getAll()
+  setup() {
+    const currentSettings = ref<Settings | null>(null)
+
+    settings.getAll()
+      .then(newSettings => currentSettings.value = newSettings)
+
+    watch(() => currentSettings.value, newSettings => {
+      settings.setAll(newSettings!)
+    }, { deep: true })
+
+    return { settings: currentSettings }
   },
 })
 </script>

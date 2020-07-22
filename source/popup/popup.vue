@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, computed, ref } from '@vue/composition-api'
 
 import HomeIcon from '~feather-icons/home.svg'
 import SettingsIcon from '~feather-icons/settings.svg'
@@ -60,35 +60,31 @@ import IconButton from './components/icon-button.vue'
 import ContinueWatchingScreen from './screens/continue-watching.vue'
 import SettingsScreen from './screens/settings.vue'
 
-import settings, { Settings } from '../libs/settings'
+import useSettings from './use/settings'
 import regions from '../libs/regions'
 
-export default Vue.extend({
+const screenTitles = {
+  continueWatching: 'Continue watching',
+  settings: 'Extension settings',
+} as Record<string, string>
+
+export default defineComponent({
   components: {
     HomeIcon, SettingsIcon, CheckCircleIcon, IconButton,
     ContinueWatchingScreen, SettingsScreen,
   },
-  data: () => ({
-    screen: 'continueWatching',
-    screenTitles: {
-      continueWatching: 'Continue watching',
-      settings: 'Extension settings',
-    } as Record<string, string>,
-    settings: null as Settings | null,
-  }),
-  computed: {
-    screenTitle() {
-      return this.screenTitles[this.screen]
-    },
-  },
-  methods: {
-    openHome() {
-      const { homeUrl } = regions[this.settings!.region!]
+  setup() {
+    const screen = ref('continueWatching')
+    const screenTitle = computed(() => screenTitles[screen.value])
+
+    const settings = useSettings()
+
+    const openHome = () => {
+      const { homeUrl } = regions[settings.value!.region!]
       browser.tabs.create({ url: homeUrl })
-    },
-  },
-  created() {
-    settings.onChange(settings => this.settings = settings)
+    }
+
+    return { screen, screenTitle, settings, openHome }
   },
 })
 </script>

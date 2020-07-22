@@ -15,26 +15,30 @@
 </template>
 
 <script lang="ts">
-import BaseSelector from './base-selector'
+import BaseSelector from './base-selector.vue'
 
-export default {
+import { defineComponent } from '@vue/composition-api'
+
+const options = {
+  never: {
+    emoji: '🙈',
+    label: 'Never show spoilers',
+  },
+  onHover: {
+    emoji: '🔍',
+    label: 'Show spoilers on hover',
+  },
+  always: {
+    emoji: '🐵',
+    label: 'Always show spoilers',
+  },
+}
+
+export default defineComponent({
   components: { BaseSelector },
   props: ['value'],
-  data: () => ({
-    options: {
-      never: {
-        emoji: '🙈',
-        label: 'Never show spoilers',
-      },
-      onHover: {
-        emoji: '🔍',
-        label: 'Show spoilers on hover',
-      },
-      always: {
-        emoji: '🐵',
-        label: 'Always show spoilers',
-      },
-    },
-  }),
-}
+  setup() {
+    return { options }
+  },
+})
 </script>

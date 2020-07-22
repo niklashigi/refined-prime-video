@@ -25,17 +25,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 
 import regions from '../../libs/regions'
 
 import BaseSelector from './base-selector.vue'
 
-export default Vue.extend({
+export default defineComponent({
   components: { BaseSelector },
   props: ['value'],
-  data: () => ({
-    regions,
-  }),
+  setup() {
+    return { regions }
+  },
 })
 </script>

@@ -10,6 +10,7 @@
     "release:firefox": "shipit firefox extensions/firefox"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.0.0-beta.6",
     "element-ready": "^4.1.1",
     "feather-icons": "^4.28.0",
     "tailwindcss": "^1.8.10",

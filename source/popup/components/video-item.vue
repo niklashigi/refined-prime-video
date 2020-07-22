@@ -35,11 +35,11 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { defineComponent, PropType } from '@vue/composition-api'
 
 import { Video } from '../../libs/fetch-my-videos'
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     video: Object as PropType<Video>,
   },

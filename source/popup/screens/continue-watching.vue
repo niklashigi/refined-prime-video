@@ -76,7 +76,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { defineComponent, ref, PropType, computed } from '@vue/composition-api'
 
 import MapPinIcon from '~feather-icons/map-pin.svg'
 import AlertTriangleIcon from '~feather-icons/alert-triangle.svg'
@@ -86,33 +86,36 @@ import VideoItem from '../components/video-item.vue'
 
 import { Settings } from '../../libs/settings'
 import fetchMyVideos, { getCachedVideos, Video } from '../../libs/fetch-my-videos'
-import regions, { Region } from '../../libs/regions'
+import regions from '../../libs/regions'
 
-export default Vue.extend({
-  props: {
-    settings: Object as PropType<Settings>,
-  },
+export default defineComponent({
   components: { MapPinIcon, AlertTriangleIcon, Spinner, VideoItem },
-  data: () => ({
-    videos: [] as Video[],
-    failed: false,
-  }),
-  computed: {
-    currentRegion(): Region {
-      return regions[this.settings.region!]
+  props: {
+    settings: {
+      type: Object as PropType<Settings>,
+      required: true,
     },
   },
-  created() {
-    if (!this.settings.region) return
+  setup(props) {
+    const failed = ref(false)
+    const videos = ref<Video[]>([])
+    const currentRegion = computed(() => {
+      return regions[props.settings.region!]
+    })
 
-    getCachedVideos().then(videos => this.videos = videos)
+    if (props.settings.region) {
+      getCachedVideos()
+        .then(newVideos => videos.value = newVideos)
 
-    fetchMyVideos()
-      .then(videos => this.videos = videos)
-      .catch(error => {
-        this.failed = true
-        console.error('[RPV] Loading videos failed!', error)
-      })
+      fetchMyVideos()
+        .then(newVideos => videos.value = newVideos)
+        .catch(error => {
+          failed.value = true
+          console.error('[RPV] Loading videos failed!', error)
+        })
+    }
+
+    return { failed, videos, currentRegion }
   },
 })
 </script>

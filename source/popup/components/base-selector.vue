@@ -1,5 +1,8 @@
 <template>
-  <div class="rounded overflow-hidden">
+  <div
+    class="rounded overflow-hidden"
+    ref="root"
+  >
     <button
       class="w-full px-3 py-2 flex items-center cursor-pointer bg-carbon-500 hover:bg-carbon-400"
       @click="toggleExpanded"
@@ -39,46 +42,52 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, ref, computed, nextTick, PropType } from '@vue/composition-api'
 
 import ChevronUpIcon from '~feather-icons/chevron-up.svg'
 import ChevronDownIcon from '~feather-icons/chevron-down.svg'
 import CheckIcon from '~feather-icons/check.svg'
 
-export default Vue.extend({
+export default defineComponent({
   components: { ChevronUpIcon, ChevronDownIcon, CheckIcon },
   props: {
-    value: String,
-    options: Object,
-    fallbackOption: Object,
-  },
-  data: () => ({
-    expanded: false,
-  }),
-  computed: {
-    selectedOption(): any {
-      return this.options[this.value] || this.fallbackOption
+    value: {
+      type: String,
+      required: true,
     },
-  },
-  methods: {
-    selectOption(optionId: string) {
-      this.$emit('input', optionId)
-      this.toggleExpanded()
+    options: {
+      type: Object as PropType<Record<string, any>>,
+      required: true,
     },
-    toggleExpanded() {
-      this.expanded = !this.expanded
+    fallbackOption: Object as PropType<any>,
+  },
+  setup(props, context) {
+    const root = ref<HTMLElement | null>(null)
 
-      this.$nextTick(() => {
-        if (this.expanded) {
-          this.$el.scrollIntoView({
+    const expanded = ref(false)
+    const toggleExpanded = () => {
+      expanded.value = !expanded.value
+
+      nextTick(() => {
+        if (expanded.value) {
+          root.value!.scrollIntoView({
             behavior: 'smooth',
             block: 'center',
           })
         } else {
-          this.$emit('collapse')
+          context.emit('collapse')
         }
       })
-    },
+    }
+
+    const selectedOption =
+      computed(() => props.options[props.value] || props.fallbackOption)
+    const selectOption = (optionId: string) => {
+      context.emit('input', optionId)
+      toggleExpanded()
+    }
+
+    return { root, expanded, toggleExpanded, selectedOption, selectOption }
   },
 })
 </script>

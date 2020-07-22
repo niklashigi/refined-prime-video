@@ -6,10 +6,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, computed } from '@vue/composition-api'
 
-export default Vue.extend({
-  name: 'spinner',
+export default defineComponent({
   props: {
     size: { type: Number, default: 32 },
     lineSize: { type: Number, default: 3 },
@@ -17,16 +16,16 @@ export default Vue.extend({
     lineColor: { type: String, default: '#959595' },
     speed: { type: Number, default: .8 },
   },
-  computed: {
-    spinnerStyle() {
-      return {
-        border: `${this.lineSize}px solid ${this.lineBackground}`,
-        borderTop: `${this.lineSize}px solid ${this.lineColor}`,
-        width: `${this.size}px`,
-        height: `${this.size}px`,
-        animation: `spin ${this.speed}s linear infinite`,
-      }
-    },
+  setup(props) {
+    const spinnerStyle = computed(() => ({
+      border: `${props.lineSize}px solid ${props.lineBackground}`,
+      borderTop: `${props.lineSize}px solid ${props.lineColor}`,
+      width: `${props.size}px`,
+      height: `${props.size}px`,
+      animation: `spin ${props.speed}s linear infinite`,
+    }))
+
+    return { spinnerStyle }
   },
 })
 </script>
