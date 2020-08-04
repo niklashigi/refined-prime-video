@@ -29,3 +29,13 @@ jobs:
       run: yarn
     - name: Build extension
       run: yarn build
+    - name: Upload Chrome extension
+      uses: actions/upload-artifact@v2
+      with:
+        name: chrome-extension
+        path: extensions/chrome
+    - name: Upload Firefox extension
+      uses: actions/upload-artifact@v2
+      with:
+        name: firefox-extension
+        path: extensions/firefox
