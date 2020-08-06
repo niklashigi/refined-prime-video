@@ -5,9 +5,20 @@ const BUTTON_SELECTORS = [
 ]
 
 function skip(): void {
+  const button = findSkipButton()
+
+  if (button) {
+    button.click()
+    console.log('[RPV] Simulated click on skip button!', button)
+  } else {
+    console.log('[RPV] No skip button found!')
+  }
+}
+
+function findSkipButton(): HTMLElement | undefined {
   for (const selector of BUTTON_SELECTORS) {
-    const button: HTMLElement = document.querySelector(selector)
-    if (button) return button.click()
+    const button = document.querySelector<HTMLElement>(selector)
+    if (button) return button
   }
 }
 
