@@ -64,14 +64,18 @@ async function getBaseUrl(): Promise<string> {
   return `https://www.${domain}`
 }
 
-const TITLE_PATTERN = /^(.+?)(?:[:\- ]+(\S+? \d+))?(?: (\[.+\]|\(.+\)))?$/
-const PLAYBACK_ACTION_PATTERN = /Play S(\d+) E(\d+)/
-
 interface TitleInfo {
   title: string
   season: string
   titleSuffix: string
 }
+
+/**
+ * RegEx pattern to extract the actual title of a movie or series from Amazon's
+ * fairly messy and inconsistent titles that contain a lot of unnecessary
+ * information (like the season, dubbed language, video quality, etc.).
+ */
+const TITLE_PATTERN = /^(.+?)(?:[:\-–— ]+(\S+? \d+))?(?: (\[.+\]|\(.+\)))?$/
 
 function parseTitle(sourceTitle: string): TitleInfo {
   const [, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle)
@@ -82,6 +86,8 @@ interface PlaybackInfo {
   season: number
   episode: number
 }
+
+const PLAYBACK_ACTION_PATTERN = /Play S(\d+) E(\d+)/
 
 function parsePlaybackAction(playbackAction: string): PlaybackInfo {
   const match = PLAYBACK_ACTION_PATTERN.exec(playbackAction)
