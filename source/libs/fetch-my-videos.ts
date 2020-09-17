@@ -30,7 +30,7 @@ async function getCacheKey(): Promise<string> {
 
 async function fetchStorefront(): Promise<Storefront> {
   baseUrl = await getBaseUrl()
-  const endpointUrl = `${baseUrl}/gp/video/api/storefront?language=en`
+  const endpointUrl = `${baseUrl}/gp/video/api/storefront`
   return (await (await fetch(endpointUrl)).json()) as Storefront
 }
 
@@ -87,7 +87,7 @@ interface PlaybackInfo {
   episode: number
 }
 
-const PLAYBACK_ACTION_PATTERN = /Play S(\d+) E(\d+)/
+const PLAYBACK_ACTION_PATTERN = /(\d+)[^\d]+(\d+)/
 
 function parsePlaybackAction(playbackAction: string): PlaybackInfo {
   const match = PLAYBACK_ACTION_PATTERN.exec(playbackAction)
