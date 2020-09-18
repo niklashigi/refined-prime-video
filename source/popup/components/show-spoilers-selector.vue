@@ -1,8 +1,8 @@
 <template>
   <base-selector
-    :value="value"
+    v-bind="$attrs"
+    :model-value="modelValue"
     :options="options"
-    v-on="$listeners"
     #option="{ option }"
   >
     <div class="text-lg">
@@ -17,7 +17,7 @@
 <script lang="ts">
 import BaseSelector from './base-selector.vue'
 
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 
 const options = {
   never: {
@@ -36,7 +36,7 @@ const options = {
 
 export default defineComponent({
   components: { BaseSelector },
-  props: ['value'],
+  props: ['modelValue'],
   setup() {
     return { options }
   },

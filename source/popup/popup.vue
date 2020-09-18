@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from '@vue/composition-api'
+import { defineComponent, computed, ref } from 'vue'
 
 import HomeIcon from '~feather-icons/home.svg'
 import SettingsIcon from '~feather-icons/settings.svg'

@@ -1,6 +1,7 @@
 const path = require('path')
+const { DefinePlugin } = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -31,16 +32,11 @@ module.exports = {
         options: { appendTsSuffixTo: [/\.vue$/] },
 			},
 			{
-				test: /\.svg/,
-				loader: 'vue-svg-loader',
-        options: {
-          svgo: {
-            plugins: [
-              { removeXMLNS: true },
-              { removeAttrs: { attrs: ['class'] } },
-            ],
-          },
-        },
+        test: /\.svg/,
+        use: [
+          'vue-loader',
+          'vue-svg-loader',
+        ],
 			},
 		],
   },
@@ -58,5 +54,11 @@ module.exports = {
     filename: '[name].js',
   },
   devtool: isProduction ? false : 'source-map',
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new DefinePlugin({
+      __VUE_OPTIONS_API__: false,
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
+    new VueLoaderPlugin(),
+  ],
 }

@@ -43,8 +43,8 @@
       <div v-else class="h-full overflow-y-auto overflow-x-hidden">
         <transition-group
           move-class="transition-transform duration-500 ease-in-out"
+          enter-from-class="opacity-0 -translate-x-6"
           enter-active-class="transition duration-500 ease-out transform"
-          enter-class="opacity-0 -translate-x-6"
           leave-active-class="transition duration-500 ease-in transform absolute"
           leave-to-class="opacity-0 translate-x-6"
         >
@@ -76,7 +76,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, PropType, computed } from '@vue/composition-api'
+import { defineComponent, ref, PropType, computed } from 'vue'
 
 import MapPinIcon from '~feather-icons/map-pin.svg'
 import AlertTriangleIcon from '~feather-icons/alert-triangle.svg'

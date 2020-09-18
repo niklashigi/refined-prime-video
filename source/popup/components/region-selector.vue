@@ -1,13 +1,13 @@
 <template>
   <base-selector
-    :value="value"
+    v-bind="$attrs"
+    :model-value="modelValue"
     :options="regions"
     :fallback-option="{
       flag: '❓',
       name: 'No region selected',
       domain: 'Click to select your region.'
     }"
-    v-on="$listeners"
     #option="{ option: region }"
   >
     <div class="text-lg">
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 
 import regions from '../../libs/regions'
 
@@ -33,7 +33,7 @@ import BaseSelector from './base-selector.vue'
 
 export default defineComponent({
   components: { BaseSelector },
-  props: ['value'],
+  props: ['modelValue'],
   setup() {
     return { regions }
   },

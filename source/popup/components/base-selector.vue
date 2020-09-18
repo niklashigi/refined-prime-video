@@ -11,7 +11,7 @@
         <slot
           name="option"
           :option="selectedOption"
-          :option-id="value"
+          :option-id="modelValue"
         />
       </div>
 
@@ -35,14 +35,14 @@
           />
         </div>
 
-        <check-icon v-if="optionId === value" class="text-gray-500"/>
+        <check-icon v-if="optionId === modelValue" class="text-gray-500"/>
       </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, nextTick, PropType } from '@vue/composition-api'
+import { defineComponent, ref, computed, nextTick, PropType } from 'vue'
 
 import ChevronUpIcon from '~feather-icons/chevron-up.svg'
 import ChevronDownIcon from '~feather-icons/chevron-down.svg'
@@ -51,7 +51,7 @@ import CheckIcon from '~feather-icons/check.svg'
 export default defineComponent({
   components: { ChevronUpIcon, ChevronDownIcon, CheckIcon },
   props: {
-    value: {
+    modelValue: {
       type: String,
       required: true,
     },
@@ -81,9 +81,9 @@ export default defineComponent({
     }
 
     const selectedOption =
-      computed(() => props.options[props.value] || props.fallbackOption)
+      computed(() => props.options[props.modelValue] || props.fallbackOption)
     const selectOption = (optionId: string) => {
-      context.emit('input', optionId)
+      context.emit('update:modelValue', optionId)
       toggleExpanded()
     }
 

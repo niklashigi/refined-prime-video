@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 
 import TwitterIcon from '~feather-icons/twitter.svg'
 import GithubIcon from '~feather-icons/github.svg'
