@@ -21,7 +21,7 @@ _It works on [primevideo.com][pv-global], [amazon.com][pv-us], [amazon.co.uk][pv
         <br>
         <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><strong>Firefox</strong> add-on</a>
         <br>
-        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img valign="middle" src="https://img.shields.io/amo/users/refined-prime-video?style=flat-square&color=success&label=used+by&logo=mozilla-firefox&logoColor=white"></a>
+        <a href="https://addons.mozilla.org/firefox/addon/refined-prime-video"><img valign="middle" src="https://img.shields.io/amo/users/refined-prime-video?style=flat-square&color=success&label=used+by&logo=firefox&logoColor=white"></a>
       </td>
     </tr>
   </tbody>
