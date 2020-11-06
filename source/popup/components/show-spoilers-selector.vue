@@ -3,14 +3,15 @@
     v-bind="$attrs"
     :model-value="modelValue"
     :options="options"
-    #option="{ option }"
   >
-    <div class="text-lg">
-      {{ option.emoji }}
-    </div>
-    <div class="ml-3">
-      {{ option.label }}
-    </div>
+    <template #option="{ option }">
+      <div class="text-lg">
+        {{ option.emoji }}
+      </div>
+      <div class="ml-3">
+        {{ option.label }}
+      </div>
+    </template>
   </base-selector>
 </template>
 

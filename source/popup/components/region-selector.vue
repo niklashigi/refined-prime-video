@@ -8,19 +8,20 @@
       name: 'No region selected',
       domain: 'Click to select your region.'
     }"
-    #option="{ option: region }"
   >
-    <div class="text-lg">
-      {{ region.flag }}
-    </div>
-    <div class="ml-3">
-      <div class="font-medium">
-        {{ region.name }}
+    <template #option="{ option: region }">
+      <div class="text-lg">
+        {{ region.flag }}
       </div>
-      <div class="text-gray-400 leading-tight">
-        {{ region.domain }}
+      <div class="ml-3">
+        <div class="font-medium">
+          {{ region.name }}
+        </div>
+        <div class="text-gray-400 leading-tight">
+          {{ region.domain }}
+        </div>
       </div>
-    </div>
+    </template>
   </base-selector>
 </template>
 
