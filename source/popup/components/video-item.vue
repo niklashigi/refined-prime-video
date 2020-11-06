@@ -41,7 +41,10 @@ import { Video } from '../../libs/fetch-my-videos'
 
 export default defineComponent({
   props: {
-    video: Object as PropType<Video>,
+    video: {
+      type: Object as PropType<Video>,
+      required: true,
+    },
   },
 })
 </script>
