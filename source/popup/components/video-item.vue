@@ -17,14 +17,14 @@
         class="truncate text-sm text-gray-400"
       >
         <template v-if="video.season">
-          Season <strong class="font-medium">{{ video.season }}</strong>
-          <span class="text-gray-600">/</span>
-          Ep. <strong class="font-medium">{{ video.episode }}</strong>
+          Season <strong class="font-medium">{{ video.season }}</strong><span class="text-gray-600">
+            /
+          </span>Ep. <strong class="font-medium">{{ video.episode }}</strong>
         </template>
         <template v-else>
-          Movie
-          <span class="text-gray-600">/</span>
-          {{ video.runtime }}
+          Movie<span class="text-gray-600">
+            /
+          </span>{{ video.runtime }}
         </template>
       </div>
     </div>
