@@ -2,10 +2,11 @@
 .avu-retail-page
 {
   // Hide shopping-related nav items
-  #nav-main,
-  #nav-cart,
-  #nav-link-prime,
-  #nav-orders
+  #nav-main, // Links to different parts of Amazon
+  #nav-global-location-slot, // Delivery location
+  #nav-cart, // Shopping cart
+  #nav-link-prime, // Prime benefits
+  #nav-orders // Orders
 
   { display: none !important; }
 

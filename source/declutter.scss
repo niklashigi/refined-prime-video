@@ -1,10 +1,6 @@
 // Hide banner at the top of the page
 #nav-upnav,
 
-// Hide "Getting Started" link in navigation bar
-// (because that's for noobs)
-.av-retail-m-nav-subitem:nth-last-child(2),
-
 // Hide large banner above movie/series title
 // (because it's annoying and can't be dismissed)
 .dv-dp-top-banner, // Old
@@ -13,7 +9,8 @@ img[src*='Device_Stripe'], // New
 // Hide product offer below metadata
 // (because it's also annoying and can't be dismissed)
 .av-hql-container, // Old
-.av-detail-section article .avu-clearfix, // New
+.av-detail-section article .avu-clearfix, // February 2020
+[data-automation-id='hero-quick-promo'], // September 2020
 
 // Hide weird bar below metadata
 // (because I don't want to "Share", "Send us feedback" or "Get Help")
