@@ -31,7 +31,8 @@ $iconsAndFeedback: '._1oJWj_';
     margin-bottom: 0 !important;
   }
 
-  #{$termsAndConditions}, #{$iconsAndFeedback} {
+  #{$termsAndConditions},
+  #{$iconsAndFeedback} {
     // Reduce opacity of actions and TOC text unless hovered
     filter: opacity(60%) !important;
     transition: filter 150ms ease-in-out !important;
