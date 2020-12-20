@@ -5,9 +5,7 @@
     "lint": "run-s lint:*",
     "lint:sass": "sass-lint -v --max-warnings 0",
     "lint:js": "eslint --ext .ts,.js,.vue source --ignore-path .gitignore",
-    "release": ". ./.env && run-s build release:*",
-    "release:chrome": "shipit chrome extensions/chrome",
-    "release:firefox": "shipit firefox extensions/firefox"
+    "release": "sh scripts/release.sh"
   },
   "dependencies": {
     "element-ready": "^5.0.0",
