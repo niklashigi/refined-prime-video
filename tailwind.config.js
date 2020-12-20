@@ -33,8 +33,4 @@ module.exports = {
     display: ['group-hover'],
   },
   purge: ['./source/popup/**/*.vue'],
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
 }

@@ -12,7 +12,7 @@
   "dependencies": {
     "element-ready": "^4.1.1",
     "feather-icons": "^4.28.0",
-    "tailwindcss": "^1.8.10",
+    "tailwindcss": "^2.0.2",
     "vue": "^3.0.0",
     "webextension-polyfill": "^0.6.0"
   },
