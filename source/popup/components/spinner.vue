@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="spinner"
-    :style="spinnerStyle"
-  />
+  <div class="spinner" :style="spinnerStyle" />
 </template>
 
 <script lang="ts">
@@ -14,7 +11,7 @@ export default defineComponent({
     lineSize: { type: Number, default: 3 },
     lineBackground: { type: String, default: '#445869' },
     lineColor: { type: String, default: '#959595' },
-    speed: { type: Number, default: .8 },
+    speed: { type: Number, default: 0.8 },
   },
   setup(props) {
     const spinnerStyle = computed(() => ({

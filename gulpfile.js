@@ -17,38 +17,44 @@ const commonDest = () => multiDest(['extensions/chrome', 'extensions/firefox'])
 
 const clean = () => del('extensions/*/**')
 
-const copyIcon = () => gulp
-  .src('source/icon.png')
-  .pipe(commonDest())
+const copyIcon = () => gulp.src('source/icon.png').pipe(commonDest())
 
 const compileJs = () =>
-  webpackStream(require('./webpack.config.js'), webpack)
+  webpackStream(require('./webpack.config.js'), webpack).pipe(commonDest())
+
+const compilePopupCss = () =>
+  gulp
+    .src('source/popup/popup.css')
+    .pipe(
+      postCss([
+        tailwindCss(),
+        ...(isProduction ? [csso({ comments: false })] : []),
+      ]),
+    )
     .pipe(commonDest())
 
-const compilePopupCss = () => gulp
-  .src('source/popup/popup.css')
-  .pipe(postCss([
-    tailwindCss(),
-    ...(isProduction ? [csso({ comments: false })] : []),
-  ]))
-  .pipe(commonDest())
+const compileContentCss = () =>
+  gulp
+    .src('source/content.scss')
+    .pipe(sass({ outputStyle: 'compressed' }))
+    .pipe(commonDest())
 
-const compileContentCss = () => gulp
-  .src('source/content.scss')
-  .pipe(sass({ outputStyle: 'compressed' }))
-  .pipe(commonDest())
+const copyChromeHtml = () =>
+  gulp
+    .src('source/popup/popup.chrome.html')
+    .pipe(rename('popup.html'))
+    .pipe(gulp.dest('extensions/chrome'))
 
-const copyChromeHtml = () => gulp
-  .src('source/popup/popup.chrome.html')
-  .pipe(rename('popup.html')).pipe(gulp.dest('extensions/chrome'))
+const copyChromePolyfill = () =>
+  gulp
+    .src('node_modules/webextension-polyfill/dist/browser-polyfill.min.js')
+    .pipe(gulp.dest('extensions/chrome'))
 
-const copyChromePolyfill = () => gulp
-  .src('node_modules/webextension-polyfill/dist/browser-polyfill.min.js')
-  .pipe(gulp.dest('extensions/chrome'))
-
-const copyFirefoxHtml = () => gulp
-  .src('source/popup/popup.firefox.html')
-  .pipe(rename('popup.html')).pipe(gulp.dest('extensions/firefox'))
+const copyFirefoxHtml = () =>
+  gulp
+    .src('source/popup/popup.firefox.html')
+    .pipe(rename('popup.html'))
+    .pipe(gulp.dest('extensions/firefox'))
 
 const generateManifests = require('./scripts/generate-manifests')
 
@@ -56,8 +62,12 @@ const build = gulp.series(
   clean,
   gulp.parallel(
     copyIcon,
-    compileJs, compilePopupCss, compileContentCss,
-    copyFirefoxHtml, copyChromeHtml,copyChromePolyfill,
+    compileJs,
+    compilePopupCss,
+    compileContentCss,
+    copyFirefoxHtml,
+    copyChromeHtml,
+    copyChromePolyfill,
     generateManifests,
   ),
 )

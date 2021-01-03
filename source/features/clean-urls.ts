@@ -5,7 +5,9 @@ function cleanUrl(urlString: string): string {
 
   // The `ref` parameter can also appear as part of the path
   url.pathname = url.pathname
-    .split('/').filter(part => !part.startsWith('ref=')).join('/')
+    .split('/')
+    .filter(part => !part.startsWith('ref='))
+    .join('/')
 
   return url.toString()
 }
@@ -28,7 +30,7 @@ function cleanSearchParams(searchString: string): string {
   return params.toString()
 }
 
-export default function(): void {
+export default function (): void {
   const pageUrl = location.href
   const cleanedUrl = cleanUrl(location.href)
 

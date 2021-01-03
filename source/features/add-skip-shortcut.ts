@@ -30,7 +30,7 @@ function findSkipButton(): HTMLElement | undefined {
   }
 }
 
-export default function(): void {
+export default function (): void {
   window.addEventListener('keydown', ({ code }) => {
     if (code === 'KeyS') skip()
   })

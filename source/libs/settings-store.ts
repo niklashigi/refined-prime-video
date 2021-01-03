@@ -9,9 +9,9 @@ interface Config<Settings> {
 }
 
 export default class SettingsStore<Settings> {
-
   public static migrations = {
-    removeUnused(settings: any, defaults: any) {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    removeUnused(settings: any, defaults: any): void {
       for (const key of Object.keys(settings)) {
         if (!(key in defaults)) {
           delete settings[key]
@@ -72,5 +72,4 @@ export default class SettingsStore<Settings> {
     console.info('[RPV] Loaded settings:', settings)
     await this.setAll(settings)
   }
-
 }

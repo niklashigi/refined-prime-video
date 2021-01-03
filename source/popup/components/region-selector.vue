@@ -6,7 +6,7 @@
     :fallback-option="{
       flag: '❓',
       name: 'No region selected',
-      domain: 'Click to select your region.'
+      domain: 'Click to select your region.',
     }"
   >
     <template #option="{ option: region }">

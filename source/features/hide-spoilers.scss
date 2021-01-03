@@ -1,4 +1,4 @@
-$tr: .15s ease .1s;
+$tr: 0.15s ease 0.1s;
 
 .js-node-episode-container {
   cursor: default;
@@ -14,10 +14,11 @@ $tr: .15s ease .1s;
 }
 
 [data-rpv-spoilers='never'] .js-node-episode-container:not(.rpv-watched),
-[data-rpv-spoilers='onHover'] .js-node-episode-container:not(.rpv-watched):not(:hover) {
+[data-rpv-spoilers='onHover']
+  .js-node-episode-container:not(.rpv-watched):not(:hover) {
   img[srcset] {
     filter: blur(9px);
-    transform: scale(1.14) rotate(.001deg);
+    transform: scale(1.14) rotate(0.001deg);
   }
 
   div[data-automation-id^='synopsis-'] {

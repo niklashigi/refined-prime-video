@@ -1,7 +1,9 @@
 files:
   include: 'source/**/*.scss'
 rules:
+  indentation: [0]
   brace-style: [0]
+  leading-zero: [0]
   nesting-depth: [0]
   class-name-format: [0]
   property-sort-order: [0]

@@ -9,10 +9,10 @@ const domains = [
 const urlMatches = domains.map(domain => `https://*.${domain}/*`)
 
 module.exports = (version, browser) => {
-
   const manifest = {
     name: 'Refined Prime Video',
-    description: 'Adds small tweaks and useful new features to Amazon Prime Video.',
+    description:
+      'Adds small tweaks and useful new features to Amazon Prime Video.',
     homepage_url: 'https://github.com/shroudedcode/refined-prime-video#readme',
     icons: {
       128: 'icon.png',
@@ -37,16 +37,13 @@ module.exports = (version, browser) => {
   }
 
   if (browser === 'chrome') {
-
     // Include polyfill so the Promise-based `browser.*` APIs can be used in
     // the Chrome extension although they are not officially supported yet
     manifest.content_scripts[0].js.unshift('browser-polyfill.min.js')
 
     // Set a minimum Chrome version
     manifest.minimum_chrome_version = '58'
-
   } else if (browser === 'firefox') {
-
     // Add required metadata for Firefox
     manifest.applications = {
       gecko: {
@@ -63,9 +60,7 @@ module.exports = (version, browser) => {
     // requests are not blocked (see https://discourse.mozilla.org/t/50900)
     const wwwHosts = domains.map(domain => `https://www.${domain}/`)
     manifest.permissions.push(...wwwHosts)
-
   }
 
   return manifest
-
 }

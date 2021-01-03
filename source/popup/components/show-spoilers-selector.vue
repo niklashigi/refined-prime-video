@@ -1,9 +1,5 @@
 <template>
-  <base-selector
-    v-bind="$attrs"
-    :model-value="modelValue"
-    :options="options"
-  >
+  <base-selector v-bind="$attrs" :model-value="modelValue" :options="options">
     <template #option="{ option }">
       <div class="text-lg">
         {{ option.emoji }}

@@ -8,16 +8,18 @@ function checkEpisode(episode: HTMLElement): boolean {
 }
 
 function markWatchedEpisodes(episodeList: HTMLElement): void {
-  const episodes: NodeListOf<HTMLElement> =
-    episodeList.querySelectorAll('.js-node-episode-container')
+  const episodes: NodeListOf<HTMLElement> = episodeList.querySelectorAll(
+    '.js-node-episode-container',
+  )
   for (const episode of episodes) checkEpisode(episode)
 
   console.log('[RPV] Updated watched episodes.')
 }
 
-export default async function(): Promise<void> {
-  const episodeList =
-    await elementReady<HTMLElement>('.DVWebNode-detail-btf-wrapper')
+export default async function (): Promise<void> {
+  const episodeList = await elementReady<HTMLElement>(
+    '.DVWebNode-detail-btf-wrapper',
+  )
   if (!episodeList) return
 
   markWatchedEpisodes(episodeList)
@@ -25,7 +27,8 @@ export default async function(): Promise<void> {
   new MutationObserver(() => {
     markWatchedEpisodes(episodeList)
   }).observe(episodeList, {
-    childList: true, subtree: true,
+    childList: true,
+    subtree: true,
   })
 
   settings.onChange(({ showSpoilers }) => {

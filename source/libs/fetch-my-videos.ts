@@ -35,9 +35,7 @@ async function fetchStorefront(): Promise<Storefront> {
 }
 
 function parseCollectionItems(items: CollectionItem[]): Video[] {
-  return items
-    .filter(item => item.playbackAction)
-    .map(parseCollectionItem)
+  return items.filter(item => item.playbackAction).map(parseCollectionItem)
 }
 
 function parseCollectionItem(item: CollectionItem): Video {

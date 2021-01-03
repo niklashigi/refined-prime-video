@@ -1,11 +1,13 @@
 <template>
-  <div class="flex flex-col h-screen bg-carbon-700 text-white text-xs leading-normal">
+  <div
+    class="flex flex-col h-screen bg-carbon-700 text-white text-xs leading-normal"
+  >
     <div class="z-10 bg-carbon-900 p-3 pl-4 shadow flex items-center">
       <div>
         <div class="text-gray-500">Refined Prime Video</div>
         <div class="text-lg font-medium">{{ screenTitle }}</div>
       </div>
-      <div class="flex-grow"/>
+      <div class="flex-grow" />
 
       <template v-if="screen === 'continueWatching'">
         <icon-button
@@ -14,13 +16,10 @@
           title="Prime Video homepage"
           @click="openHome"
         >
-          <home-icon class="m-auto"/>
+          <home-icon class="m-auto" />
         </icon-button>
-        <icon-button
-          title="Settings"
-          @click="screen = 'settings'"
-        >
-          <settings-icon class="m-auto"/>
+        <icon-button title="Settings" @click="screen = 'settings'">
+          <settings-icon class="m-auto" />
         </icon-button>
       </template>
 
@@ -30,20 +29,17 @@
           title="Done"
           @click="screen = 'continueWatching'"
         >
-          <check-circle-icon class="m-auto"/>
+          <check-circle-icon class="m-auto" />
         </button>
       </template>
     </div>
 
-    <div
-      v-if="settings"
-      class="flex-grow overflow-hidden"
-    >
+    <div v-if="settings" class="flex-grow overflow-hidden">
       <continue-watching-screen
         v-if="screen === 'continueWatching'"
         :settings="settings"
       />
-      <settings-screen v-else-if="screen === 'settings'"/>
+      <settings-screen v-else-if="screen === 'settings'" />
     </div>
   </div>
 </template>
@@ -70,8 +66,12 @@ const screenTitles = {
 
 export default defineComponent({
   components: {
-    HomeIcon, SettingsIcon, CheckCircleIcon, IconButton,
-    ContinueWatchingScreen, SettingsScreen,
+    HomeIcon,
+    SettingsIcon,
+    CheckCircleIcon,
+    IconButton,
+    ContinueWatchingScreen,
+    SettingsScreen,
   },
   setup() {
     const screen = ref('continueWatching')

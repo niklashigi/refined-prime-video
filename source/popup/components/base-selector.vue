@@ -1,22 +1,15 @@
 <template>
-  <div
-    class="rounded overflow-hidden"
-    ref="root"
-  >
+  <div class="rounded overflow-hidden" ref="root">
     <button
       class="w-full px-3 py-2 flex items-center cursor-pointer bg-carbon-500 hover:bg-carbon-400"
       @click="toggleExpanded"
     >
       <div class="flex-grow flex items-center">
-        <slot
-          name="option"
-          :option="selectedOption"
-          :option-id="modelValue"
-        />
+        <slot name="option" :option="selectedOption" :option-id="modelValue" />
       </div>
 
-      <chevron-up-icon v-if="expanded" class="text-gray-400"/>
-      <chevron-down-icon v-else class="text-gray-400"/>
+      <chevron-up-icon v-if="expanded" class="text-gray-400" />
+      <chevron-down-icon v-else class="text-gray-400" />
     </button>
 
     <div v-if="expanded" class="bg-carbon-900">
@@ -28,14 +21,10 @@
         @click="selectOption(optionId)"
       >
         <div class="flex-grow flex items-center">
-          <slot
-            name="option"
-            :option="option"
-            :option-id="optionId"
-          />
+          <slot name="option" :option="option" :option-id="optionId" />
         </div>
 
-        <check-icon v-if="optionId === modelValue" class="text-gray-500"/>
+        <check-icon v-if="optionId === modelValue" class="text-gray-500" />
       </button>
     </div>
   </div>
@@ -80,8 +69,9 @@ export default defineComponent({
       })
     }
 
-    const selectedOption =
-      computed(() => props.options[props.modelValue] || props.fallbackOption)
+    const selectedOption = computed(
+      () => props.options[props.modelValue] || props.fallbackOption,
+    )
     const selectOption = (optionId: string) => {
       context.emit('update:modelValue', optionId)
       toggleExpanded()

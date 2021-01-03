@@ -21,34 +21,33 @@ module.exports = {
     },
   },
   module: {
-		rules: [
-			{
-				test: /\.vue$/,
-				loader: 'vue-loader',
-			},
-			{
-				test: /\.ts$/,
-				loader: 'ts-loader',
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
         options: { appendTsSuffixTo: [/\.vue$/] },
-			},
-			{
+      },
+      {
         test: /\.svg/,
-        use: [
-          'vue-loader',
-          'vue-svg-loader',
-        ],
-			},
-		],
+        use: ['vue-loader', 'vue-svg-loader'],
+      },
+    ],
   },
   optimization: {
-    minimizer: isProduction ? [
-      new TerserPlugin({
-        extractComments: false,
-        terserOptions: {
-          output: { comments: false },
-        },
-      }),
-    ] : [],
+    minimizer: isProduction
+      ? [
+          new TerserPlugin({
+            extractComments: false,
+            terserOptions: {
+              output: { comments: false },
+            },
+          }),
+        ]
+      : [],
   },
   output: {
     filename: '[name].js',

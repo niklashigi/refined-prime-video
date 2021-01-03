@@ -5,37 +5,37 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v1
-    - name: Install Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - name: Install dependencies
-      run: yarn
-    - name: Lint code
-      run: yarn lint
+      - name: Check out repository
+        uses: actions/checkout@v1
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install dependencies
+        run: yarn
+      - name: Lint code
+        run: yarn lint
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v1
-    - name: Install Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - name: Install dependencies
-      run: yarn
-    - name: Build extension
-      run: yarn build
-    - name: Upload Chrome extension
-      uses: actions/upload-artifact@v2
-      with:
-        name: chrome-extension
-        path: extensions/chrome
-    - name: Upload Firefox extension
-      uses: actions/upload-artifact@v2
-      with:
-        name: firefox-extension
-        path: extensions/firefox
+      - name: Check out repository
+        uses: actions/checkout@v1
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install dependencies
+        run: yarn
+      - name: Build extension
+        run: yarn build
+      - name: Upload Chrome extension
+        uses: actions/upload-artifact@v2
+        with:
+          name: chrome-extension
+          path: extensions/chrome
+      - name: Upload Firefox extension
+        uses: actions/upload-artifact@v2
+        with:
+          name: firefox-extension
+          path: extensions/firefox

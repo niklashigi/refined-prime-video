@@ -88,7 +88,7 @@ Wanna quickly continue watching your favorite series without drowning in the sea
 
 ### Skip shortcut
 
-Seeing a trailer for a new series while watching something else is super annoying and in the time that it takes for you to move your mouse to the *Skip* button and click, the trailer has already finished playing. With Refined Prime Video all you have to do is press the <kbd>S</kbd> key on your keyboard. This works with trailers, intros, recaps, and the *Next up* countdown.
+Seeing a trailer for a new series while watching something else is super annoying and in the time that it takes for you to move your mouse to the _Skip_ button and click, the trailer has already finished playing. With Refined Prime Video all you have to do is press the <kbd>S</kbd> key on your keyboard. This works with trailers, intros, recaps, and the _Next up_ countdown.
 
 ### Clean user interface
 
@@ -106,9 +106,9 @@ At least the German Prime Video is cluttered with annoying banners telling you a
 
 ### Improved top navigation
 
-*This feature does **not** apply to users of [primevideo.com](https://primevideo.com).*
+_This feature does **not** apply to users of [primevideo.com](https://primevideo.com)._
 
-When watching movies or series, you don’t care about what’s in your *Shopping Basket* or what *Today’s Deals* are. Refined Prime Video removes the default Amazon navigation and widens the search bar so you can more quickly find the movies and series you love.
+When watching movies or series, you don’t care about what’s in your _Shopping Basket_ or what _Today’s Deals_ are. Refined Prime Video removes the default Amazon navigation and widens the search bar so you can more quickly find the movies and series you love.
 
 <blockquote>
   <details>
@@ -123,7 +123,7 @@ When watching movies or series, you don’t care about what’s in your *Shoppin
 
 ## Disclaimer
 
-*Prime Video* is a trademark of *Amazon Technologies, Inc.*, a subsidiary of *Amazon.com, Inc*. The author of *Refined Prime Video* is not affiliated with these companies.
+_Prime Video_ is a trademark of _Amazon Technologies, Inc._, a subsidiary of _Amazon.com, Inc_. The author of _Refined Prime Video_ is not affiliated with these companies.
 
 ## License
 

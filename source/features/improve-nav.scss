@@ -1,14 +1,14 @@
 .rpv-inav,
-.avu-retail-page
-{
+.avu-retail-page {
   // Hide shopping-related nav items
   #nav-main, // Links to different parts of Amazon
   #nav-global-location-slot, // Delivery location
   #nav-cart, // Shopping cart
   #nav-link-prime, // Prime benefits
   #nav-orders // Orders
-
-  { display: none !important; }
+  {
+    display: none !important;
+  }
 
   // Fix distance between "Amazon" nav and "Prime Video" nav
   #navbar:not(.layout2) {
@@ -17,8 +17,8 @@
 
   // Highlight "Prime Video" navigation bar
   .av-retail-m-nav-container {
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
-    border-top: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   // Round all corners of the search box
