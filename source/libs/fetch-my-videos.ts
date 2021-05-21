@@ -31,7 +31,9 @@ async function getCacheKey(): Promise<string> {
 async function fetchStorefront(): Promise<Storefront> {
   baseUrl = await getBaseUrl()
   const endpointUrl = `${baseUrl}/gp/video/api/storefront`
-  return (await (await fetch(endpointUrl)).json()) as Storefront
+  const headers = new Headers({ 'x-requested-with': 'XMLHttpRequest' })
+
+  return (await (await fetch(endpointUrl, { headers })).json()) as Storefront
 }
 
 function parseCollectionItems(items: CollectionItem[]): Video[] {
