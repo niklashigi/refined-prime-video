@@ -82,3 +82,9 @@ const watch = () => {
 const dev = gulp.series(build, watch)
 
 module.exports = { build, dev }
+
+// Necessary in order to see errors from webpack
+process.on('unhandledRejection', (_, promise) => {
+  console.log('Unhandled promise rejection:', promise)
+  process.exit(1)
+})
