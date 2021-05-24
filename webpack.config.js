@@ -9,6 +9,7 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   entry: {
     content: './source/content.ts',
+    background: './source/background.ts',
     popup: './source/popup/popup.ts',
   },
   resolve: {
@@ -57,6 +58,8 @@ module.exports = {
     new DefinePlugin({
       __VUE_OPTIONS_API__: false,
       __VUE_PROD_DEVTOOLS__: false,
+      __METRICS_ENDPOINT__: JSON.stringify(process.env.METRICS_ENDPOINT),
+      __VERSION__: JSON.stringify(process.env.VERSION ?? 'dev'),
     }),
     new VueLoaderPlugin(),
   ],

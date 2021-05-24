@@ -33,6 +33,9 @@ module.exports = (version, browser) => {
         css: ['content.css'],
       },
     ],
+    background: {
+      scripts: ['background.js'],
+    },
     manifest_version: 2,
   }
 
@@ -40,6 +43,7 @@ module.exports = (version, browser) => {
     // Include polyfill so the Promise-based `browser.*` APIs can be used in
     // the Chrome extension although they are not officially supported yet
     manifest.content_scripts[0].js.unshift('browser-polyfill.min.js')
+    manifest.background.scripts.unshift('browser-polyfill.min.js')
 
     // Set a minimum Chrome version
     manifest.minimum_chrome_version = '58'

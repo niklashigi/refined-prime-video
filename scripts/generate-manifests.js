@@ -5,7 +5,7 @@ const utcVersion = require('utc-version')
 const BROWSERS = ['chrome', 'firefox']
 
 module.exports = function generateManifests() {
-  const version = process.env.MANIFEST_VERSION ?? utcVersion()
+  const version = process.env.VERSION ?? utcVersion()
 
   // Invalidate `require` cache (necessary for Gulp `watch` task)
   delete require.cache[require.resolve('../source/manifest.js')]

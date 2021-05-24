@@ -2,6 +2,7 @@
   <a
     class="flex p-3 border-b border-carbon-600 bg-carbon-700 hover:bg-carbon-600 items-center group"
     :href="video.continueWatchingUrl"
+    @click="trackEvent('continue-video')"
   >
     <img
       class="block mr-3 bg-carbon-900 flex-shrink-0 rounded-sm"
@@ -40,6 +41,7 @@
 import { defineComponent, PropType } from 'vue'
 
 import { Video } from '../../libs/fetch-my-videos'
+import trackEvent from '../../libs/track-event'
 
 export default defineComponent({
   props: {
@@ -47,6 +49,9 @@ export default defineComponent({
       type: Object as PropType<Video>,
       required: true,
     },
+  },
+  setup() {
+    return { trackEvent }
   },
 })
 </script>

@@ -4,6 +4,7 @@ import addSkipShortcut from './features/add-skip-shortcut'
 import cleanUrls from './features/clean-urls'
 import hideSpoilers from './features/hide-spoilers'
 import improveNav from './features/improve-nav'
+import trackEvent from './libs/track-event'
 
 function bootstrap(): void {
   addSkipShortcut()
@@ -26,6 +27,8 @@ async function main(): Promise<void> {
   }
 
   bootstrap()
+
+  trackEvent('load-page', { domain: location.hostname })
 }
 
 main()

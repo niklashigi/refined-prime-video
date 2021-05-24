@@ -7,14 +7,14 @@ if [ $(git branch --show-current) != 'master' ]; then
   exit 1
 fi
 
+# Load environment variables
+source ./.env
+
 # Generate a version based on the current time (e.g. 20.12.20.1230)
 version=$(utc-version)
 
 # Build the extension
-MANIFEST_VERSION=$version yarn build
-
-# Load secrets necessary for `shipit`
-source ./.env
+VERSION=$version METRICS_ENDPOINT=$METRICS_ENDPOINT yarn build
 
 # Upload the extension to CWS and AMO
 shipit chrome extensions/chrome

@@ -58,6 +58,7 @@ import SettingsScreen from './screens/settings.vue'
 
 import useSettings from './use/settings'
 import regions from '../libs/regions'
+import trackEvent from '../libs/track-event'
 
 const screenTitles = {
   continueWatching: 'Continue watching',
@@ -82,6 +83,7 @@ export default defineComponent({
     const openHome = () => {
       const { homeUrl } = regions[settings.value!.region!]
       browser.tabs.create({ url: homeUrl })
+      trackEvent('open-home')
     }
 
     return { screen, screenTitle, settings, openHome }
