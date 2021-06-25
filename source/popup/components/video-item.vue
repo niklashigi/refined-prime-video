@@ -1,6 +1,14 @@
 <template>
   <a
-    class="flex p-3 border-b border-carbon-600 bg-carbon-700 hover:bg-carbon-600 items-center group"
+    class="
+      flex
+      p-3
+      border-b border-carbon-600
+      bg-carbon-700
+      hover:bg-carbon-600
+      items-center
+      group
+    "
     :href="video.continueWatchingUrl"
     @click="trackEvent('continue-video')"
   >
@@ -26,7 +34,19 @@
       </div>
     </div>
     <div
-      class="hidden group-hover:flex ml-2 mr-1 flex-shrink-0 h-10 w-10 rounded-full bg-prime-500 items-center justify-center"
+      class="
+        hidden
+        group-hover:flex
+        ml-2
+        mr-1
+        flex-shrink-0
+        h-10
+        w-10
+        rounded-full
+        bg-prime-500
+        items-center
+        justify-center
+      "
     >
       <svg class="ml-1 w-4 h-4 fill-current text-white" viewBox="0 0 20 20">
         <path

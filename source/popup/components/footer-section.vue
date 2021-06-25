@@ -1,7 +1,14 @@
 <template>
   <div>
     <div
-      class="px-5 py-3 flex items-center bg-carbon-600 border-t border-carbon-500"
+      class="
+        px-5
+        py-3
+        flex
+        items-center
+        bg-carbon-600
+        border-t border-carbon-500
+      "
     >
       <div class="mr-3 text-gray-400">
         <span class="font-medium">Refined Prime Video</span>
