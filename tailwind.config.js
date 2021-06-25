@@ -1,4 +1,6 @@
 module.exports = {
+  mode: 'jit',
+  purge: ['./source/popup/**/*.vue'],
   theme: {
     colors: {
       white: '#fff',
@@ -32,5 +34,4 @@ module.exports = {
   variants: {
     display: ['group-hover'],
   },
-  purge: ['./source/popup/**/*.vue'],
 }
