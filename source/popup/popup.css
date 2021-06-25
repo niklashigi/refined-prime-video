@@ -7,7 +7,7 @@ html {
 body {
   width: 320px;
   height: 326px;
-  user-select: none;
+  @apply bg-carbon-700 text-white select-none;
 }
 
 * {

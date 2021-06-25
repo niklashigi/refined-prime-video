@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-col h-screen bg-carbon-700 text-white text-xs leading-normal"
-  >
+  <div class="flex flex-col h-full w-full text-xs leading-normal">
     <div class="z-10 bg-carbon-900 p-3 pl-4 shadow flex items-center">
       <div>
         <div class="text-gray-500">Refined Prime Video</div>
