@@ -5,7 +5,7 @@ const rename = require('gulp-rename')
 const webpack = require('webpack')
 const webpackStream = require('webpack-stream')
 const postCss = require('gulp-postcss')
-const sass = require('gulp-sass')
+const sass = require('gulp-sass')(require('sass'))
 
 const del = require('del')
 const tailwindCss = require('tailwindcss')
@@ -36,7 +36,7 @@ const compilePopupCss = () =>
 const compileContentCss = () =>
   gulp
     .src('source/content.scss')
-    .pipe(sass({ outputStyle: 'compressed' }))
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(commonDest())
 
 const copyChromeHtml = () =>
