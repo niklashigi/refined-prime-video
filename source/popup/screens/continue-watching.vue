@@ -53,15 +53,7 @@
     </div>
     <div
       v-if="failed && videos.length"
-      class="
-        z-10
-        bg-carbon-900
-        px-4
-        py-2
-        border-t border-black
-        flex
-        items-center
-      "
+      class="z-10 bg-carbon-900 px-4 py-2 border-t border-black flex items-center"
     >
       <alert-triangle-icon class="flex-shrink-0 text-gray-500" />
       <div class="ml-4">

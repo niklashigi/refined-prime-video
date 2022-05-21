@@ -1,16 +1,7 @@
 <template>
   <div class="rounded overflow-hidden" ref="root">
     <button
-      class="
-        w-full
-        px-3
-        py-2
-        flex
-        items-center
-        cursor-pointer
-        bg-carbon-500
-        hover:bg-carbon-400
-      "
+      class="w-full px-3 py-2 flex items-center cursor-pointer bg-carbon-500 hover:bg-carbon-400"
       @click="toggleExpanded"
     >
       <div class="flex-grow flex items-center">
@@ -26,15 +17,7 @@
         v-for="(option, optionId) in options"
         :key="optionId"
         :for="`option-${optionId}`"
-        class="
-          w-full
-          px-3
-          py-1
-          flex
-          items-center
-          cursor-pointer
-          hover:bg-carbon-600
-        "
+        class="w-full px-3 py-1 flex items-center cursor-pointer hover:bg-carbon-600"
         @click="selectOption(optionId)"
       >
         <div class="flex-grow flex items-center">

@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit',
-  purge: ['./source/popup/**/*.vue'],
+  content: ['./source/popup/**/*.vue'],
   theme: {
     colors: {
       white: '#fff',
