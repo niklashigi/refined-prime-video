@@ -59,7 +59,6 @@ export default defineComponent({
   props: {
     modelValue: {
       type: String,
-      required: true,
     },
     options: {
       type: Object as PropType<Record<string, any>>,
@@ -87,7 +86,9 @@ export default defineComponent({
     }
 
     const selectedOption = computed(
-      () => props.options[props.modelValue] || props.fallbackOption,
+      () =>
+        (props.modelValue && props.options[props.modelValue]) ||
+        props.fallbackOption,
     )
     const selectOption = (optionId: string) => {
       context.emit('update:modelValue', optionId)
