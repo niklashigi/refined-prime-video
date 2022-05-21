@@ -12,8 +12,7 @@
     "element-ready": "^6.0.0",
     "feather-icons": "^4.28.0",
     "tailwindcss": "^2.2.4",
-    "vue": "^3.0.0",
-    "webextension-polyfill": "^0.8.0"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@types/sass": "^1.16.0",

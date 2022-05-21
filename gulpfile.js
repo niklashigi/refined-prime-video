@@ -45,11 +45,6 @@ const copyChromeHtml = () =>
     .pipe(rename('popup.html'))
     .pipe(gulp.dest('extensions/chrome'))
 
-const copyChromePolyfill = () =>
-  gulp
-    .src('node_modules/webextension-polyfill/dist/browser-polyfill.min.js')
-    .pipe(gulp.dest('extensions/chrome'))
-
 const copyFirefoxHtml = () =>
   gulp
     .src('source/popup/popup.firefox.html')
@@ -67,7 +62,6 @@ const build = gulp.series(
     compileContentCss,
     copyFirefoxHtml,
     copyChromeHtml,
-    copyChromePolyfill,
     generateManifests,
   ),
 )

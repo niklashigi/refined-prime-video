@@ -1,3 +1,5 @@
+import './browser-polyfill'
+
 import elementReady from 'element-ready'
 
 import addSkipShortcut from './features/add-skip-shortcut'

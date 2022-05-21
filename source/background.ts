@@ -1,6 +1,8 @@
+import './browser-polyfill'
+
 import settings from './libs/settings'
 
-browser.runtime.onMessage.addListener((message: any) => {
+browser.runtime.onMessage.addListener(async (message: any) => {
   if (message.event) submitEvent(message.event)
 })
 

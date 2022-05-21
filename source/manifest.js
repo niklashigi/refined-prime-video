@@ -9,6 +9,9 @@ const domains = [
 const urlMatches = domains.map(domain => `https://*.${domain}/*`)
 
 module.exports = (version, browser) => {
+  // Only Chrome supports Manifest v3 at the moment
+  const isManifestV3 = browser === 'chrome'
+
   const manifest = {
     name: 'Refined Prime Video',
     description:
@@ -17,7 +20,7 @@ module.exports = (version, browser) => {
     icons: {
       128: 'icon.png',
     },
-    browser_action: {
+    [isManifestV3 ? 'action' : 'browser_action']: {
       default_icon: 'icon.png',
       default_title: 'Refined Prime Video',
       default_popup: 'popup.html',
@@ -33,18 +36,13 @@ module.exports = (version, browser) => {
         css: ['content.css'],
       },
     ],
-    background: {
-      scripts: ['background.js'],
-    },
-    manifest_version: 2,
+    background: isManifestV3
+      ? { service_worker: 'background.js' }
+      : { scripts: ['background.js'] },
+    manifest_version: isManifestV3 ? 3 : 2,
   }
 
   if (browser === 'chrome') {
-    // Include polyfill so the Promise-based `browser.*` APIs can be used in
-    // the Chrome extension although they are not officially supported yet
-    manifest.content_scripts[0].js.unshift('browser-polyfill.min.js')
-    manifest.background.scripts.unshift('browser-polyfill.min.js')
-
     // Set a minimum Chrome version
     manifest.minimum_chrome_version = '58'
   } else if (browser === 'firefox') {

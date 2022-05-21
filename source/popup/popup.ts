@@ -1,3 +1,5 @@
+import '../browser-polyfill'
+
 import { createApp } from 'vue'
 
 import trackEvent from '../libs/track-event'
