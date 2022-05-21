@@ -11,6 +11,8 @@ const endpoint = __METRICS_ENDPOINT__
 const version = __VERSION__
 
 async function submitEvent<E extends { type: string }>(event: E) {
+  console.log(`[RPV] Received event:`, event)
+
   if (!endpoint) return
 
   const { region, uid } = await settings.getAll()
