@@ -44,7 +44,7 @@ module.exports = (version, browser) => {
 
   if (browser === 'chrome') {
     // Set a minimum Chrome version
-    manifest.minimum_chrome_version = '58'
+    manifest.minimum_chrome_version = '88'
   } else if (browser === 'firefox') {
     // Add required metadata for Firefox
     manifest.applications = {
