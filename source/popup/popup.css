@@ -10,6 +10,10 @@ body {
   @apply bg-carbon-700 text-white select-none;
 }
 
+#app {
+  height: 100%;
+}
+
 * {
   text-align: inherit;
 }
