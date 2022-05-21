@@ -9,10 +9,12 @@
 
       <template v-if="screen === 'continueWatching'">
         <icon-button
-          v-if="settings && settings.region"
+          v-if="homeUrl"
           class="mr-3"
           title="Prime Video homepage"
-          @click="openHome"
+          tag="a"
+          :href="homeUrl"
+          @click="trackEvent('open-home')"
         >
           <home-icon class="m-auto" />
         </icon-button>
@@ -87,13 +89,12 @@ export default defineComponent({
 
     const settings = useSettings()
 
-    const openHome = () => {
-      const { homeUrl } = regions[settings.value!.region!]
-      browser.tabs.create({ url: homeUrl })
-      trackEvent('open-home')
-    }
+    const homeUrl = computed(() => {
+      const regionId = settings.value?.region
+      return regionId ? regions[regionId]?.homeUrl : undefined
+    })
 
-    return { screen, screenTitle, settings, openHome }
+    return { screen, screenTitle, settings, homeUrl, trackEvent }
   },
 })
 </script>

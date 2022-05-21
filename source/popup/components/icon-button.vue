@@ -1,5 +1,6 @@
 <template>
-  <button
+  <component
+    :is="tag"
     class="
       h-10
       w-10
@@ -12,5 +13,15 @@
     "
   >
     <slot />
-  </button>
+  </component>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  props: {
+    tag: { type: String, default: 'button' },
+  },
+})
+</script>

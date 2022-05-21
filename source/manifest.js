@@ -24,7 +24,7 @@ module.exports = (version, browser) => {
       browser_style: true,
     },
     version,
-    permissions: ['storage', 'tabs'],
+    permissions: ['storage'],
     content_scripts: [
       {
         run_at: 'document_start',
