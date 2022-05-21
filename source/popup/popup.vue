@@ -47,6 +47,7 @@
       <continue-watching-screen
         v-if="screen === 'continueWatching'"
         :settings="settings"
+        @open-settings="screen = 'settings'"
       />
       <settings-screen v-else-if="screen === 'settings'" />
     </div>

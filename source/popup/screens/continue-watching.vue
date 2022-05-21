@@ -7,11 +7,13 @@
             <div class="mx-auto mb-3 h-12 w-12 rounded-full flex bg-carbon-500">
               <map-pin-icon class="m-auto text-gray-400" />
             </div>
-            <div class="text-base mb-1">No region selected!</div>
+            <div class="text-base mb-1">Where are you watching?</div>
             <div>
-              In order to use the <em>Continue watching</em> feature, select a
-              region in the settings. You can open them by clicking on the icon
-              in the top right.
+              In order to use <em>Continue watching</em>, please
+              <a href="#" @click.prevent="openSettings" class="underline"
+                >open the settings</a
+              >
+              and select the right Prime Video region for your country.
             </div>
           </template>
 
@@ -25,6 +27,9 @@
               <a :href="`https://${currentRegion.domain}`" class="underline">{{
                 currentRegion.domain
               }}</a
+              >. You can also try
+              <a href="#" @click.prevent="openSettings" class="underline"
+                >changing your region</a
               >.
             </div>
           </template>
@@ -97,7 +102,7 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(props) {
+  setup(props, context) {
     const failed = ref(false)
     const videos = ref<Video[]>([])
     const currentRegion = computed(() => {
@@ -115,7 +120,9 @@ export default defineComponent({
         })
     }
 
-    return { failed, videos, currentRegion }
+    const openSettings = () => context.emit('open-settings')
+
+    return { failed, videos, currentRegion, openSettings }
   },
 })
 </script>
