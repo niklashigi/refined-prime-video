@@ -31,7 +31,15 @@ function findSkipButton(): HTMLElement | undefined {
 }
 
 export default function (): void {
-  window.addEventListener('keydown', ({ code }) => {
-    if (code === 'KeyS') skip()
+  window.addEventListener('keydown', (event) => {
+    // If the user is currently typing (for example in the Prime Video search
+    // bar), we don't want to trigger the skip shortcut.
+    const isTyping = document.activeElement?.tagName === 'INPUT'
+    if (isTyping) return
+
+    if (event.code === 'KeyS') {
+      event.preventDefault()
+      skip()
+    }
   })
 }
