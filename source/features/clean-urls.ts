@@ -29,7 +29,7 @@ const MESSY_QUERY_PARAMS = [
   'crid',
   'dib',
   'dib_tag',
-  'sprefix'
+  'sprefix',
 ]
 
 function cleanQueryParams(searchString: string): string {

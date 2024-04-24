@@ -3,14 +3,18 @@ import elementReady from 'element-ready'
 import settings from '../libs/settings'
 
 function checkEpisode(episode: HTMLElement): boolean {
-  const progressBarShown = !!episode.querySelector('[data-testid="progress-bar"]')
+  const progressBarShown = !!episode.querySelector(
+    '[data-testid="progress-bar"]',
+  )
   return episode.classList.toggle('rpv-watched', progressBarShown)
 }
 
 function markWatchedEpisodes(episodesContainer: HTMLElement): void {
-  const episodes = [...episodesContainer.querySelectorAll<HTMLElement>(
-    '[id^="av-ep-episodes-"]',
-  )]
+  const episodes = [
+    ...episodesContainer.querySelectorAll<HTMLElement>(
+      '[id^="av-ep-episodes-"]',
+    ),
+  ]
   for (const episode of episodes) checkEpisode(episode)
 
   console.log(`[RPV] Updated watched state for ${episodes.length} episodes.`)

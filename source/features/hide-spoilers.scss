@@ -6,7 +6,9 @@ $episode: '[id^="av-ep-episodes-"]';
 
   picture {
     backface-visibility: hidden;
-    transition: filter $transition, transform $transition;
+    transition:
+      filter $transition,
+      transform $transition;
   }
 
   div[data-automation-id^='synopsis-'] {
