@@ -1,7 +1,7 @@
 function cleanUrl(urlString: string): string {
   const url = new URL(urlString)
 
-  url.search = cleanSearchParams(url.search)
+  url.search = cleanQueryParams(url.search)
 
   // The `ref` parameter can also appear as part of the path
   url.pathname = url.pathname
@@ -12,20 +12,32 @@ function cleanUrl(urlString: string): string {
   return url.toString()
 }
 
-function cleanSearchParams(searchString: string): string {
-  const params = new URLSearchParams(searchString)
-
+const MESSY_QUERY_PARAMS = [
   // Used to track how the user came to the page
-  params.delete('ref')
-  params.delete('ref_')
+  'ref',
+  'ref_',
 
   // Information about the user's last search query
-  params.delete('keywords')
-  params.delete('qid') // "Query ID"
-  params.delete('refinements') // Filters
-  params.delete('rnid') // "Refinement ID"
-  params.delete('sr') // "Search result"
-  params.delete('s') // "Section"
+  'keywords',
+  'qid', // "Query ID"
+  'refinements', // Filters
+  'rnid', // "Refinement ID"
+  'sr', // "Search result"
+  's', // "Section"
+
+  // Also related to search but unsure of the meaning
+  'crid',
+  'dib',
+  'dib_tag',
+  'sprefix'
+]
+
+function cleanQueryParams(searchString: string): string {
+  const params = new URLSearchParams(searchString)
+
+  for (const key of MESSY_QUERY_PARAMS) {
+    params.delete(key)
+  }
 
   return params.toString()
 }
