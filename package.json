@@ -6,7 +6,7 @@
     "lint:eslint": "eslint --ext .ts,.js,.vue source --ignore-path .gitignore",
     "lint:prettier": "prettier --check .",
     "format": "prettier --write .",
-    "release": "sh scripts/release.sh"
+    "release": "doppler run -- sh scripts/release.sh"
   },
   "dependencies": {
     "element-ready": "^6.2.1",

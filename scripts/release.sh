@@ -7,9 +7,6 @@ if [ $(git branch --show-current) != 'master' ]; then
   exit 1
 fi
 
-# Load environment variables
-source ./.env
-
 # Generate a version based on the current time (e.g. 20.12.20.1230)
 version=$(utc-version)
 
