@@ -1,18 +1,27 @@
 import regions from './regions'
 import settings from './settings'
-import { Storefront, CollectionItem } from './api/types'
+import { Entity, LandingPageContainer } from './api/types'
 
 let baseUrl: string | null = null
 
 export default async function fetchMyVideos(): Promise<Video[]> {
-  const storefront = await fetchStorefront()
+  const landingPageContainers = await fetchLandingPageContainers()
 
-  const collection = storefront.collections.find(c => c.edit)
-  if (!collection) throw new Error('No videos found!')
+  const container = landingPageContainers.find(
+    c =>
+      // This looks like it could be a locale-independent way to identify the
+      // container but it's not guaranteed to work.
+      c.webUid === '7a702492' ||
+      // Let's fall back to checking the title of the container instead.
+      c.title?.toLowerCase() === 'continue watching',
+  )
+  if (!container) throw new Error('No videos found!')
 
-  browser.storage.local.set({ [await getCacheKey()]: collection.items as any })
+  browser.storage.local.set({
+    [await getCacheKey()]: container.entities as any,
+  })
 
-  return parseCollectionItems(collection.items)
+  return parseContainerEntities(container.entities)
 }
 
 export async function getCachedVideos(): Promise<Video[]> {
@@ -20,40 +29,81 @@ export async function getCachedVideos(): Promise<Video[]> {
   const { [key]: items } = await browser.storage.local.get([key])
   if (!items) return []
 
-  return parseCollectionItems(items as any)
+  return parseContainerEntities(items as any)
 }
 
 async function getCacheKey(): Promise<string> {
   const { region } = await settings.getAll()
-  return `cachedVideoItems-${region}`
+  return `cachedLandingPageVideoEntities-${region}`
 }
 
-async function fetchStorefront(): Promise<Storefront> {
+async function fetchLandingPageContainers(): Promise<LandingPageContainer[]> {
+  const storefrontSsrState = await fetchPageSsrState('/gp/video/storefront')
+
+  return storefrontSsrState.props.body[0].props.landingPage
+    .containers as LandingPageContainer[]
+}
+
+/**
+ * Amazon has removed the API endpoint that we used to fetch the storefront
+ * contents, so we now fetch the HTML of the storefront page instead and extract
+ * the "SSR state" (the initial state passed to the page's components during
+ * server-side rendering).
+ */
+async function fetchPageSsrState(url: string): Promise<any> {
   baseUrl = await getBaseUrl()
-  const endpointUrl = `${baseUrl}/gp/video/api/storefront`
-  const headers = new Headers({ 'x-requested-with': 'XMLHttpRequest' })
+  const endpointUrl = `${baseUrl}${url}`
+  const response = await fetch(endpointUrl)
+  const pageHtml = await response.text()
 
-  return (await (await fetch(endpointUrl, { headers })).json()) as Storefront
+  const pageDocument = new DOMParser().parseFromString(pageHtml, 'text/html')
+
+  // The element we need does not have any additional attributes we can use to
+  // identify it (it's exactly `<script type="text/template">`) and there are
+  // multiple `<script>` elements with the same type, so we detect the correct
+  // one based on the content below.
+  const templateScripts = pageDocument.querySelectorAll(
+    'script[type="text/template"]',
+  )
+
+  for (const templateScript of templateScripts) {
+    try {
+      const json = templateScript.textContent!
+
+      // This will fail sometimes because some of the scripts are HTML-encoded
+      // and some are not. The one we care about is not.
+      const jsonData = JSON.parse(json!)
+
+      // The element containing the SSR state of the page is the only one
+      // containing `props.body`, so we can use that to identify it.
+      if (jsonData.props?.body) return jsonData
+    } catch (error) {
+      console.debug(
+        'Failed to parse JSON from template script tag:',
+        templateScript,
+      )
+    }
+  }
+
+  throw new Error('SSR state not found in page HTML!')
 }
 
-function parseCollectionItems(items: CollectionItem[]): Video[] {
-  return items.filter(item => item.playbackAction).map(parseCollectionItem)
+function parseContainerEntities(items: Entity[]): Video[] {
+  return items.filter(item => item.playbackAction).map(parseContainerEntity)
 }
 
-function parseCollectionItem(item: CollectionItem): Video {
-  const id = item.titleID
+function parseContainerEntity(entity: Entity): Video {
+  const id = entity.titleID
+  if (!id) throw new Error('No title ID found in entity!')
 
-  const titleInfo = parseTitle(item.title)
-  const playbackInfo = parsePlaybackAction(item.playbackAction!.label)
+  const coverUrl = entity.images.cover?.url
+  if (!coverUrl) throw new Error('No cover image found in entity!')
 
   return {
     id,
-    title: titleInfo.title,
-    titleSuffix: titleInfo.titleSuffix,
-    season: playbackInfo?.season,
-    episode: playbackInfo?.episode,
-    runtime: item.runtime,
-    image: item.image.url,
+    displayTitle: decodeHtmlEntities(entity.displayTitle),
+    type: entity.entityType ?? null,
+    coverUrl: coverUrl,
     continueWatchingUrl: `${baseUrl}/gp/video/detail/${id}?autoplay=1`,
   }
 }
@@ -64,46 +114,17 @@ async function getBaseUrl(): Promise<string> {
   return `https://www.${domain}`
 }
 
-interface TitleInfo {
-  title: string
-  season: string
-  titleSuffix: string
-}
-
-/**
- * RegEx pattern to extract the actual title of a movie or series from Amazon's
- * fairly messy and inconsistent titles that contain a lot of unnecessary
- * information (like the season, dubbed language, video quality, etc.).
- */
-const TITLE_PATTERN = /^(.+?)(?:[:\-–— ]+(\S+? \d+))?(?: (\[.+\]|\(.+\)))?$/
-
-function parseTitle(sourceTitle: string): TitleInfo {
-  const [, title, season, titleSuffix] = TITLE_PATTERN.exec(sourceTitle) as any
-  return { title, season, titleSuffix }
-}
-
-interface PlaybackInfo {
-  season: number
-  episode: number
-}
-
-const PLAYBACK_ACTION_PATTERN = /(\d+)[^\d]+(\d+)/
-
-function parsePlaybackAction(playbackAction: string): PlaybackInfo | undefined {
-  const match = PLAYBACK_ACTION_PATTERN.exec(playbackAction)
-  if (!match) return
-
-  const [, season, episode] = match
-  return { season: parseInt(season), episode: parseInt(episode) }
-}
-
 export interface Video {
-  image: string
-  continueWatchingUrl: string
-  title: string
-  titleSuffix: string
-  season?: number
-  episode?: number
-  runtime?: string
   id: string
+  displayTitle: string
+  type: string | null
+
+  coverUrl: string
+  continueWatchingUrl: string
+}
+
+function decodeHtmlEntities(html: string): string {
+  const textarea = document.createElement('textarea')
+  textarea.innerHTML = html
+  return textarea.value
 }

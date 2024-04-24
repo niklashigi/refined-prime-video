@@ -8,21 +8,14 @@
       class="block mr-3 bg-carbon-900 flex-shrink-0 rounded-sm"
       loading="lazy"
       style="width: 90px; height: 50.59px"
-      :src="video.image"
+      :src="video.coverUrl"
     />
     <div class="truncate flex-grow">
       <div class="truncate text-base font-medium">
-        {{ video.title }}
+        {{ video.displayTitle }}
       </div>
       <div class="truncate text-sm text-gray-400">
-        <template v-if="video.season">
-          Season <strong class="font-medium">{{ video.season }}</strong
-          ><span class="text-gray-600"> / </span>Ep.
-          <strong class="font-medium">{{ video.episode }}</strong>
-        </template>
-        <template v-else>
-          Movie<span class="text-gray-600"> / </span>{{ video.runtime }}
-        </template>
+        {{ video.type }}
       </div>
     </div>
     <div
