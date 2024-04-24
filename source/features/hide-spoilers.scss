@@ -1,22 +1,22 @@
-$tr: 0.15s ease 0.1s;
+$transition: 0.15s ease 0.1s;
+$episode: '[id^="av-ep-episodes-"]';
 
-.js-node-episode-container {
+#{$episode} {
   cursor: default;
 
-  img[srcset] {
+  picture {
     backface-visibility: hidden;
-    transition: filter $tr, transform $tr;
+    transition: filter $transition, transform $transition;
   }
 
   div[data-automation-id^='synopsis-'] {
-    transition: opacity $tr;
+    transition: opacity $transition;
   }
 }
 
-[data-rpv-spoilers='never'] .js-node-episode-container:not(.rpv-watched),
-[data-rpv-spoilers='onHover']
-  .js-node-episode-container:not(.rpv-watched):not(:hover) {
-  img[srcset] {
+[data-rpv-spoilers='never'] #{$episode}:not(.rpv-watched),
+[data-rpv-spoilers='onHover'] #{$episode}:not(.rpv-watched):not(:hover) {
+  picture {
     filter: blur(9px);
     transform: scale(1.14) rotate(0.001deg);
   }

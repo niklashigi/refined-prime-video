@@ -3,35 +3,37 @@ import elementReady from 'element-ready'
 import settings from '../libs/settings'
 
 function checkEpisode(episode: HTMLElement): boolean {
-  const progressBarShown = !!episode.querySelector('[role="progressbar"]')
+  const progressBarShown = !!episode.querySelector('[data-testid="progress-bar"]')
   return episode.classList.toggle('rpv-watched', progressBarShown)
 }
 
-function markWatchedEpisodes(episodeList: HTMLElement): void {
-  const episodes: NodeListOf<HTMLElement> = episodeList.querySelectorAll(
-    '.js-node-episode-container',
-  )
+function markWatchedEpisodes(episodesContainer: HTMLElement): void {
+  const episodes = [...episodesContainer.querySelectorAll<HTMLElement>(
+    '[id^="av-ep-episodes-"]',
+  )]
   for (const episode of episodes) checkEpisode(episode)
 
-  console.log('[RPV] Updated watched episodes.')
+  console.log(`[RPV] Updated watched state for ${episodes.length} episodes.`)
 }
 
 export default async function (): Promise<void> {
-  const episodeList = await elementReady<HTMLElement>(
+  const episodesContainer = await elementReady<HTMLElement>(
     '.DVWebNode-detail-btf-wrapper',
   )
-  if (!episodeList) return
+  if (!episodesContainer) return
 
-  markWatchedEpisodes(episodeList)
+  console.log('[RPV] Found episodes container:', episodesContainer)
+
+  markWatchedEpisodes(episodesContainer)
 
   new MutationObserver(() => {
-    markWatchedEpisodes(episodeList)
-  }).observe(episodeList, {
+    markWatchedEpisodes(episodesContainer)
+  }).observe(episodesContainer, {
     childList: true,
     subtree: true,
   })
 
   settings.onChange(({ showSpoilers }) => {
-    episodeList.dataset.rpvSpoilers = showSpoilers
+    episodesContainer.dataset.rpvSpoilers = showSpoilers
   })
 }
