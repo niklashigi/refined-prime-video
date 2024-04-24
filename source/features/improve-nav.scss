@@ -1,5 +1,4 @@
-.rpv-inav,
-.avu-retail-page {
+.rpv-primevideo-page {
   // Hide shopping-related nav items
   #nav-main, // Links to different parts of Amazon
   #nav-global-location-slot, // Delivery location
@@ -10,25 +9,9 @@
     display: none !important;
   }
 
-  // Fix distance between "Amazon" nav and "Prime Video" nav
-  #navbar:not(.layout2) {
-    padding-bottom: 20px !important;
-  }
-
-  // Highlight "Prime Video" navigation bar
-  .av-retail-m-nav-container {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
   // Round all corners of the search box
   .nav-searchbar {
     overflow: hidden;
-  }
-
-  // Reduce whitespace around logo
-  #nav-logo {
-    width: auto !important;
   }
 
   // Disable the search scope dropdown

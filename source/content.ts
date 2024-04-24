@@ -5,32 +5,32 @@ import elementReady from 'element-ready'
 import addSkipShortcut from './features/add-skip-shortcut'
 import cleanUrls from './features/clean-urls'
 import hideSpoilers from './features/hide-spoilers'
-import improveNav from './features/improve-nav'
 import trackEvent from './libs/track-event'
 
-function bootstrap(): void {
+function bootstrapFeatures(): void {
   addSkipShortcut()
   cleanUrls()
   hideSpoilers()
-  improveNav()
 }
 
 async function main(): Promise<void> {
-  if (!location.origin.endsWith('primevideo.com')) {
-    const primeVideoNav = await elementReady(
-      [
-        '.av-retail-m-nav-container',
-        // Some sites (like amazon.co.jp) are still using the old navigation
-        '[data-category="instant-video"]',
-      ].join(),
-    )
+  if (!(await isPrimeVideoPage())) return
 
-    if (!primeVideoNav) return
-  }
+  console.log('[RPV] Detected Prime Video page, enabling features...')
 
-  bootstrap()
+  document.documentElement.classList.add('rpv-primevideo-page')
+  bootstrapFeatures()
 
   trackEvent('load-page', { domain: location.hostname })
+}
+
+async function isPrimeVideoPage() {
+  if (location.origin.endsWith('primevideo.com')) return true
+
+  const pvNavigationBar = await elementReady('#pv-navigation-bar')
+  if (pvNavigationBar) return true
+
+  return false
 }
 
 main()
