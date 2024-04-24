@@ -26,6 +26,6 @@ git push origin master "refs/tags/${tag}"
 git archive -o source.zip master
 echo "Opening AMO, so you can upload the source code..."
 sleep 2
-xdg-open "https://addons.mozilla.org/en-US/developers/addon/refined-prime-video/versions"
+open "https://addons.mozilla.org/en-US/developers/addon/refined-prime-video/versions"
 
 echo "All done!"
